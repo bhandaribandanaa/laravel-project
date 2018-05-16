@@ -1,0 +1,15 @@
+{
+    "name": "Downloads",
+    "alias": "downloads",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Downloads\\Providers\\DownloadsServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

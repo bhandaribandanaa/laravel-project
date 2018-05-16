@@ -1,0 +1,13 @@
+# Use PHPBETA Single php.ini as default
+AddHandler application/x-httpd-phpbetas .php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+    Options -Indexes
+        ErrorDocument 403 /resources/views/customer/404.blade.php
+</IfModule>
+
+AddHandler application/x-httpd-php56 .php .php5 .php4 .php3
+
+
+

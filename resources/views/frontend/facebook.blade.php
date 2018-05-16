@@ -1,0 +1,3 @@
+<div class="facebook">
+    <div class="fb-page" data-href="https://www.facebook.com/simonnepal/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/simonnepal/"><a href="https://www.facebook.com/simonnepal/">Society of Internal Medicine of Nepal-SIMON</a></blockquote></div></div>
+</div>
