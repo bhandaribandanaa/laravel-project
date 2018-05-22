@@ -10,6 +10,8 @@ class ContentController extends Controller {
 	
 	public function index()
 	{
+
+
 		return view('content::index');
 	}
 
@@ -75,14 +77,31 @@ class ContentController extends Controller {
         return view('content::content_detail')->with(array('content'=>$content));
     }
 
+ public  function getjob($parent_slug,$child_slug=null){
+  
+     if($child_slug==null){
+      $data['parent_page']=Content::where('slug',$parent_slug)->where('is_active', '1')->first();
+    }else
+     $data['child_page']=Content::where('slug',$child_slug)->where('is_active', '1')->first();
+ 
+    $data['pages'] = Content::with('activeChildrens')->where('slug',$parent_slug)->where('parent_id','id')->where('show_in', 'LIKE', '%1%')->where('is_active',1)->get();
 
-   public function getJob($slug)
-    {
-        $data= Content::with('photo')->where('slug',$slug)->firstOrFail();
-        return view('content::job_categories')->with(array('content'=>$data));
+      return view('frontend.job_categories')->with($data);
     }
+   // public function getjob(Request $request)
+   //  {
+      
+   //    $data = Content::where('heading', 'Job Category')
+   //                                  ->with(['children' => function($q){
+   //                                      $q->where('show_in_homepage', 1);
+   //                                  }])
+   //                                  ->where('parent_id', 0)
+   //                                  ->where('show_in', 'LIKE', '%1%')
+   //                                  ->where('is_active', 1)
+   //                                  ->first();
+   //      return view('frontend.job_categories')->with($data);
 
-
+   //  }
 
     public function getGallery()
     {

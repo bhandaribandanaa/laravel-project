@@ -235,10 +235,6 @@
                         </div><!-- /.container -->
                     </section>
 
-                    {{--Job Categories--}}
-                    @include('frontend.partials.index-job_categories')
-                    {{--End Job Categories--}}
-
 
 
                     <!-- WORKS -->

@@ -21,6 +21,11 @@ Route::group(['prefix' => 'admin/content', 'middleware' => 'admin', 'namespace' 
 
 // content Front end route
 Route::group(['prefix' => 'pages', 'namespace' => 'Modules\Content\Http\Controllers'], function () {
+
+
+    
+
+    Route::get('/{parent_slug}/{child_slug}', ['as'=>'page.view', 'uses'=>'FrontendController@getJob']);
     
      Route::get('/job-category', array('as' => 'pages.job_categories', 'uses' => 'ContentController@getJob'));
     Route::get('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'ContentController@getContact'));
