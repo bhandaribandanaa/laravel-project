@@ -75,8 +75,21 @@ class ContentController extends Controller {
         return view('content::content_detail')->with(array('content'=>$content));
     }
 
+
+   public function getJob($slug)
+    {
+        $data= Content::with('photo')->where('slug',$slug)->firstOrFail();
+        return view('content::job_categories')->with(array('content'=>$data));
+    }
+
+
+
     public function getGallery()
     {
         return view('content::gallery');
     }
+
+
+   
+    
 }

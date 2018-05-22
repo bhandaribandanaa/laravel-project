@@ -15,6 +15,7 @@
 //    return view('welcome');
 //});
 
+
 Route::get('/', array('as' => 'home','uses' => 'HomeController@getHome'));
 Route::post('subscribe-newsletter', array('as' => 'subscribe.newsletter','uses' => 'HomeController@subscribeNewsletter'));
 Route::get('barcode', array('as' => 'barcode','uses' => 'BarcodeController@index'));

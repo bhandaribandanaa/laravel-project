@@ -1,5 +1,6 @@
 @extends('layout.frontend.app')
 
+
 @section('slider')
     @include('frontend.partials.index-slider')
 @endsection
@@ -234,8 +235,12 @@
                         </div><!-- /.container -->
                     </section>
 
+                    {{--Job Categories--}}
+                    @include('frontend.partials.index-job_categories')
+                    {{--End Job Categories--}}
 
-                  
+
+
                     <!-- WORKS -->
                     <section class="wprt-section works parallax">
                         <div class="container">
@@ -391,8 +396,8 @@
                             </div><!-- /.row -->
                         </div><!-- /.container -->
                     </section>
-<!-- 
-                 
+
+                    
                     <!-- TESTIMONIALS -->
                     <section class="wprt-section testiminials">
                         <div class="container">
@@ -403,6 +408,7 @@
                                 </div><!-- /.col-md-12 -->
 
                              
+
                                 <div class="col-md-6">
                                     <h2>TESTIMONIALS</h2>
                                     <div class="wprt-lines style-1 custom-3">

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -37,8 +36,10 @@
 
         </div><!-- /#site-header-wrap -->
 
-        <!-- Slider -->
-        @yield('slider')
+
+
+
+    @yield('slider')
 
         {{--slider end--}}
 

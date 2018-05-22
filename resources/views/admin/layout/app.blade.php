@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sadik - @yield('title')</title>
-    <link rel="shortcut icon" href="http://www.nirvanawellnessclinic.com/images/favicon.png">
+     
+    <link rel="shortcut icon" href="{{ asset('sadik/icon/favicon.png') }}">
     <!-- Vendor CSS -->
     
     {!! Html::style('http://fontawesome.io/assets/font-awesome/css/font-awesome.css') !!}
