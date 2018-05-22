@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nirvana - @yield('title')</title>
+    <title>Sadik - @yield('title')</title>
     <link rel="shortcut icon" href="http://www.nirvanawellnessclinic.com/images/favicon.png">
     <!-- Vendor CSS -->
     
@@ -69,7 +69,7 @@
         </li>
 
         <li class="logo hidden-xs">
-            <a href="{{ route('admin.dashboard') }}">Nirvana Admin</a>
+            <a href="{{ route('admin.dashboard') }}">Sadik Admin</a>
         </li>
 
         <li class="pull-right">

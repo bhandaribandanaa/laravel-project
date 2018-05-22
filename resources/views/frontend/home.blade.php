@@ -1,196 +1,494 @@
 @extends('layout.frontend.app')
-@section('title', 'Home')
-@section('header_js')
-@stop
-@section('main')
-    <!-- REVOLUTION SLIDER -->          
 
-    <div id="rev_slider_34_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="news-gallery34" style="margin:0px auto;background-color:#ffffff;padding:0px;margin-top:0px;margin-bottom:0px;">
-        <!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
-        <div id="rev_slider_34_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
-            <ul>    <!-- SLIDE  -->
-            {{--*/$i=129/*--}}
-            @forelse($sliders as $slider)
+@section('slider')
+    @include('frontend.partials.index-slider')
+@endsection
 
-                <li data-index="rs-{{ $i++ }}" data-transition="fade" data-slotamount="default" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="500" data-fsslotamount="7"  data-title="{{ $slider->title }}" data-description="{{ $slider->sub_title }}">
-                    <!-- MAIN IMAGE -->
-                    @if($slider->url != "")
-                        <a href="{{ $slider->url }}"><img src="{{ asset('uploads/banner/'.$slider->image) }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina></a>
-                    @else
-                        <img src="{{ asset('uploads/banner/'.$slider->image) }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                    @endif
-                    <!-- LAYER NR. 2 -->
-                    
-                    </h1>
-                    <!-- LAYER NR. 2 -->
-                    
-                </li>
+@section('content')
+
+    <div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <div class="page-content">
+
+                    <section class="wprt-section">
+                        <div class="container">
+                            {{--Latest Demand--}}
+                            <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                            <h2>Latest Demand</h2>
+                            <div class="wprt-lines style-1 custom-3">
+                                <div class="line-1"></div>
+                                <div class="line-2"></div>
+                            </div>
+                            <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="6%">S.N</th>
+                                    <th width="25%">Job Positon</th>
+                                    <th>Salary</th>
+                                    <th>Type</th>
+                                    <th width="9%">Req No.</th>
+                                    <th>Fooding</th>
+                                    <th>Accommodation</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Heavy / Light Driver</td>
+                                    <td>Nrs 80,000</td>
+                                    <td>Free Visa</td>
+                                    <td>10</td>
+                                    <td>No</td>
+                                    <td>Yes</td>
+                                    <td>2018-04-05</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Electrical Engineer</td>
+                                    <td>Nrs 95,000</td>
+                                    <td>Free Visa</td>
+                                    <td>10</td>
+                                    <td>No</td>
+                                    <td>Yes</td>
+                                    <td>2018-04-05</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Waiter/Waiteress</td>
+                                    <td>Nrs 75,000</td>
+                                    <td>Free Visa</td>
+                                    <td>10</td>
+                                    <td>No</td>
+                                    <td>Yes</td>
+                                    <td>2018-04-05</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>House Keeping / Cleaner</td>
+                                    <td>Nrs 60,000</td>
+                                    <td>Free Visa</td>
+                                    <td>10</td>
+                                    <td>No</td>
+                                    <td>Yes</td>
+                                    <td>2018-04-05</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Cook / Assistant Cook</td>
+                                    <td>Nrs 70,000</td>
+                                    <td>Free Visa</td>
+                                    <td>10</td>
+                                    <td>No</td>
+                                    <td>Yes</td>
+                                    <td>2018-04-05</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Pipe / Pipe Fitter</td>
+                                    <td>Nrs 65,000</td>
+                                    <td>Free Visa</td>
+                                    <td>10</td>
+                                    <td>No</td>
+                                    <td>Yes</td>
+                                    <td>2018-04-05</td>
+                                </tr>
 
 
-            @empty
+                                </tbody>
+                            </table>
 
-            @endforelse             
-                    <!-- SLIDE  -->
-            </ul>
+                            {{--Latest Demand End--}}
+
+                            {{--About Us--}}
+                            <div class="wprt-spacer" data-desktop="40" data-mobi="60" data-smobi="60"></div>
+                            <h2>ABOUT US</h2>
+                            <div class="wprt-lines style-1 custom-3">
+                                <div class="line-1"></div>
+                                <div class="line-2"></div>
+                            </div>
+                            <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                     <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">We have 30 plus years in the building
+                                            industry</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit. In a metus pellentesque, scelerisque ex sed,
+                                            volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non.
+                                            Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh
+                                            hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada.
+                                            Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.
+                                        </div>
+                                    </div>
+
+                                    <div class="wprt-toggle active style-1">
+                                        <h3 class="toggle-title">Quality construction continues after the
+                                            project</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit. In a metus pellentesque, scelerisque ex sed,
+                                            volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non.
+                                            Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh
+                                            hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada.
+                                            Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.
+                                        </div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">We use technology to do the job more
+                                            quickly</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit. In a metus pellentesque, scelerisque ex sed,
+                                            volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non.
+                                            Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh
+                                            hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada.
+                                            Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.
+                                        </div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">Employees are continually trained on safety
+                                            issues</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit. In a metus pellentesque, scelerisque ex sed,
+                                            volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non.
+                                            Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh
+                                            hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada.
+                                            Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.
+                                        </div>
+                                    </div>
+                                </div><!-- /.col-md-6 -->
+
+                                <div class="col-md-6">
+                                    <div class="wprt-galleries galleries w-570px" data-width="135"
+                                         data-margin="10">
+                                        <div id="wprt-slider" class="flexslider">
+                                            <ul class="slides">
+                                                <li class="flex-active-slide">
+                                                    <a class="zoom" href="assets/img/gallery/1.jpg"><i
+                                                                class="fa fa-arrows-alt"></i></a>
+                                                    <a class="zoom"
+                                                       href="{{ asset('sadik/img/gallery/1.jpg')}}"><i
+                                                                class="fa fa-arrows-alt"></i></a>
+                                                    <img src="assets/img/gallery/1.jpg" alt="image"/>
+                                                    <img src="{{ asset('sadik/img/gallery/1.jpg') }}"
+                                                         alt="image"/>
+                                                </li>
+
+                                                <li class="flex-active-slide">
+                                                    <a class="zoom"
+                                                       href="{{ asset('sadik/img/gallery/2.jpg') }}"><i
+                                                                class="fa fa-arrows-alt"></i></a>
+                                                    <img src="assets/img/gallery/2.jpg" alt="image"/>
+                                                    <img src="{{ asset('sadik/img/gallery/2.jpg') }}"
+                                                         alt="image"/>
+                                                </li>
+
+                                                <li class="flex-active-slide">
+                                                    <a class="zoom"
+                                                       href="{{ asset('sadik/img/gallery/3.jpg') }}"><i
+                                                                class="fa fa-arrows-alt"></i></a>
+                                                    <img src="assets/img/gallery/3.jpg" alt="image"/>
+                                                    <img src="{{ asset('sadik/img/gallery/3.jpg') }}"
+                                                         alt="image"/>
+                                                </li>
+
+                                                <li class="flex-active-slide">
+                                                    <a class="zoom" href="assets/img/gallery/4.jpg"><i
+                                                                class="fa fa-arrows-alt"></i></a>
+                                                    <a class="zoom"
+                                                       href="{{ asset('sadik/img/gallery/4.jpg') }}"><i
+                                                                class="fa fa-arrows-alt"></i></a>
+                                                    <img src="assets/img/gallery/4.jpg" alt="image"/>
+                                                    <img src="{{ asset('sadik/img/gallery/4.jpg') }}"
+                                                         alt="image"/>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div id="wprt-carousel" class="flexslider">
+                                            <ul class="slides">
+                                                <li><img src="{{ asset('sadik/img/gallery/1-s.jpg') }}"
+                                                         alt="image"></li>
+                                                <li><img src="{{ asset('sadik/img/gallery/2-s.jpg') }}"
+                                                         alt="image"></li>
+                                                <li><img src="{{ asset('sadik/img/gallery/3-s.jpg') }}"
+                                                         alt="image"></li>
+                                                <li><img src="{{ asset('sadik/img/gallery/4-s.jpg') }}"
+                                                         alt="image"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!-- /.col-md-6 -->
+
+                                {{----}}
+
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                         data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
+
+
+                  
+                    <!-- WORKS -->
+                    <section class="wprt-section works parallax">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                         data-smobi="60"></div>
+                                    <h2 class="text-left text-white">COUNTRIES WE SUPPLY</h2>
+                                    <div class="wprt-lines custom-2">
+                                        <div class="line-1"></div>
+                                    </div>
+                                    <div class="wprt-spacer" data-desktop="40" data-mobi="40"
+                                         data-smobi="40"></div>
+                                </div><!-- /.col-md-12 -->
+
+                                <div class="col-md-12">
+                                    <div class="wprt-project arrow-style-2 has-arrows arrow60 arrow-dark"
+                                         data-layout="slider" data-column="3" data-column2="3" data-column3="2"
+                                         data-column4="1" data-gaph="30" data-gapv="30">
+                                        <div id="projects" class="cbp">
+
+
+                                            <div class="cbp-item">
+                                                <div class="project-item">
+                                                    <div class="inner">
+                                                        <figure class="effect-zoe">
+                                                            <img src="{{ asset('sadik/img/projects/3r.jpg') }}"
+                                                                 alt="image"/>
+                                                            <figcaption>
+                                                                <div>
+                                                                    <h2><a target="_blank"
+                                                                           href="page-project-detail-3.html">QATAR</a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </figcaption>
+                                                        </figure>
+
+                                                        <a class="project-zoom cbp-lightbox"
+                                                           href="{{ asset('sadik/img/projects/3-full.jpg') }}"
+                                                           data-title="LUXURY BUILDINGS">
+                                                            <i class="fa fa-arrows-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div><!--/.cbp-item -->
+                                            <div class="cbp-item">
+                                                <div class="project-item">
+                                                    <div class="inner">
+                                                        <figure class="effect-zoe">
+                                                            <img src="{{ asset('sadik/img/projects/1r.jpg') }}"
+                                                                 alt="image"/>
+                                                            <figcaption>
+                                                                <div>
+                                                                    <h2><a target="_blank"
+                                                                           href="page-project-detail-3.html">OMAN</a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </figcaption>
+                                                        </figure>
+
+                                                        <a class="project-zoom cbp-lightbox"
+                                                           href="{{ asset('img/projects/3-full.jpg') }}"
+                                                           data-title="LUXURY BUILDINGS">
+                                                            <i class="fa fa-arrows-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div><!--/.cbp-item -->
+                                            <div class="cbp-item">
+                                                <div class="project-item">
+                                                    <div class="inner">
+                                                        <figure class="effect-zoe">
+                                                            <img src="{{ asset('sadik/img/projects/2r.jpg') }}"
+                                                                 alt="image"/>
+                                                            <figcaption>
+                                                                <div>
+                                                                    <h2><a target="_blank"
+                                                                           href="page-project-detail-3.html">DUBAI</a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </figcaption>
+                                                        </figure>
+
+                                                        <a class="project-zoom cbp-lightbox"
+                                                           href="{{ asset('sadik/img/projects/3-full.jpg') }}"
+                                                           data-title="LUXURY BUILDINGS">
+                                                            <i class="fa fa-arrows-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div><!--/.cbp-item -->
+                                            <div class="cbp-item">
+                                                <div class="project-item">
+                                                    <div class="inner">
+                                                        <figure class="effect-zoe">
+                                                            <img src="{{ asset('sadik/img/projects/4r.jpg') }}"
+                                                                 alt="image"/>
+                                                            <figcaption>
+                                                                <div>
+                                                                    <h2><a target="_blank"
+                                                                           href="page-project-detail-3.html">BAHRAIN</a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </figcaption>
+                                                        </figure>
+
+                                                        <a class="project-zoom cbp-lightbox"
+                                                           href="{{ asset('sadik/img/projects/3-full.jpg') }}"
+                                                           data-title="LUXURY BUILDINGS">
+                                                            <i class="fa fa-arrows-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div><!--/.cbp-item -->
+                                            <div class="cbp-item">
+                                                <div class="project-item">
+                                                    <div class="inner">
+                                                        <figure class="effect-zoe">
+                                                            <img src="{{ asset('sadik/img/projects/6r.jpg') }}"
+                                                                 alt="image"/>
+                                                            <figcaption>
+                                                                <div>
+                                                                    <h2><a target="_blank"
+                                                                           href="page-project-detail-3.html">MALAYSIA</a>
+                                                                    </h2>
+
+                                                                </div>
+                                                            </figcaption>
+                                                        </figure>
+
+                                                        <a class="project-zoom cbp-lightbox"
+                                                           href="{{ asset('sadik/img/projects/3-full.jpg') }}"
+                                                           data-title="LUXURY BUILDINGS">
+                                                            <i class="fa fa-arrows-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div><!--/.cbp-item -->
+
+
+                                        </div><!-- /#projects -->
+                                    </div><!--/.wprt-project -->
+                                </div><!-- /.col-md-12 -->
+
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="80" data-mobi="60"
+                                         data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
+<!-- 
+                 
+                    <!-- TESTIMONIALS -->
+                    <section class="wprt-section testiminials">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                         data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
+
+                             
+                                <div class="col-md-6">
+                                    <h2>TESTIMONIALS</h2>
+                                    <div class="wprt-lines style-1 custom-3">
+                                        <div class="line-1"></div>
+                                        <div class="line-2"></div>
+                                    </div>
+                                    <div class="wprt-spacer" data-desktop="40" data-mobi="40"
+                                         data-smobi="40"></div>
+
+                                    <div class="wprt-testimonials has-outline arrow-style-2 has-arrows arrow60 arrow-light"
+                                         data-layout="slider" data-column="1" data-column2="1" data-column3="1"
+                                         data-column4="1" data-gaph="0" data-gapv="0">
+                                        <div id="testimonials-wrap" class="cbp">
+                                            <div class="cbp-item">
+                                                <div class="customer clearfix">
+                                                    <div class="inner">
+                                                        <div class="image"><img
+                                                                    src="{{ asset('sadik/img/testimonials/1.jpg') }}"
+                                                                    alt="image"/></div>
+                                                        <h4 class="name">DON PAULSON</h4>
+                                                        <div class="position">Architectural Co.</div>
+                                                        <blockquote class="whisper">Your efficient planning,
+                                                            scheduling, management, and supervision resulted in
+                                                            timely completion and a quality
+                                                            facility...Particularly refreshing was the spirit of
+                                                            cooperation demonstrated by your firm which served
+                                                            to minimize costly delays and contract
+                                                            modifications.
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.cbp-item -->
+
+                                            <div class="cbp-item">
+                                                <div class="customer clearfix">
+                                                    <div class="inner">
+                                                        <div class="image"><img
+                                                                    src="{{ asset('sadik/img/testimonials/2.jpg') }}"
+                                                                    alt="image"/></div>
+                                                        <h4 class="name">DON PAULSON</h4>
+                                                        <div class="position">Architectural Co.</div>
+                                                        <blockquote class="whisper">Your efficient planning,
+                                                            scheduling, management, and supervision resulted in
+                                                            timely completion and a quality
+                                                            facility...Particularly refreshing was the spirit of
+                                                            cooperation demonstrated by your firm which served
+                                                            to minimize costly delays and contract
+                                                            modifications.
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.cbp-item -->
+
+                                            <div class="cbp-item">
+                                                <div class="customer clearfix">
+                                                    <div class="inner">
+                                                        <div class="image"><img
+                                                                    src="{{ asset('sadik/img/testimonials/3.jpg') }}"
+                                                                    alt="image"/></div>
+                                                        <h4 class="name">DON PAULSON</h4>
+                                                        <div class="position">Architectural Co.</div>
+                                                        <blockquote class="whisper">Your efficient planning,
+                                                            scheduling, management, and supervision resulted in
+                                                            timely completion and a quality
+                                                            facility...Particularly refreshing was the spirit of
+                                                            cooperation demonstrated by your firm which served
+                                                            to minimize costly delays and contract
+                                                            modifications.
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.cbp-item -->
+                                        </div><!-- /#service-wrap -->
+                                    </div><!-- /.wprt-service -->
+                                </div><!-- /.col-md-6 -->
+
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                         data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
+                </div><!-- /.page-content -->
+            </div>
         </div>
     </div>
-    <!-- END REVOLUTION SLIDER -->
-
-    <!--Features Section-->
-    <section class="feature_wrap padding-half">
-      <div class="container">
-        <div class="row">
-         <div class="col-md-12"><h2 class="heading">Our Services</h2><hr class="heading_space"></div>
-            {{--*/ $services = Helpers::getServices() /*--}}
-            @foreach($services as $service)
-              <div class="col-md-4 col-sm-4 feature text-center">
-                  <a href="{{ route('services') }}"><i class="{{ $service->icon }}"></i></a>
-                <h3><a href="{{ route('services') }}">{{ $service->title }}</a></h3>
-                <p>{!! Helpers::string_limit($service->description,200) !!}</p>
-              </div>
-            @endforeach
-            <div class="pull-right"><a class="btn btn-primary" href="{{ route('services') }}">View More</a></div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <section class="padding-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="heading">Why Choose Us ?</h2>
-            <hr class="heading_space">
-          </div>
-          <div class="col-md-6">
-          <div class="faq_wrapper">
-            <ul class="items">
-
-            {{--*/$i=1/*--}}
-              @forelse($choose as $ch)
-                <li>
-                  <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse{{ $i }}">{{ $ch->title }}</a>
-                  <div id="collapse{{ $i }}" @if($i==1) class="expanded" @else class="panel-collapse collapse" @endif>
-                          <div class="panel-body">
-                              {{ $ch->subtitle }}
-                          </div>
-                  </div>
-                </li>
-                {{--*/$i++/*--}}
-              @empty
-
-              @endforelse
-              
-            </ul>
-          </div>
-          </div>
-          <div class="col-md-6 index2_grid">
-            <img src="images/whychooseus.jpg" alt="" />
-            
-          </div>
-        </div>
-      </div>
-    </section>
-
-   <!-- image with content -->
-    <section class="info_section">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 col-sm-4">
-          </div>
-          <div class="col-md-6 col-sm-8 right_box">
-            <div class="right_box_inner padding clearfix">
-                     <h2 class="heading">Working Hours</h2>
-            <hr class="heading_space">
-            <ul class="hours_wigdet">
-              <li>Monday<span>07:00-19:00</span></li>
-              <li>Tuesday<span>07:00-19:00</span></li>
-              <li>Wednesday<span>07:00-19:00</span></li>
-              <li>Thursday<span>07:00-19:00</span></li>
-              <li>Friday<span>07:00-19:00</span></li>
-              <li>Saturday<span>08:00-12:00</span></li>
-              <li>Sunday<span>07:00-19:00</span></li>
-            </ul>
-             
-             
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-<!-- Specialists -->
-    <section id="specialists" class="bg_grey padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-          <h2 class="heading">Meet Our Specialists</h2>
-          <hr class="heading_space">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="specialists_wrap_slider">
-              <div id="our-specialist" class="owl-carousel">
-                {{--*/$doctors = Helpers::getDoctors()/*--}}
-
-                  @forelse($doctors as $doc)
-                      <div class="item">
-                          <label>
-                              
-                                  <div class="specialist_wrap">
-                                    
-                                      <a class="specialist_wrap_hover" href="{{ route('doctors.appointment',[$doc->slug]) }}">@if($doc->image)
-                                              <img src="{{ asset('uploads/doctors/'.$doc->image) }}" alt="Doctor">
-                                          @else
-                                              <img src="{{ asset('images/doc.jpg') }}" alt="Doctor">
-                                          @endif
-                                      </a>
-                                      
-                                      <h3>Dr. {{ $doc->full_name }}</h3>
-                                      <small>{{ $doc->specialization }}</small><br/>
-                                        <a class="btn-readmore" href="{{ route('doctors.appointment',[$doc->slug]) }}">Book an appointment</a>
-                                  </div>
-                                
-                              
-                          </label>
-                      </div>
-                  @empty
-                        No doctors found.
-                  @endforelse
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- testinomial -->
-    {{--<section id="testinomial" class="padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-           <h2 class="heading">Testimonials</h2> <hr class="heading_space">
-          <div id="testinomial-slider" class="owl-carousel text-center">
-            <div class="item">
-              <h3>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</h3>
-              <p>Rodney Stratton, <span>Heart Patient</span></p>
-            </div>
-            <div class="item">
-              <h3>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. quam nunc putamus parum claram, Mirum est notare quam littera gothica.</h3>
-              <p>Rodney Robert, <span>Kidney Patient</span></p>
-            </div>
-            <div class="item">
-              <h3>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse.</h3>
-              <p>Rodney Alzbeth, <span>Liver Patient</span></p>
-            </div>
-           </div>
-          </div>
-        </div>
-      </div>
-    </section>--}}
-@stop
+</div>
+@endsection
