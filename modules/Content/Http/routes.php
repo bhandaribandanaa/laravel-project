@@ -24,8 +24,10 @@ Route::group(['prefix' => 'pages', 'namespace' => 'Modules\Content\Http\Controll
 
 
     
-Route::get('/', ['as'=>'home', 'uses'=>'ContentController@index']);
-Route::get('home', ['as'=>'home', 'uses'=>'ContentController@index']);
+Route::get('/', ['as'=>'page.view', 'uses'=>'ContentController@index']);
+Route::get('home', ['as'=>'page.view', 'uses'=>'ContentController@index']);
+
+
 
 
 

@@ -10,20 +10,26 @@ class ContentController extends Controller {
 	
 	public function index()
 	{
+$jobCategories = Content::where('heading', 'Job Category')
+                                  ->with(['activeChildrens' => function($q){
+                                      $q->where('show_in_homepage', 1);
+                                  }])
+                                  ->where('parent_id', 20)
+                                  ->where('show_in', 'LIKE', '%1%')
+                                  ->where('is_active', 1)
+                                  ->first();
+
+     echo '<pre>';
+    print_r($jobCategories); 
+    die;
 
 
-    $data['jobCategories'] = Content::where('heading', 'Job Category')
-                                    ->with(['activeChildrens' => function($q){
-                                        $q->where('show_in_homepage', 1);
-                                    }])
-                                    ->where('parent_id', 20)
-                                    ->where('show_in', 'LIKE', '%1%')
-                                    ->where('is_active', 1)
-                                    ->first();
+       return view('content::index')->with(array('jobCategories'=>$jobCategories));
 
-
-		return view('content::index')->($data);
+     
 	}
+
+
 
 	public function getContact()
 	{

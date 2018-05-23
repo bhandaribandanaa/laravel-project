@@ -20,26 +20,26 @@
                      data-column4="1" data-gaph="30" data-gapv="30">
                     <div id="service-wrap" class="cbp">
 
-                        @if(count($jobcategories->children) > 0)
-                            @foreach($jobcategories->children as $contents)
+                        <!--  @if(count($jobCategories->children) > 0) -->
+                            @foreach($jobCategories as $jobCategory)
                                 <div class="cbp-item">
                                     <div class="service-item clearfix">
                                         <div class="thumb"><img
-                                                    src="{{asset('uploads/media/'. $image_name)}}"
+                                                    src="{{asset('uploads/media/'.$jobCategory->attachment)}}"
                                                     alt="image"/></div>
                                         <div class="service-item-wrap">
                                             <h3 class="title font-size-18"><a
-                                                        href="{{ route('job_categories.view',[$content->slug,$contents->slug])}}">{{ $jobcategories->title }}</a></h3>
+                                                        href="{{ route('page.view',[$jobCategories->slug,$jobCategory->slug])}}">{{ $jobCategory->title }}</a></h3>
                                             <p class="desc">
-                                                {{ $jobcategories->short_description }}
+                                                {{ $jobCategory->short_description }}
                                             </p>
-                                            <a href="{{ route('job_categories',[$data->slug,$datas->slug])}}" class="wprt-button small rounded-3px">READ
+                                            <a href="{{ route('page.view',[$jobCategories->slug,$jobCategory->slug])}}" class="wprt-button small rounded-3px">READ
                                                 MORE</a>
                                         </div>
                                     </div>
                                 </div>
                         @endforeach
-                    @endif
+                   <!--  @endif -->
                     <!-- /.cbp-item -->
                     </div><!-- /#service-wrap -->
                 </div><!-- /.wprt-service -->
