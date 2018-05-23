@@ -1,10 +1,10 @@
-@extends('frontend.master')
+@extends('layout.frontend.app')
 @section('content')
 
 <?php
 
-if($data->attachment && file_exists('uploads/pages/thumbs_sec/'.$data->attachment)) {
-    $src = asset('uploads/pages/thumbs/'.$data->attachment);
+if($content->attachment && file_exists('uploads/pages/thumbs_sec/'.$content->attachment)) {
+    $src = asset('uploads/pages/thumbs/'.$content->attachment);
 }
 ?>
     <!-- Slider -->
@@ -12,14 +12,14 @@ if($data->attachment && file_exists('uploads/pages/thumbs_sec/'.$data->attachmen
         <div id="featured-title-inner" class="container clearfix">
             <div class="featured-title-inner-wrap">
                 <div class="featured-title-heading-wrap">
-                    <h1 class="featured-title-heading">{{ $data->heading}}</h1>
+                    <h1 class="featured-title-heading">{{ $content->heading}}</h1>
                 </div>
                 <div id="breadcrumbs">
                     <div class="breadcrumbs-inner">
                         <div class="breadcrumb-trail">
                             <a href="{{URL::to('/')}}" title="Construction" rel="home" class="trail-begin">Home</a>
                             <span class="sep">/</span>
-                            <span class="trail-end">{{ $data->heading}}</span>
+                            <span class="trail-end">{{ $content->heading}}</span>
                         </div>
                     </div>
                 </div>
@@ -44,14 +44,14 @@ if($data->attachment && file_exists('uploads/pages/thumbs_sec/'.$data->attachmen
 
                                     <div class="col-md-8">
 
-                                        @if($data->attachment && file_exists('uploads/pages/thumbs_sec/'.$data->attachment))
+                                        @if($content->attachment && file_exists('uploads/pages/thumbs_sec/'.$content->attachment))
                                             <div class="post-media clearfix">
                                                 <img src="{{$src}}" alt="">
                                             </div><!-- /.post-media -->
                                         @endif
 
                                         <div class="post-content">
-                                            {!! $data->description !!}
+                                            {!! $content->description !!}
                                         </div><!-- /.post-excerpt -->
 
                                     </div><!-- /.col-md-8 -->

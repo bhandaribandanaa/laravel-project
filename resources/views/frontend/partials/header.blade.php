@@ -34,7 +34,11 @@
                                 @if(count($mainMenu->children)>0)
                                     <ul class="sub-menu">
                                         @foreach($mainMenu->children as $menuChild)
-                                           <a href="{{ route('pages.detail',$menuChild->slug) }}">{{ $menuChild->page_title }}</a>
+
+                                        <li class="menu-item">
+                                               <a href="{{ route('pages.detail',$menuChild->slug) }}">{{ $menuChild->page_title }}</a>
+                                            </li>
+                                           
                                         @endforeach
                                     </ul>
 
