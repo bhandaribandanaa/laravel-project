@@ -234,9 +234,9 @@
                             </div><!-- /.row -->
                         </div><!-- /.container -->
                     </section>
-
-
-
+                    {{--Job Categories--}}
+                    @include('Content::index-job_categories')
+                    {{--End Job Categories--}}
                     <!-- WORKS -->
                     <section class="wprt-section works parallax">
                         <div class="container">

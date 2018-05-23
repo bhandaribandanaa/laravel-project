@@ -24,12 +24,14 @@ Route::group(['prefix' => 'pages', 'namespace' => 'Modules\Content\Http\Controll
 
 
     
+Route::get('/', ['as'=>'home', 'uses'=>'ContentController@index']);
+Route::get('home', ['as'=>'home', 'uses'=>'ContentController@index']);
 
-    Route::get('/{parent_slug}/{child_slug}', ['as'=>'page.view', 'uses'=>'FrontendController@getJob']);
-    
-     Route::get('/job-category', array('as' => 'pages.job_categories', 'uses' => 'ContentController@getJob'));
+
+
     Route::get('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'ContentController@getContact'));
     Route::post('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'ContentController@postContact'));
+
     Route::get('/gallery', array('as' => 'pages.gallery', 'uses' => 'ContentController@getGallery'));
     Route::get('/{slug}', array('as' => 'pages.detail', 'uses' => 'ContentController@getPageBySlug'));
 });
