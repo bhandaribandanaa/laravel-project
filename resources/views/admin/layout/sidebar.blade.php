@@ -162,6 +162,11 @@
             {{--@endif--}}
 
 
+            <li class="">
+                <a href="{{ route('testimonial.test') }}"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>Testimonial Management</a>
+            </li>
+
+
             {{--@if(Access::hasAccess('users', 'access_view'))--}}
                 {{--<li class="{{ (Request::segment(2)=='users' ? 'active':'') }}"><a--}}
                             {{--href="{{ route('admin.users.index') }}"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>--}}
