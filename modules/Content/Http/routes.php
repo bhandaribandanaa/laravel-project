@@ -23,10 +23,6 @@ Route::group(['prefix' => 'admin/content', 'middleware' => 'admin', 'namespace' 
 Route::group(['prefix' => 'pages', 'namespace' => 'Modules\Content\Http\Controllers'], function () {
 
 
-    
-Route::get('/', ['as'=>'page.view', 'uses'=>'ContentController@index']);
-Route::get('home', ['as'=>'page.view', 'uses'=>'ContentController@index']);
-
 
 
 

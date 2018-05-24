@@ -393,15 +393,19 @@
                         </div><!-- /.container -->
                     </section>
 
-                    
-                    <!-- TESTIMONIALS -->
-                    <section class="wprt-section testiminials">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60"
-                                         data-smobi="60"></div>
-                                </div><!-- /.col-md-12 -->
+
+                     {{--News Update--}}
+                   @include('news::v_news')
+                    {{--End News Update--}}
+
+                      <!-- TESTIMONIALS -->
+
+
+                     {{--Our Partners--}}
+                   @include('gallery::v_gallery')
+                    {{--End Our Partners--}}
+
+                              
 
                              
 

@@ -1,77 +1,72 @@
-@extends('layout.frontend.app')
-@section('title', 'News Category')
-@section('header_js')
-@stop
-@section('main')
+ <section class="wprt-section offer">
+                       <div class="container">
+                           <div class="row">
+                               <div class="col-md-12">
+                                   <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                                   <h2>NEWS UPDATE</h2>
+                                   <div class="wprt-lines style-1 custom-5">
+                                       <div class="line-1"></div>
+                                       <div class="line-2"></div>
+                                   </div>
+                                   <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
+                               </div><!-- /.col-md-12 -->
 
-    <!--Page header & Title-->
-    <section id="page_header" class="page_header_small">
-        <div class="page_title">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="title">News Category </h2>
-                        <div class="page_link"><a href="#">Home</a><i class="fa fa-long-arrow-right"></i><span>News Category</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                               <div class="col-md-12">
+                                   <div class="wprt-service arrow-style-2 has-arrows arrow60 arrow-light" data-layout="slider" data-column="3" data-column2="3" data-column3="2" data-column4="1" data-gaph="30" data-gapv="30">
+                                       <div id="service-wrap" class="cbp">
+
+                            @foreach($data  as $news)
+                                <div class="cbp-item">
+                                     <div class="service-item clearfix">
+                                                       <div class="thumb"><img height="100" width="100" src="{{asset('uploads/news/'. $news->image)}}" alt="image" /></div>
+                                                       <div class="service-item-wrap">
+                                                           <h3 class="title font-size-18"><a href="#">{{ $news->title }}</a></h3>
+                                                          <p class="desc">{{ $news->published_date }}</p>   <a href="{{ route('news.detail',$news->slug) }}" class="wprt-button small rounded-3px">READ MORE</a>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               @endforeach
+                                           </div>
+
+                                       </div><!-- /#service-wrap -->
+                                   </div><!-- /.wprt-service -->
+                               </div><!-- /.col-md-12 -->
+
+                               <div class="col-md-12">
+                                   <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                               </div><!-- /.col-md-12 -->
+                           </div><!-- /.row -->
+                       </div><!-- /.container -->
+                   </section>
+                   
 
 
-    <section id="gallery" class="padding-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="work-filter">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="zerogrid">
-                        <div class="wrap-container">
-                            <div class="wrap-content clearfix">
-                                @forelse($all_news as $news)
-                                    <div class="col-md-6 col-xs-12 col-sm-12 work-item">
-                                        <div class="wrap-col">
-                                            <div class="item-container">
-                                                <div class="image">
-                                                    <a  href="{{ route('news.detail',$news->slug) }}"><img src="{{ asset('uploads/news/'.$news->image) }}" alt="work"/></a>
 
-                                                </div>
-                                                <div class="gallery_content text-left">
-                                                    <a class="newstitle" href="{{ route('news.detail',$news->slug) }}">{{ $news->title }}</a>
 
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-                                    No news added.
-                                @endforelse
 
-                                <div align="center">
-                                    {!! $all_news->render() !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-             <h3 class="heading">Categories</h3>
 
-                <ul class="catlsting">
-                    @forelse($category as $cat)
-                        <li><a href="{{ route('news.category',[$cat->slug]) }}">{{ $cat->category }}</a></li>
-                    @empty
-                        <li><a href="#">No Categories Present</a></li>
-                    @endforelse
-                </ul>
-            </div>
 
-        </div>
-    </section>
-@stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

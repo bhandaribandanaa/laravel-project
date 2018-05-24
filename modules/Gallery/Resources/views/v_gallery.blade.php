@@ -1,66 +1,66 @@
-@extends('layout.frontend.app')
-@section('title', 'News Category')
-@section('header_js')
-@stop
-@section('main')
+                    <section class="wprt-section testiminials">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
 
-    <!--Page header & Title-->
-    <section id="page_header" class="page_header_small">
-        <div class="page_title">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="title">Gallery</h2>
-                        <div class="page_link"><a href="#">Home</a><i class="fa fa-long-arrow-right"></i><span>Gallery</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="gallery" class="padding-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="work-filter">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="zerogrid">
-                    <div class="wrap-container">
-                        <div class="wrap-content clearfix">
-                            @forelse($gallery as $gal)
-                                <div class="col-1-3 work-item">
-                                    <div class="wrap-col">
-                                        <div class="item-container">
-                                            <div class="image">
-                                                @if($gal->cover_image != null)
-                                                    <a href="{{ route('gallery.all',[$gal->id]) }}"><img src="{{ asset('uploads/gallery/'.$gal->cover_image) }}"/></a>
-                                                @else
-                                                    <a href="{{ route('gallery.all',[$gal->id]) }}""><img src="{{ asset('default_image.png') }}"/></a>
-                                                @endif
-                                            </div>
-                                            <div class="gallery_content text-left">
-                                                <a href="{{ route('gallery.all',[$gal->id]) }}"">{{ $gal->name }}</a>
-
-
-                                            </div>
-                                        </div>
+                                <div class="col-md-6">
+                                    <h2>OUR PARTNERS</h2>
+                                    <div class="wprt-lines style-1 custom-3">
+                                        <div class="line-1"></div>
+                                        <div class="line-2"></div>
                                     </div>
-                                </div>
-                            @empty
-                                No news added.
-                            @endforelse
+                                    <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
 
-                            <div align="center">
-                                {!! $gallery->render() !!}
+                                    <div class="wprt-partner-grid has-outline col-3 gutter-10">
+                                        <div class="partner-wrap clearfix">
+
+
+
+                         @foreach($images->chunk(3) as $chunk)
+                         <div class="partner-row clearfix">
+                           @foreach($chunk as $gal)
+                        <div class="partner-item">
+                            <div class="inner-item">
+                                <a target="_blank" href="{{ $gal->external_link}}"><img
+                                            src="{{ asset('uploads/gallery/'.$gal->image) }}"
+                                            alt="image"/></a>
                             </div>
                         </div>
-                    </div>
+                @endforeach
+                <!-- /.partner-item -->
                 </div>
-            </div>
-        </div>
-    </section>
-@stop
+            @endforeach
+
+
+
+
+
+
+                                            
+                                            </div>
+                                        </div><!-- /.partner-wrap -->
+                                    </div><!-- /.wprt-partner-grid -->
+
+                                    <div class="wprt-spacer" data-desktop="0" data-mobi="40" data-smobi="40"></div>
+                                </div><!-- /.col-md-6 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\PackageBookings;
 use Modules\Banner\Entities\Banner;
+use Modules\Gallery\Entities\Album;
+use Modules\Gallery\Entities\Images;
 use Modules\Events\Entities\Events;
 use Input;
 use Validator;
 use App\Newsletter;
+use App\News;
+use App\NewsCategory;
+
 use App\ChooseUs;
+
+use Modules\Content\Entities\Content;
 use App\Appointments;
 
 
@@ -31,16 +38,31 @@ class HomeController extends Controller
     }
 
     public function getHome()
-    {
-        $upcomingConference = Events::with('eventType', 'photo')->where('is_active', '1')->where('start_date', '>', new \DateTime())->first();
-        $pastConference = Events::with('eventType', 'photo')->where('is_active', '1')->where('start_date', '<', new \DateTime())->orderBy('id', 'DESC')->first();
+ {
+ 
+ 
+ $images = Images::where('is_active',1)->where('album_id', 10)->orderBy('id', 'desc')->paginate(6);
         
-        $sliders = Banner::orderBy('id', 'DESC')->where('is_active', '1')->take(5)->get();
-        $choose = ChooseUs::orderBy('id', 'DESC')->where('is_active','1')->take(5)->get();
+        
 
 
 
-        return view('frontend.home')->with(array('upcoming_conference' => $upcomingConference, 'past_conference' => $pastConference, 'sliders' => $sliders, 'choose' => $choose));
+ $data = News::where('status','active')->orderBy('id','desc')->paginate(6);
+ $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
+
+return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)       ;
+
+
+
+
+        
+
+
+      
+
+
+
+       
     }
 
     public function subscribeNewsletter()
