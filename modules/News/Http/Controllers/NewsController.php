@@ -2,6 +2,7 @@
 
 use Pingpong\Modules\Routing\Controller;
 use App\News;
+
 use App\NewsCategory;
 
 class NewsController extends Controller {
@@ -14,6 +15,8 @@ class NewsController extends Controller {
 	}
 
 	public function detail($slug){
+	 
+
 	    $data['news'] = News::where('slug',$slug)->first();
 	    return view('news::v_news_detail',$data);
     }

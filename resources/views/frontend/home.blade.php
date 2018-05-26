@@ -1,6 +1,7 @@
 @extends('layout.frontend.app')
 
 
+
 @section('slider')
     @include('frontend.partials.index-slider')
 @endsection
@@ -234,7 +235,9 @@
                             </div><!-- /.row -->
                         </div><!-- /.container -->
                     </section>
-                    {{--Job Categories--}}
+
+
+                   {{--Job Categories--}}
                     @include('content::index-job_categories')
                     {{--End Job Categories--}}
                     <!-- WORKS -->
@@ -392,22 +395,21 @@
                             </div><!-- /.row -->
                         </div><!-- /.container -->
                     </section>
-
-
-                     {{--News Update--}}
+                      {{--News Update--}}
                    @include('news::v_news')
                     {{--End News Update--}}
-
-                      <!-- TESTIMONIALS -->
-
-
+                    <!-- TESTIMONIALS -->
+                    <section class="wprt-section testiminials">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                         data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
+             
                      {{--Our Partners--}}
                    @include('gallery::v_gallery')
                     {{--End Our Partners--}}
-
-                              
-
-                             
 
                                 <div class="col-md-6">
                                     <h2>TESTIMONIALS</h2>
@@ -498,3 +500,41 @@
     </div>
 </div>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

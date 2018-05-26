@@ -19,7 +19,12 @@ class AdminTestimonialController extends Controller
 
 
     public function testMethod(){
-        dd("here");
+        //$paginate = 11;
+      //    $menuItems = MenuLocation::where('is_active', 1)->lists('name', 'id');
+      //   $testimonials = Testimonial::with('parent')
+      // //   $testimonials->setPath('');
+      //   return view('testimonial::admin.testMethod')->with(array('testimonials' => $testimonials, 'menu_array' => $menuItems));
+       dd("here");
     }
 
 

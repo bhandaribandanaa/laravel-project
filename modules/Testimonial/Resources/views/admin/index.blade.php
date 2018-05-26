@@ -33,10 +33,10 @@
                         @foreach($testimonials as $index=>$testimonial)
                             <tr>
                                 <td>{{ ++$index }}</td>
-                                <td>{{ $testimonial->heading }}</td>
+                                <td>{{ $testimonial->name }}</td>
                                 {{--<td>{{ count($testimonial->children) }}</td>--}}
                                 {{--<td>{{ count($testimonial->children) }}</td>--}}
-                                <td>{{ $testimonial->parent['heading'] }}</td>
+                                <td>{{ $testimonial->parent['name'] }}</td>
                                 <td>
                                     @foreach (explode(', ', $testimonial->display_in) as $singleMenuKey)
                                         <span class="badge">{{ $menu_array[$singleMenuKey] }}</span> &nbsp;
