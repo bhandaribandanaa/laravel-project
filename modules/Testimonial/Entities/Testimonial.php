@@ -25,14 +25,14 @@ class Testimonial extends Model implements SluggableInterface
      *
      * @var array
      */
-    protected $fillable = ['name', 'company_name', 'image', 'description'];
+    protected $fillable = ['name', 'company_name', 'image', 'description', 'created_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['created_at', 'updated_at', 'delated_at'];
+    protected $hidden = ['updated_at', 'deleted_at'];
 
     public static function listFooterMenus()
     {

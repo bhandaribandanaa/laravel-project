@@ -113,6 +113,21 @@
 
 
 
+            <li class="sub-menu ">
+                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Testimonial Management</a>
+                <ul>
+                    <li class=""><a
+                                href="{{ route('admin.testimonials.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Testimonial</a>
+                    </li>
+                    <li><a href="{{ route('admin.testimonials.add') }}"
+                           class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Testimonial</a>
+                    </li>
+                    
+                </ul>
+            </li>
+
+
+
 
 
 
@@ -162,9 +177,6 @@
             {{--@endif--}}
 
 
-            <li class="">
-                <a href="{{ route('testimonial.test') }}"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>Testimonial Management</a>
-            </li>
 
 
             {{--@if(Access::hasAccess('users', 'access_view'))--}}

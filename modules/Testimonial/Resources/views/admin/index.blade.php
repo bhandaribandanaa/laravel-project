@@ -4,84 +4,128 @@
 
     <div class="container">
         <div class="block-header">
-            <h2>Testimonial Management</h2>
+            <h2>Testimonial</h2>
         </div>
-
         <div class="card">
             <div class="card-header">
-                @if(Access::hasAccess('testimonial-management', 'access_add'))
-                    <a href="{{ route('admin.testimonial.add') }}" class="btn btn-primary waves-effect">Add New</a>
-                @endif
+                <a href="{{ route('admin.testimonials.add') }}" class="btn btn-primary waves-effect">Add Testimonial</a>
             </div>
+            @if(Session::has('add_success'))
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> {{ Session::get('add_success') }}
+                </div>
+            @endif
 
-            <div class="table-responsive">
+            @if(Session::has('edit_success'))
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> {{ Session::get('edit_success') }}
+                </div>
+            @endif
 
-                <table class="table table-striped">
+            @if(Session::has('del_success'))
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> {{ Session::get('del_success') }}
+                </div>
+            @endif
+
+            @if(Session::has('error'))
+                <div class="alert alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Warning!</strong> {{ Session::get('error') }}
+                </div>
+            @endif
+            <div class="card-body table-responsive">
+                <table class="table">
                     <thead>
                     <tr>
-                        <th>S N</th>
+                        <th>S.N.</th>
                         <th>Name</th>
+                        <th>Image</th>
                         <th>Company Name</th>
                         <th>Rating</th>
-                        <th>Image</th>
-                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Added On</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if(count($testimonials)>0)
-                        @foreach($testimonials as $index=>$testimonial)
-                            <tr>
-                                <td>{{ ++$index }}</td>
-                                <td>{{ $testimonial->name }}</td>
-                                {{--<td>{{ count($testimonial->children) }}</td>--}}
-                                {{--<td>{{ count($testimonial->children) }}</td>--}}
-                                <td>{{ $testimonial->parent['name'] }}</td>
-                                <td>
-                                    @foreach (explode(', ', $testimonial->display_in) as $singleMenuKey)
-                                        <span class="badge">{{ $menu_array[$singleMenuKey] }}</span> &nbsp;
-                                    @endforeach
-                                </td>
-                                <td>{{ $testimonial->order_postition }}</td>
-                                <td>{{ $testimonial->view_count }}</td>
-                                <td>
-                                    @if(Access::hasAccess('testimonial-management', 'access_publish'))
-                                        @if($testimonial->is_active == 1)
-                                            <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $testimonial->id !!}"  data-toggle="tooltip" title="Change Status"><i
-                                                        class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
-                                        @else
-                                            <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $testimonial->id !!}"  data-toggle="tooltip" title="Change Status"><i
-                                                        class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
-                                        @endif
-                                    @else
-                                        @if($testimonial->is_active == 1)
-                                            Published
-                                        @else
-                                            Draft
-                                        @endif
-                                    @endif
+                    {{--*/$i=1/*--}}
 
-                                    @if(Access::hasAccess('testimonial-management', 'access_update'))
-                                        <a href="{{ route('admin.testimonial.edit',$testimonial->id) }}" title="Edit Testimonial"
-                                           data-toggle="tooltip" class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
-                                    @endif
-                                    @if(Access::hasAccess('testimonial-management', 'access_delete'))
-                                        <a href="#" class="delete-testimonial btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $testimonial->id !!}"
-                                           title="Delete Testimonial" data-toggle="tooltip" ><i
-                                                    class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
-                                    @endif
-                                </td>
-                            </tr>
-
-                        @endforeach
-                    @else
+                    @forelse($testimonials as $n)
                         <tr>
-                            <td colspan="7"><h5 style="text-align: center;">No testimonial added yet.</h5></td>
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $n->name }}</td>
+                            <td>
+                                @if($n->image)
+                                    <img src="{{ asset('uploads/testimonials/'.$n->image) }}" style="height: 90px; width: 160px;">
+                                @endif
+                            </td>
+
+                            <td> <span class="badge">{{ $n->company_name }}</span></td>
+                            <td>{{ $n->rating }}</td>
+                            <td>{!! Helpers::string_limit($n->description,100) !!}</td>
+                            <td>
+                                @if($n->status=='active')
+                                    <a class="label label-success">Published</a>
+                                @else
+                                    <a class="label label-danger">Unpublished</a>
+                                @endif
+                            </td>
+                            <td>{{ Carbon\Carbon::parse($n->published_date)->toFormattedDateString() }}</td>
+                            <td>
+                                <a href="{{ route('admin.testimonials.edit',[$n->id]) }}" title="Edit testimonials"
+                                   data-toggle="tooltip"
+                                   class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i
+                                            class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
+
+                                @if($n->status == 1)
+                                    <a href="{{ route('admin.testimonials.changeStatus',[$n->id,'not_active']) }}"
+                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                       data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                @else
+                                    <a href="{{ route('admin.testimonials.changeStatus',[$n->id,'active']) }}"
+                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                        data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                @endif
+
+                                <a href="javascript:void(0)"
+                                   class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                   data-id="{{ $n->id }} data-toggle="tooltip" title="Delete testimonials" data-placement="top"><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
+
+
+
+                            </td>
                         </tr>
-                    @endif
+                    @empty
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
-                {!! $testimonials->render() !!}
+                <div align="center">
+                    {!! $testimonials->render() !!}
+                </div>
             </div>
         </div>
     </div>
@@ -89,67 +133,36 @@
 @section('footer_js')
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('.delete-testimonial').click(function (event) {
-                event.preventDefault();
-                $object = this;
-//
+        $(function(){
+            $(".delete").click(function(){
+                var id = $(this).data("id");
+                var $tr = $(this).closest('tr')
                 swal({
-                    title: "Are you sure?",
-                    text: "You will do you want to delete this Testimonial ?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, delete it!",
-                    closeOnConfirm: false
-                }, function () {
-                    debugger;
-                    $.ajax({
-                        type: 'POST',
-                        url: '{{ route("admin.testimonial.delete") }}',
-                        data: {id: $object.id, _token: '{!! csrf_token() !!}'},
-                        success: function (response) {
-                            if (response.status == true) {
-                                $($object).parent('td').parent('tr').remove();
-                                swal("Deleted!", response.message, "success");
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this testimonials!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    },
+                    function(){
+                        var url = "{{ url('admin/testimonials/delete') }}/"+id;
+                        $.ajax({
+                            type: "GET",
+                            url: url,
+                            datatype: "json",
+                            success: function(data){
+                                var obj = jQuery.parseJSON(data);
+                                if(obj.status == 'success'){
+                                    swal("Deleted!", "testimonials has been deleted.", "success");
+                                    $tr.find('td').fadeOut(1000,function(){
+                                        $tr.remove();
+                                    });
+                                }
                             }
-                            else {
-                                swal("Error !", response.message, "error");
-                            }
-                        },
-                        error: function (e) {
-                            swal("Error !", response.message, "error");
-                        },
-                    });
-                });
-            });
-
-            $('.change-status').click(function (event) {
-                event.preventDefault();
-                $object = this;
-                debugger;
-                $.ajax({
-                    type: 'POST',
-                    url: '{{ route("admin.testimonial.change_status") }}',
-                    data: {id: $object.id, _token: '{!! csrf_token() !!}'},
-                    success: function (response) {
-                        if (response.is_active == 1) {
-                            $($object).html('<i class="zmdi zmdi-check-circle zmdi-hc-fw"></i>');
-                        } else {
-                            $($object).html('<i class="zmdi zmdi-lock zmdi-hc-fw"></i>');
-                        }
-                        swal({
-                            title: "Success!",
-                            text: response.message,
-                            imageUrl: AdminAssetPath + "img/thumbs-up.png",
-                            timer: 2000,
-                            showConfirmButton: false
                         });
-                    },
-                    error: function (e) {
-                        debugger;
-                    },
-                });
+                    });
             });
         });
 

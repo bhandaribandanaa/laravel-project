@@ -199,5 +199,6 @@ class AdminNewsController extends Controller {
         else
             print_r(json_encode(['status' => 'error','value' => 'Something went wrong.']));
     }
-
 }
+
+

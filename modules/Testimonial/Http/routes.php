@@ -1,20 +1,34 @@
 <?php
 // Testimonial Admin Routes
-Route::group(['prefix' => 'admin/testimonial', 'middleware' => 'admin', 'namespace' => 'Modules\Testimonial\Http\Controllers\Admin'], function () {
+Route::group(['prefix' => 'admin/testimonials', 'middleware' => 'admin', 'namespace' => 'Modules\Testimonial\Http\Controllers\Admin'], function () {
+
+    Route::get('/', ['as' => 'admin.testimonials.index',
+                            'uses' => 'AdminTestimonialController@index']);
+
+    Route::get('add', ['as' => 'admin.testimonials.add',
+                            'uses' => 'AdminTestimonialController@add']);
+
+    Route::post('add/submit', ['as' => 'admin.testimonials.addSubmit',
+                            'uses' => 'AdminTestimonialController@addSubmit']);
+
+    Route::get('edit/{id}', ['as' => 'admin.testimonials.edit',
+                            'uses' => 'AdminTestimonialController@edit']);
+
+    Route::get('changeStatus/{id}/{option}', ['as' => 'admin.testimonials.changeStatus',
+                            'uses' => 'AdminTestimonialController@changeStatus']);
+
+    Route::get('delete/{id}', ['as' => 'admin.testimonials.delete',
+                            'uses' => 'AdminTestimonialController@delete']);
+
+    Route::post('edit/submit', ['as' => 'admin.testimonials.editSubmit',
+                            'uses' => 'AdminTestimonialController@editSubmit']);
+
+    Route::post('edit/submit', ['as' => 'admin.testimonials.editSubmit',
+                            'uses' => 'AdminTestimonialController@editSubmit']);
+
+   
 
 
-	Route::get('testimonial/test', 'AdminTestimonialController@index')->name('testimonial.test');
-
-
-    Route::get('/', ['middleware' => 'access:testimonial-management,access_view', 'as' => 'admin.testimonial.index', 'uses' => 'AdminTestimonialController@index']);
-    Route::get('add', ['middleware' => 'access:testimonial-management,access_add', 'as' => 'admin.testimonial.add', 'uses' => 'AdminTestimonialController@add']);
-    Route::post('add', ['middleware' => 'access:testimonial-management,access_add', 'as' => 'admin.testimonial.add', 'uses' => 'AdmintestimonialController@create']);
-
-    Route::get('edit/{id}', ['middleware' => 'access:testimonial-management,access_update', 'as' => 'admin.testimonial.edit', 'uses' => 'AdmintestimonialController@edit']);
-    Route::post('edit/{id}', ['middleware' => 'access:testimonial-management,access_update', 'as' => 'admin.testimonial.edit', 'uses' => 'AdminTestimonialController@update']);
-
-    Route::post('change-status', ['middleware' => 'access:testimonial-management,access_publish', 'as' => 'admin.testimonial.change_status', 'uses' => 'AdminTestimonialController@changeStatus']);
-    Route::post('delete', ['middleware' => 'access:testimonial-management,access_delete', 'as' => 'admin.testimonial.delete', 'uses' => 'AdminTestimonialController@delete']);
 
 });
 
