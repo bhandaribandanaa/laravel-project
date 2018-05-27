@@ -3,7 +3,7 @@
 Route::group(['prefix' => 'admin/testimonial', 'middleware' => 'admin', 'namespace' => 'Modules\Testimonial\Http\Controllers\Admin'], function () {
 
 
-	Route::get('testimonial/test', 'AdminTestimonialController@testMethod')->name('testimonial.test');
+	Route::get('testimonial/test', 'AdminTestimonialController@index')->name('testimonial.test');
 
 
     Route::get('/', ['middleware' => 'access:testimonial-management,access_view', 'as' => 'admin.testimonial.index', 'uses' => 'AdminTestimonialController@index']);

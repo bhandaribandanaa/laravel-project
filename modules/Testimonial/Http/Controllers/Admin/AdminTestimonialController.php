@@ -31,17 +31,22 @@ class AdminTestimonialController extends Controller
 
     public function index()
     {
+
         $menuItems = MenuLocation::where('is_active', 1)->lists('name', 'id');
+
         $paginate = 10;
-//        $contents = Content::with('children.children')->where('parent_id',0)->paginate($paginate);
-//        $contents = Content::with('children.children')->paginate($paginate);
+// //        $contents = Content::with('children.children')->where('parent_id',0)->paginate($paginate);
+// //        $contents = Content::with('children.children')->paginate($paginate);
         $testimonials = Testimonial::with('parent')->paginate($paginate);
-        $testimonials->setPath('');
-        return view('testimonial::admin.index')->with(array('testimonials' => $testimonials, 'menu_array' => $menuItems));
+         die("here");
+        // $testimonials->setPath('');
+        // print_r($testimonials); die;
+        // return view('testimonial::admin.index')->with(array('testimonials' => $testimonials, 'menu_array' => $menuItems));
     }
 
     public function add()
     {
+        $testimonial = Testimonial::where('status','active')->get();
         $menu_location = MenuLocation::where('is_active', 1)->lists('name', 'id');
         return view('testimonial::admin.add')->with(array('parents_select' => Testimonial::testimonial_list_for_testimonialEntry(0, 0, ''), 'menu_location' => $menu_location->toArray()));
     }

@@ -25,14 +25,14 @@ class Testimonial extends Model implements SluggableInterface
      *
      * @var array
      */
-    protected $fillable = ['name', 'company_name', 'image', 'description', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'company_name', 'image', 'description'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'delated_at'];
 
     public static function listFooterMenus()
     {
@@ -44,7 +44,7 @@ class Testimonial extends Model implements SluggableInterface
      */
    
 
-    public static function testimonial_list_for_testimonialEntry($parentId, $level, $selected)
+    public static function testimonial_list_for_testimonialEntry($id, $level, $selected)
     {
         $testimonials = DB::table('testimonials')
             ->where('id', $id)
@@ -60,7 +60,7 @@ class Testimonial extends Model implements SluggableInterface
             }
 
             $returnList .= '<option value="' . $testimonial->id . '" ' . $selected_option . '>' .
-                str_repeat('&nbsp;>>&nbsp;', $level) . $testimonial->heading . '</option>';
+                str_repeat('&nbsp;>>&nbsp;', $level) . $testimonial->name . '</option>';
             $returnList .= self::subtestimonial_list_for_testimonialEntry($testimonial->id, $level + 1, $selected);
 
         }
