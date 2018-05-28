@@ -1,73 +1,26 @@
- <section class="wprt-section offer">
-                       <div class="container">
-                           <div class="row">
-                               <div class="col-md-12">
-                                   <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-                                   <h2>Testimonials</h2>
-                                   <div class="wprt-lines style-1 custom-5">
-                                       <div class="line-1"></div>
-                                       <div class="line-2"></div>
-                                   </div>
-                                   <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
-                               </div><!-- /.col-md-12 -->
+<div class="col-md-6">
+                                    <h2>TESTIMONIALS</h2>
+                                    <div class="wprt-lines style-1 custom-3">
+                                        <div class="line-1"></div>
+                                        <div class="line-2"></div>
+                                    </div>
+                                    <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
 
-                               <div class="col-md-12">
-                                   <div class="wprt-service arrow-style-2 has-arrows arrow60 arrow-light" data-layout="slider" data-column="3" data-column2="3" data-column3="2" data-column4="1" data-gaph="30" data-gapv="30">
-                                       <div id="service-wrap" class="cbp">
+                                    <div class="wprt-testimonials has-outline arrow-style-2 has-arrows arrow60 arrow-light" data-layout="slider" data-column="1" data-column2="1" data-column3="1" data-column4="1" data-gaph="0" data-gapv="0">
+                                        <div id="testimonials-wrap" class="cbp">
 
-                            @foreach($testimonials as $t)
-                                <div class="cbp-item">
-                                     <div class="service-item clearfix">
-                                                       <div class="thumb"><img height="100" width="100" src="{{asset('uploads/testimonials/'. $t->image)}}" alt="image" /></div>
-                                                       <div class="service-item-wrap">
-                                                           <h3 class="title font-size-18"><a href="#">{{ $t->title }}</a></h3>
-                                                          <p class="desc">{{ $t->created_at }}</p>  
-                                                          <a href="{{ route('news.detail',$t->name) }}" class="wprt-button small rounded-3px">READ MORE</a>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               @endforeach
-                                           </div>
-
-                                       </div><!-- /#service-wrap -->
-                                   </div><!-- /.wprt-service -->
-                               </div><!-- /.col-md-12 -->
-
-                               <div class="col-md-12">
-                                   <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
-                               </div><!-- /.col-md-12 -->
-                           </div><!-- /.row -->
-                       </div><!-- /.container -->
-                   </section>
-                   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                           @foreach($testimonials  as $t)
+                                            <div class="cbp-item">
+                                                <div class="customer clearfix">
+                                                    <div class="inner">
+                                                        <div class="image"><img src="" alt="image" /></div>
+                                                        <h4 class="name">{{$t-> name}}</h4>
+                                                        <div class="company_name">{{$t-> company_name}}</div>
+                                                        <blockquote class="description">{{$t-> description}}</blockquote>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.cbp-item -->
+                                            @endforeach
+                                          </div>
+                                        </div>
 

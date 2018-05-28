@@ -7,7 +7,7 @@ class TestimonialController extends Controller {
 	{
 	    $testimonials = Testimonial::where('status','active')->get();
       
-		return view('testimonial::v_testimonial', $testimonials);
+		return view('testimonial::v_testimonial')->with(array('testimonials' =>  $testimonials));
 	}
 
 	

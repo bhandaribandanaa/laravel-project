@@ -16,7 +16,15 @@
                 </div>
             </div>
 
-         
+            <div class="col-md-4">
+                <div class="widget widget_links">
+                    <h2 class="widget-title"><span>COMPANY LINKS</span></h2>
+                    <ul class="wprt-links clearfix col2">
+                      
+                       
+                    </ul>
+                </div>
+            </div>
 
             <div class="col-md-4">
                 <div class="widget widget_information">
