@@ -4,13 +4,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use DB;
 
 
 class Testimonial extends Model 
 {
 
  
+    use SoftDeletes;
     use SluggableTrait;
+    
 
     /**
      * The database table used by the model.

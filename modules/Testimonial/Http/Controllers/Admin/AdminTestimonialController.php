@@ -47,40 +47,39 @@ class AdminTestimonialController extends Controller
         // return view('testimonial::admin.add')->with(array('parents_select' => Testimonial::testimonial_list_for_testimonialEntry(0, 0, ''), 'menu_location' => $menu_location->toArray()));
     }
 
-    public function addSubmit(Request $request){
+   
+        public function addSubmit(Request $request){
+       $this->validate($request,['name' => 'required',
+           'company_name' => 'required',
+           'rating' => 'required',
+           'description' => 'required']);
 
-        $this->validate($request,['name' => 'required',
-            'company_name' => 'required',
-            'rating' => 'required',
-            'description' => 'required']);
 
+       $testimonials = new Testimonial;
 
-        $testimonials = new Testimonial;
+           $testimonials = new Testimonial();
+           $testimonials->name = Input::get('name');
+           $testimonials->company_name = Input::get('company_name');
+           $testimonials->rating = Input::get('rating');
+           $testimonials->description = Input::get('description');
+           $testimonials->created_at = date('Y-m-d');;
+           $testimonials->save();
+         
 
-            $testimonials = new Testimonial();
-            $testimonials->name = Input::get('name');
-            $testimonials->company_name = Input::get('company_name');
-            $testimonials->rating = Input::get('rating');
-            $testimonials->description = Input::get('description');
-            $testimonials->created_at = Input::get('created_at');
-            $testimonials->updated_at = date('Y-m-d');
-            $testimonials->deleted_at = date('Y-m-d');
-            $testimonials->save();
-          
+               if(Input::file('image') != ""){
+           $image = Input::file('image');
+           $image_name=time()."_".$image->getClientOriginalName();
+           $path = public_path('uploads/testimonials')."/".$image_name;
+           Image::make($image->getRealPath())->save($path);
+           $testimonials_data['image'] = $image_name;
+           Testimonial::where('id',$testimonials->id)->update($testimonials_data);
+       
+       }
 
-                if(Input::file('image') != ""){
-            $image = Input::file('image');
-            $image_name=time()."_".$image->getClientOriginalName();
-            $path = public_path('uploads/testimonials')."/".$image_name;
-            Image::make($image->getRealPath())->save($path);
-            $tesimonial_data['image'] = $image_name;
-            Testimonial::where('id',$testimonials->id)->update($testimonials_data);
-        
-        }
+       Session::flash('add_success','Testimonial has been successfully added.');
+       return redirect('admin/testimonials');
+   }
 
-        Session::flash('add_success','Testimonial has been successfully added.');
-        return redirect('admin/testimonials');
-    }
 
  public function edit()
     {

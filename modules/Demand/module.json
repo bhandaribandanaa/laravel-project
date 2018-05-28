@@ -1,0 +1,15 @@
+{
+    "name": "Demand",
+    "alias": "demand",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Demand\\Providers\\DemandServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

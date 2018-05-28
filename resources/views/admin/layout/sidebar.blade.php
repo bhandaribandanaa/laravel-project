@@ -35,7 +35,7 @@
         <ul class="main-menu">
             <li class="{{ (Request::segment(2)=='dashboard' ? 'active':'') }}"><a
                         href="{{ route('admin.dashboard') }}"><i class="zmdi zmdi-home"></i> Home</a></li>
-            <li class="sub-menu ">
+           <!--  <li class="sub-menu ">
                 <a href="javascript:void(0)"><i class="fa fa-user-md" aria-hidden="true"></i>Doctors</a>
                 <ul>
                     <li><a href="{{ route('admin.appointments.index') }}"><i class="fa fa-calendar-o" aria-hidden="true"></i>Appointments</a></li>
@@ -45,9 +45,9 @@
                     <li><a href="{{ route('admin.doctors.add') }}" class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Doctors</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li class="sub-menu ">
+         <!--    <li class="sub-menu ">
                 <a href="javascript:void(0)"><i class="zmdi zmdi-case-download zmdi-hc-fw"></i>Packages</a>
                 <ul>
                     <li><a href="{{ route('admin.appointments.packages') }}"><i class="zmdi zmdi-account"></i>Bookings</a>
@@ -65,7 +65,7 @@
                     <li><a href="{{ route('admin.packages.assignTreatment') }}" class=""><i class="zmdi zmdi-accounts-add zmdi-hc-fw"></i>Assign Treatment</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
             @if(Access::hasAccess('content-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='content' ? 'active':'') }}"><a
@@ -73,7 +73,7 @@
                         Management</a></li>
             @endif
 
-            <li class="sub-menu ">
+           <!--  <li class="sub-menu ">
                 <a href="javascript:void(0)"><i class="zmdi zmdi-headset-mic zmdi-hc-fw"></i>Services</a>
                 <ul>
                     <li class=""><a href="{{ route('admin.services.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Services</a>
@@ -82,11 +82,11 @@
                     </li>
                 </ul>
             </li>
-
+ --><!-- 
             <li class="{{ (Request::segment(2)=='whychoose' ? 'active':'') }}"><a
                         href="{{ route('admin.choose.index') }}"><i class="fa fa-question-circle" aria-hidden="true"></i>Why Choose</a></li>
 
-            <li>
+            <li> -->
 
             @if(Access::hasAccess('gallery-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='gallery' ? 'active':'') }}"><a
@@ -128,6 +128,18 @@
 
 
 
+            <li class="sub-menu ">
+                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Demand Management</a>
+                <ul>
+                    <li class=""><a
+                                href="{{ route('admin.demands.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Demand</a>
+                    </li>
+                    <li><a href="{{ route('admin.demands.add') }}"
+                           class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Demand</a>
+                    </li>
+                    
+                </ul>
+            </li>
 
 
 
@@ -139,19 +151,22 @@
 
 
 
+
+
+<!-- 
             @if(Access::hasAccess('gallery-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='banner' ? 'active':'') }}"><a
                             href="{{ route('admin.banner.index') }}"><i class="zmdi zmdi-image-alt zmdi-hc-fw"></i>Banner
                         Management</a>
                 </li>
-            @endif
+            @endif -->
 
-            @if(Access::hasAccess('content-management', 'access_view'))
+           <!--  @if(Access::hasAccess('content-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='newsletter' ? 'active':'') }}"><a
                             href="{{ route('admin.newsletter.index') }}"><i class="fa fa-envelope" aria-hidden="true"></i>Email Subscriptions</a></li>
-            @endif
+            @endif -->
 
-            {{--@if(Access::hasAccess('downloads', 'access_view') || Access::hasAccess('downloads', 'access_view'))--}}
+            <!-- {{--@if(Access::hasAccess('downloads', 'access_view') || Access::hasAccess('downloads', 'access_view'))--}}
                 {{--<li class="sub-menu {{ (Request::segment(2)=='downloads' ? 'active toggled':'') }}">--}}
                     {{--<a href=""><i class="zmdi zmdi-download"></i> Download Management</a>--}}
                     {{--<ul>--}}
@@ -175,7 +190,7 @@
                     {{--</ul>--}}
                 {{--</li>--}}
             {{--@endif--}}
-
+ -->
 
 
 
@@ -185,7 +200,7 @@
                         {{--Users</a></li>--}}
             {{--@endif--}}
 
-            @if(Access::hasAccess('user-type', 'access_view') || Access::hasAccess('modules', 'access_view'))
+           <!--  @if(Access::hasAccess('user-type', 'access_view') || Access::hasAccess('modules', 'access_view'))
                 <li class="sub-menu {{ (Request::segment(2)=='configuration' ? 'active toggled':'') }}">
                     <a href=""><i class="zmdi zmdi-widgets"></i> Configurations</a>
                     <ul>
@@ -203,7 +218,7 @@
 
                     </ul>
                 </li>
-            @endif
+            @endif -->
 
 
 

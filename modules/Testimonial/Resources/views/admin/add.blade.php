@@ -38,28 +38,28 @@
 
 
                            <div class="col-sm-6">
-                            <div class="form-group fg-line">
-                                <label class="" for="exampleInputEmail2">Company Name</label>
-                                <input type="text" class="form-control input-sm" name="title"
-                                       id="exampleInputEmail2" value="{{ old('company_name') }}"
-                                       placeholder="Enter Company Name">
-                            </div>
-                            @if($errors->has('company_name'))
-                                <div class="alert alert-danger fade in">
-                                    <button type="button" class="close close-sm" data-dismiss="alert">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Warning!</strong> {{ $errors->first('company_name') }}.
-                                </div>
-                            @endif
+                               <div class="form-group fg-line">
+                                   <label class="" for="exampleInputEmail2">Company Name</label>
+                                   <input type="text" class="form-control input-sm" name="company_name"
+                                          id="exampleInputEmail2" value="{{ old('company_name') }}"
+                                          placeholder="Enter Company Name">
+                               </div>
+                               @if($errors->has('company_name'))
+                                   <div class="alert alert-danger fade in">
+                                       <button type="button" class="close close-sm" data-dismiss="alert">
+                                           <i class="fa fa-times"></i>
+                                       </button>
+                                       <strong>Warning!</strong> {{ $errors->first('company_name') }}.
+                                   </div>
+                               @endif
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Rating</label>
-                                <input type="text" class="form-control input-sm" name="title"
+                                <input type="text" class="form-control input-sm" name="rating"
                                        id="exampleInputEmail2" value="{{ old('rating') }}"
-                                       placeholder="Enter Rating">
+                                       placeholder="Enter Rating (1 to 5)">
                             </div>
                             @if($errors->has('rating'))
                                 <div class="alert alert-danger fade in">
@@ -124,23 +124,6 @@
                             @endif
                         </div>
 
-                        <div class="col-sm-12">
-                            <div class="form-group fg-line">
-                                <label class="" for="">Published Date*</label>
-                                <input type="text" id="published_date" name="published_date">
-                                </textarea>
-                            </div>
-                            @if($errors->has('created_at'))
-                                <div class="alert alert-danger fade in">
-                                    <button type="button" class="close close-sm" data-dismiss="alert">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Warning!</strong> {{ $errors->first('created_at') }}.
-                                </div>
-                            @endif
-                        </div>
-
-
 
                         <div class="col-sm-12">
                             <div class="form-group fg-line">
@@ -186,3 +169,21 @@
         });
     </script>
 @stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

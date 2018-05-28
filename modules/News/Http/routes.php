@@ -64,3 +64,4 @@ Route::group(['prefix' => 'news', 'namespace' => 'Modules\News\Http\Controllers'
     Route::get('category/{slug}', ['as' => 'news.category',
                         'uses' => 'NewsController@category']);
 });
+
