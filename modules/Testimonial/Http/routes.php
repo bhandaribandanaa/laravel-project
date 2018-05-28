@@ -1,5 +1,5 @@
 <?php
-// Testimonial Admin Routes
+
 Route::group(['prefix' => 'admin/testimonials', 'middleware' => 'admin', 'namespace' => 'Modules\Testimonial\Http\Controllers\Admin'], function () {
 
     Route::get('/', ['as' => 'admin.testimonials.index',
@@ -26,11 +26,31 @@ Route::group(['prefix' => 'admin/testimonials', 'middleware' => 'admin', 'namesp
     Route::post('edit/submit', ['as' => 'admin.testimonials.editSubmit',
                             'uses' => 'AdminTestimonialController@editSubmit']);
 
-   
+    Route::get('categories', ['as' => 'admin.testimonials.category',
+                            'uses' => 'AdminTestimonialController@category']);
 
+    Route::get('addCategory', ['as' => 'admin.testimonials.addCategory',
+                            'uses' => 'AdminTestimonialController@addCategory']);
 
+    Route::get('editCategory/{id}', ['as' => 'admin.testimonials.editCategory',
+                            'uses' => 'AdminTestimonialController@editCategory']);
 
-});
+    Route::get('changeCategoryStatus/{id}/{option}', ['as' => 'admin.testimonials.changeCategoryStatus',
+                            'uses' => 'AdminTestimonialController@changeCategoryStatus']);
+
+    Route::get('deleteCategory/{id}', ['as' => 'admin.testimonials.deleteCategory',
+                            'uses' => 'AdminTestimonialController@deleteCategory']);
+
+    Route::post('addCategory/submit', ['as' => 'admin.testimonials.addCategorySubmit',
+                            'uses' => 'AdminTestimonialController@addCategorySubmit']);
+
+    Route::post('editCategory/submit', ['as' => 'admin.testimonials.editCategorySubmit',
+                            'uses' => 'AdminTestimonialController@editCategorySubmit']);
+
+    Route::get('removeImage/{id}', ['as' => 'admin.testimonials.removeImage',
+                            'uses' => 'AdminTestimonialController@removeImage']);
+
+    });
 
 //for frontend 
 

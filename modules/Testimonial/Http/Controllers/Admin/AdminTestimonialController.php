@@ -2,11 +2,12 @@
 
 use Pingpong\Modules\Routing\Controller;
 use Illuminate\Http\Request;
-use Modules\Media\Entities\Media;
-use Modules\Media\Entities\MediaType;
-use Modules\Testimonial\Entities\MenuLocation;
+use Illuminate\Support\Facades\Validator;
 use Input;
-use Validator;
+use Redirect;
+
+use Session;
+use Image;
 use Auth;
 use App\Testimonial;
 
@@ -33,14 +34,14 @@ class AdminTestimonialController extends Controller
        // dd("here");
       
           
-        return view('testimonial::admin.index')->with(array('testimonials'=> $testimonials));
+        return view('testimonial::admin.index')->with(array('testimonials' => $testimonials));
 
     }
 
     public function add()
     {
         $testimonials = Testimonial::where('status','active')->get();
-        return view('testimonial::admin.add',$testimonials);
+        return view('testimonial::admin.add')->with(array('testimonials' => $testimonials));
 
         // $menu_location = MenuLocation::where('is_active', 1)->lists('name', 'id');
         // return view('testimonial::admin.add')->with(array('parents_select' => Testimonial::testimonial_list_for_testimonialEntry(0, 0, ''), 'menu_location' => $menu_location->toArray()));
@@ -51,22 +52,21 @@ class AdminTestimonialController extends Controller
         $this->validate($request,['name' => 'required',
             'company_name' => 'required',
             'rating' => 'required',
-            'mimes:jpeg,bmp,png',
             'description' => 'required']);
 
 
         $testimonials = new Testimonial;
 
-            $objectTestimonial = new Testimonial();
-            $objectTestimonial->name = Input::get('name');
-            $objectTestimonial->company_name = Input::get('company_name');
-            $objectTestimonial->rating = Input::get('rating');
-            $objectTestimonial->description = Input::get('description');
-            $objectTestimonial->created_at = date('Y-m-d');
-            $objectTestimonial->updated_at = date('Y-m-d');
-            $objectTestimonial->deleted_at = date('Y-m-d');
-            $objectTestimonial->save();
-            if ($objectTestimonial->id) {
+            $testimonials = new Testimonial();
+            $testimonials->name = Input::get('name');
+            $testimonials->company_name = Input::get('company_name');
+            $testimonials->rating = Input::get('rating');
+            $testimonials->description = Input::get('description');
+            $testimonials->created_at = Input::get('created_at');
+            $testimonials->updated_at = date('Y-m-d');
+            $testimonials->deleted_at = date('Y-m-d');
+            $testimonials->save();
+          
 
                 if(Input::file('image') != ""){
             $image = Input::file('image');
@@ -81,33 +81,32 @@ class AdminTestimonialController extends Controller
         Session::flash('add_success','Testimonial has been successfully added.');
         return redirect('admin/testimonials');
     }
-}
- public function edit($id)
+
+ public function edit()
     {
 
-        $testimonials = Testimonial::where('id',$id)->first();
+         $testimonials = Testimonial::where('status', 'active')->get();
        
-        return view('testimonials::admin.edit_testimonial',$testimonials);
+            return view('testimonials::admin.edit_testimonials', $testimonials);
     }
   public function editSubmit(Request $request){
 
         $this->validate($request,['name' => 'required',
             'company_name' => 'required',
             'rating' => 'required',
-            'image'=> 'mimes:jpeg,bmp,png',
             'description' => 'required']);
 
         $testimonials = Testimonial::find(Input::get('id'));
 
-        $objectTestimonial = new Testimonial();
-            $objectTestimonial->name = Input::get('name');
-            $objectTestimonial->company_name = Input::get('company_name');
-            $objectTestimonial->rating = Input::get('rating');
-            $objectTestimonial->description = Input::get('description');
-            $objectTestimonial->created_at = date('Y-m-d');
-            $objectTestimonial->updated_at = date('Y-m-d');
-            $objectTestimonial->deleted_at = date('Y-m-d');
-            $objectTestimonial->save();
+        $testimonials = new Testimonial();
+            $testimonials->name = Input::get('name');
+            $testimonials->company_name = Input::get('company_name');
+            $testimonials->rating = Input::get('rating');
+            $testimonials->description = Input::get('description');
+            $testimonials->created_at = Input::get('created_at');
+            $testimonials->updated_at = date('Y-m-d');
+            $testimonials->deleted_at = date('Y-m-d');
+            $testimonials->save();
 
         if(Input::file('image')!=""){
             $image = Input::file('image');
@@ -118,7 +117,7 @@ class AdminTestimonialController extends Controller
             Testimonial::where('id',Input::get('id'))->update($testimonials_data);
         }
         Session::flash('edit_success','Testimonial has been successfully added.');
-        return redirect('admin/news');
+        return redirect('admin/testimonials');
     }
 
     public function changeStatus($id,$option){

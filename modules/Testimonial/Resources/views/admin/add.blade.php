@@ -165,7 +165,6 @@
                             <button type="submit" class="btn btn-primary btn-sm m-t-5">Add Testimonials</button>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
 @stop
