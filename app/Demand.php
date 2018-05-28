@@ -10,7 +10,7 @@ class Demand extends Model
 {
 	use SluggableTrait;
 
-    protected $table = 'demands';
+    protected $table = 'demand';
 
     protected $sluggable = [
         'build_from' => 'full_name',

@@ -17,7 +17,8 @@ use App\NewsCategory;
 use App\ChooseUs;
 
 use Modules\Content\Entities\Content;
-use Modules\Testimonial\Entities\Testimonial;
+use App\Testimonial;
+use App\Demand;
 use App\Appointments;
 
 
@@ -42,6 +43,8 @@ class HomeController extends Controller
  {
 
 
+        $demands = Demand::where('status','active')->paginate(8);
+        
 $testimonials = Testimonial::where('status','active')->orderBy('id','desc');
  
  
@@ -54,7 +57,7 @@ $testimonials = Testimonial::where('status','active')->orderBy('id','desc');
  $data = News::where('status','active')->orderBy('id','desc')->paginate(6);
  $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
-return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with('testimonials', $testimonials);
+return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with('testimonials', $testimonials)->with(array('demands' => $demands));
 
 
 

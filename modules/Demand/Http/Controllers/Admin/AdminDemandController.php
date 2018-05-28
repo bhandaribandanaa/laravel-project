@@ -22,7 +22,7 @@ class AdminDemandController extends Controller
 
     public function testMethod(){
         
-       dd("here");.
+       dd("here");
     }
 
 
@@ -54,8 +54,7 @@ class AdminDemandController extends Controller
             'type' => 'required',
             'request_number' => 'required',
             'fooding' => 'required',
-            'accomodation' => 'required',
-            'created_at' => 'required']);
+            'accomodation' => 'required']);
 
 
         $demands = new Demand;
@@ -76,7 +75,7 @@ class AdminDemandController extends Controller
 
 
         Session::flash('add_success','Demand has been successfully added.');
-        return redirect('admin/Demands');
+        return redirect('admin/demands');
     }
 
  public function edit()
@@ -93,8 +92,7 @@ class AdminDemandController extends Controller
             'type' => 'required',
             'request_number' => 'required',
             'fooding' => 'required',
-            'accomodation' => 'required',
-            'created_at' => 'required']);
+            'accomodation' => 'required']);
 
         $demands = Demand::find(Input::get('id'));
 
@@ -111,13 +109,13 @@ class AdminDemandController extends Controller
             $demands->save();
 
         Session::flash('edit_success','Demand has been successfully added.');
-        return redirect('admin/Demands');
+        return redirect('admin/demands');
     }
 
     public function changeStatus($id,$option){
         Demand::where('id',$id)->update(['status' => $option]);
         Session::flash('status_success','Demand has been changed');
-        return redirect('admin/Demands');
+        return redirect('admin/demands');
     }
 
     public function delete($id){

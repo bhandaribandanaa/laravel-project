@@ -73,13 +73,8 @@
                             <td>{{ $d->request_number }}</td>
                             <td>{{ $d->fooding }}</td>
                             <td>{{ $d->accomodation}}</td>
-                            <td>
-                                @if($n->status=='active')
-                                    <a class="label label-success">Published</a>
-                                @else
-                                    <a class="label label-danger">Unpublished</a>
-                                @endif
-                            </td>
+                            <td>{{ $d->date}}</td>
+
                             <td>{{ Carbon\Carbon::parse($d->created_at)->toFormattedDateString() }}</td>
                             <td>
                                 <a href="{{ route('admin.demands.edit',[$d->id]) }}" title="Edit demands"

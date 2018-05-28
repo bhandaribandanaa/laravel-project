@@ -16,94 +16,9 @@
 
                     <section class="wprt-section">
                         <div class="container">
-                            {{--Latest Demand--}}
-                            <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-                            <h2>Latest Demand</h2>
-                            <div class="wprt-lines style-1 custom-3">
-                                <div class="line-1"></div>
-                                <div class="line-2"></div>
-                            </div>
-                            <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th width="6%">S.N</th>
-                                    <th width="25%">Job Positon</th>
-                                    <th>Salary</th>
-                                    <th>Type</th>
-                                    <th width="9%">Req No.</th>
-                                    <th>Fooding</th>
-                                    <th>Accommodation</th>
-                                    <th>Date</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Heavy / Light Driver</td>
-                                    <td>Nrs 80,000</td>
-                                    <td>Free Visa</td>
-                                    <td>10</td>
-                                    <td>No</td>
-                                    <td>Yes</td>
-                                    <td>2018-04-05</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Electrical Engineer</td>
-                                    <td>Nrs 95,000</td>
-                                    <td>Free Visa</td>
-                                    <td>10</td>
-                                    <td>No</td>
-                                    <td>Yes</td>
-                                    <td>2018-04-05</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Waiter/Waiteress</td>
-                                    <td>Nrs 75,000</td>
-                                    <td>Free Visa</td>
-                                    <td>10</td>
-                                    <td>No</td>
-                                    <td>Yes</td>
-                                    <td>2018-04-05</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>House Keeping / Cleaner</td>
-                                    <td>Nrs 60,000</td>
-                                    <td>Free Visa</td>
-                                    <td>10</td>
-                                    <td>No</td>
-                                    <td>Yes</td>
-                                    <td>2018-04-05</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Cook / Assistant Cook</td>
-                                    <td>Nrs 70,000</td>
-                                    <td>Free Visa</td>
-                                    <td>10</td>
-                                    <td>No</td>
-                                    <td>Yes</td>
-                                    <td>2018-04-05</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Pipe / Pipe Fitter</td>
-                                    <td>Nrs 65,000</td>
-                                    <td>Free Visa</td>
-                                    <td>10</td>
-                                    <td>No</td>
-                                    <td>Yes</td>
-                                    <td>2018-04-05</td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-
-                            {{--Latest Demand End--}}
+                         {{--Latest Demand--}}
+                    @include('demand::v_demands')
+                    {{--End Latest Demand--}}  
 
                             {{--About Us--}}
                             <div class="wprt-spacer" data-desktop="40" data-mobi="60" data-smobi="60"></div>
