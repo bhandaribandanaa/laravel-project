@@ -24,7 +24,7 @@
           @forelse($demands as $d)
                       {{--*/$i=1/*--}}
                         <tr>
-                            <td>{{  $i++ }}</td>
+                            <td>{{$d-> id }}</td>
                             <td>{{ $d->job_position }}</td>
                             <td>{{ $d->salary }}</td>
                             <td>{{ $d->type }}</td>

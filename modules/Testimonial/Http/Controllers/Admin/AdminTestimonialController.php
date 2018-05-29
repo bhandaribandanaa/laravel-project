@@ -62,7 +62,10 @@ class AdminTestimonialController extends Controller
            $testimonials->company_name = Input::get('company_name');
            $testimonials->rating = Input::get('rating');
            $testimonials->description = Input::get('description');
-           $testimonials->created_at = date('Y-m-d');;
+           $testimonials->status = Input::get('status');
+           $testimonials->created_at = date('Y-m-d');
+            $testimonials->updated_at = date('Y-m-d');
+            $testimonials->deleted_at = date('Y-m-d');
            $testimonials->save();
          
 
@@ -102,7 +105,8 @@ class AdminTestimonialController extends Controller
             $testimonials->company_name = Input::get('company_name');
             $testimonials->rating = Input::get('rating');
             $testimonials->description = Input::get('description');
-            $testimonials->created_at = Input::get('created_at');
+            $testimonials->status = Input::get('status');
+            $testimonials->created_at = date('Y-m-d');
             $testimonials->updated_at = date('Y-m-d');
             $testimonials->deleted_at = date('Y-m-d');
             $testimonials->save();
@@ -112,7 +116,7 @@ class AdminTestimonialController extends Controller
             $image_name=time()."_".$image->getClientOriginalName();
             $path = public_path('uploads/testimonials')."/".$image_name;
             Image::make($image->getRealPath())->save($path);
-            $news_data['image'] = $image_name;
+            $testimonials_data['image'] = $image_name;
             Testimonial::where('id',Input::get('id'))->update($testimonials_data);
         }
         Session::flash('edit_success','Testimonial has been successfully added.');
