@@ -15,10 +15,10 @@
                                             <div class="cbp-item">
                                                 <div class="customer clearfix">
                                                     <div class="inner">
-                                                        <div class="image"><img src="assets/img/testimonials/1.jpg" alt="image" /></div>
+                                                        <div class="image"><img src="{{asset('uploads/testimonials/'. $t->image)}}" alt="image" /></div>
                                                         <h4 class="name">{{$t-> name}}</h4>
                                                         <div class="position">{{$t-> company_name}}</div>
-                                                        <blockquote class="whisper">{{$t-> description}}</blockquote>
+                                                        <blockquote class="whisper">{!! $t-> description !!}</blockquote>
                                                     </div>
                                                 </div>
                                             </div><!-- /.cbp-item -->

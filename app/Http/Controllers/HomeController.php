@@ -45,7 +45,7 @@ class HomeController extends Controller
 
         $demands = Demand::where('status','active')->paginate(8);
         
-$testimonials = Testimonial::where('status','active')->orderBy('id','desc');
+$testimonials = Testimonial::where('status','active')->get();
  
  
  $images = Images::where('is_active',1)->where('album_id', 10)->orderBy('id', 'desc')->paginate(6);

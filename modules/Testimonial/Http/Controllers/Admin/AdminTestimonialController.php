@@ -64,8 +64,7 @@ class AdminTestimonialController extends Controller
            $testimonials->description = Input::get('description');
            $testimonials->status = Input::get('status');
            $testimonials->created_at = date('Y-m-d');
-            $testimonials->updated_at = date('Y-m-d');
-            $testimonials->deleted_at = date('Y-m-d');
+      
            $testimonials->save();
          
 
@@ -107,8 +106,6 @@ class AdminTestimonialController extends Controller
             $testimonials->description = Input::get('description');
             $testimonials->status = Input::get('status');
             $testimonials->created_at = date('Y-m-d');
-            $testimonials->updated_at = date('Y-m-d');
-            $testimonials->deleted_at = date('Y-m-d');
             $testimonials->save();
 
         if(Input::file('image')!=""){

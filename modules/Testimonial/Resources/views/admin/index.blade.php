@@ -54,7 +54,8 @@
                         <th>Image</th>
                         <th>Company Name</th>
                         <th>Rating</th>
-                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Status </th>
                         <th>Added On</th>
                         <th>Action</th>
                     </tr>
@@ -74,7 +75,8 @@
 
                             <td> <span class="badge">{{ $n->company_name }}</span></td>
                             <td>{{ $n->rating }}</td>
-                            <td>{!! Helpers::string_limit($n->description,100) !!}</td>
+                            <td> {{ $n ->description }} </td>
+                            <td>{!! Helpers::string_limit($n->status,100) !!}</td>
                             <td>
                                 @if($n->status=='active')
                                     <a class="label label-success">Published</a>
