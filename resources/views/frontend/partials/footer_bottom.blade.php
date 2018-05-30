@@ -14,8 +14,8 @@
             <div class="clear"></div>
 
             <div class="bottom-bar-content" style="text-align:center">
-                Sadik International Overseas Pvt Ltd. &copy; 2018. Powered By <a href="#/">Peace Nepal DOT
-                    com</a>
+                Sadik International Overseas Pvt Ltd. &copy; 2018. Powered By <a href="http://peacenepal.com/" target="_blank">Peace Nepal DOT
+                    com</a> 
 
             </div><!-- /.bottom-bar-content -->
 
