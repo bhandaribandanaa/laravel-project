@@ -153,13 +153,13 @@
 
 
 
-<!-- 
+
             @if(Access::hasAccess('gallery-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='banner' ? 'active':'') }}"><a
                             href="{{ route('admin.banner.index') }}"><i class="zmdi zmdi-image-alt zmdi-hc-fw"></i>Banner
                         Management</a>
                 </li>
-            @endif -->
+            @endif
 
            <!--  @if(Access::hasAccess('content-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='newsletter' ? 'active':'') }}"><a

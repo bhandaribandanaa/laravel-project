@@ -41,7 +41,7 @@ class HomeController extends Controller
 
     public function getHome()
  {
-
+      $banner = Banner::where('is_active',1)->get();
 
         $demands = Demand::where('status','active')->paginate(8);
         
@@ -57,7 +57,7 @@ $testimonials = Testimonial::where('status','active')->get();
  $data = News::where('status','active')->orderBy('id','desc')->paginate(6);
  $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
-return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands));
+return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner));
 
 
 
