@@ -21,10 +21,10 @@
             </tr>
           </thead>
           <tbody>
+            {{--*/$i=1/*--}}
           @forelse($demands as $d)
-                      {{--*/$i=1/*--}}
-                        <tr>
-                            <td>{{$d-> id }}</td>
+                         <tr>
+                            <td>{{$i++ }}</td>
                             <td>{{ $d->job_position }}</td>
                             <td>{{ $d->salary }}</td>
                             <td>{{ $d->type }}</td>

@@ -67,6 +67,7 @@ class AdminDemandController extends Controller
             $demands->fooding = Input::get('fooding');
             $demands->accomodation = Input::get('accomodation');
             $demands->published_date = date('Y-m-d');
+            $demands->status = Input::get('status');
             $demands->save();
           
 
@@ -102,6 +103,7 @@ class AdminDemandController extends Controller
             $demands->fooding = Input::get('fooding');
             $demands->accomodation = Input::get('accomodation');
             $demands->published_date = date('Y-m-d');
+            $demands->status = Input::get('status');
             $demands->save();
 
         Session::flash('edit_success','Demand has been successfully added.');

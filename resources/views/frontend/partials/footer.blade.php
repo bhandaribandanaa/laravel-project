@@ -26,7 +26,7 @@
                            @foreach($jobcategories as $jc)
                                <li class="menu-item">
                                    <a href="{{ route('pages.detail',$jc->slug) }}">{{ $jc->page_title }}</a>
-                               c/li>
+                              
                            @endforeach
                        </ul>
                    @endif
