@@ -57,9 +57,10 @@
                 <div id="widget_news_post-3" class="widget widget_recent_news">
                     <h2 class="widget-title"><span>OTHER NEWS UPDATE</span></h2>
                     <ul class="recent-news clearfix">
+                       
                         <li class="clearfix">
                             <div class="thumb">
-                                <img width="150" height="150" src="{{asset('uploads/news/'.$news->image)}}" alt="image">
+                                <img width="150" height="150" src="{{asset('uploads/news/'.$news->image)}}" alt="">
                             </div><!-- /.thumb -->
 
                             <div class="texts">
@@ -67,28 +68,9 @@
                                 <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
                             </div><!-- /.texts -->
                         </li>
+                      
 
-                        <li class="clearfix">
-                            <div class="thumb">
-                                <img width="150" height="150" src="{{asset('uploads/news/'.$news->image)}}" alt="image">
-                            </div><!-- /.thumb -->
-
-                            <div class="texts">
-                                <h3><a href="#">{{ $news->title }}</a></h3>
-                                <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
-                            </div><!-- /.texts -->
-                        </li>
-
-                        <li class="clearfix">
-                            <div class="thumb">
-                                <img width="150" height="150" src="{{asset('uploads/news/'.$news->image)}}" alt="image">
-                            </div><!-- /.thumb -->
-
-                            <div class="texts">
-                                <h3><a href="#">{{ $news->title }}</a></h3>
-                                <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
-                            </div><!-- /.texts -->
-                        </li>
+                        
                     </ul>
                 </div>
 

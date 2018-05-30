@@ -15,6 +15,8 @@ class NewsController extends Controller {
 	}
 
 	public function detail($slug){
+
+		
 	 
 
 	    $data['news'] = News::where('slug',$slug)->first();

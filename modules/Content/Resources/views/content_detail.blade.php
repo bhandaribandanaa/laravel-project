@@ -31,35 +31,19 @@
         <div id="site-content" class="site-content clearfix">
             <div id="inner-content" class="inner-content-wrap">
                 <div class="page-content">
-
-
-                    <section class="wprt-section">
+              <section class="wprt-section">
                         <div class="container">
                         <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
                        {!! $content->description !!}
 
-        
-        <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+      <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
                          
                                     
                                     
                                     
-                    <?php
-
-          if($content->attachment && file_exists('uploads/pages/thumbs_sec/'.$content->attachment)) {
-            $src = asset('uploads/pages/thumbs/'.$content->attachment);
-          }
-          ?>
-                    <div class="chart-column col-md-6 col-sm-12 col-xs-12" style="display:none">
-                        <div class="inner-box">
-                            @if (!empty($src))
-                                <div class="image">
-
-                                    <img style="width:100%" src="{{asset('uploads/pages/'.$page->attachment)}}" alt="">
-
-                                </div>
-                            @endif
+                    
                         </div>
+                    </section>
 
                     </div>
                 </div>
@@ -67,5 +51,8 @@
 
 
             </div>
-            </section>
+        </div>
+    </div>
+    
+         
 @endsection
