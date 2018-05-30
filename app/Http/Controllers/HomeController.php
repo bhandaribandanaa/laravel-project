@@ -43,7 +43,7 @@ class HomeController extends Controller
  {
       $banner = Banner::where('is_active',1)->get();
 
-        $demands = Demand::where('status','active')->get();
+        $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->get();
         
 $testimonials = Testimonial::where('status','active')->get();
  
@@ -54,7 +54,7 @@ $testimonials = Testimonial::where('status','active')->get();
 
 
 
- $data = News::where('status','active')->orderBy('id','desc')->paginate(6);
+ $data = News::where('status','active')->orderBy('published_date','desc')->paginate(6);
  $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
 return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner));
