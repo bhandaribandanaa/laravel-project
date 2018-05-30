@@ -57,17 +57,24 @@
                 <div id="widget_news_post-3" class="widget widget_recent_news">
                     <h2 class="widget-title"><span>OTHER NEWS UPDATE</span></h2>
                     <ul class="recent-news clearfix">
+                     
+                      @foreach($all_news as $an)
+                       @if($an->id != $news->id)
                        
                         <li class="clearfix">
                             <div class="thumb">
-                                <img width="150" height="150" src="{{asset('uploads/news/'.$news->image)}}" alt="">
+                                <img width="150" height="150" src="{{asset('uploads/news/'.$an->image)}}" alt="">
                             </div><!-- /.thumb -->
 
                             <div class="texts">
-                                <h3><a href="#">{{ $news->title }}</a></h3>
-                                <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                <h3><a href="{{ route('news.detail',$an->slug) }}">{{ $an->title }}</a></h3>
+                                <span class="post-date"><span class="entry-date">{{$an -> published_date}}</span></span>
                             </div><!-- /.texts -->
                         </li>
+                        
+                         @endif
+                        @endforeach
+                       
                       
 
                         
@@ -93,35 +100,6 @@
     </div>
 </div>
 
-<!-- Footer -->
-<footer id="footer">
-    <div id="footer-widgets" class="container style-1">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="widget widget_text">
-                    <h2 class="widget-title"><span>ABOUT US</span></h2>
-                    <div class="textwidget">
-                       
-                        <p>The company aims specializing in deployment Hospitality and Service Industry, Security guard, Skilled and Unskilled labor, Domestic Maid, Semi-Skilled Labor. Sadik International Overseas philosophy is based on the concept of quality and speed which can be best achieved by people with experience in the business. </p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="widget widget_links">
-                    <h2 class="widget-title"><span>COMPANY LINKS</span></h2>
-                    <ul class="wprt-links clearfix col2">
-                        <li class="style-2"><a href="#">Professional</a></li>
-                        <li class="style-2"><a href="#">Skilled Labor</a></li>
-                        <li class="style-2"><a href="#">Semi-Skilled Labor</a></li>
-                        <li class="style-2"><a href="#">Hotel / Service Industry</a></li>
-                        <li class="style-2"><a href="#">Unskilled Labor</a></li>
-                        <li class="style-2"><a href="#">Domestic Maid</a></li>
-       
-                    </ul>
-                </div>
-            </div>
 
              <!-- /.col-md-4 -->
                         <div class="col-md-12">

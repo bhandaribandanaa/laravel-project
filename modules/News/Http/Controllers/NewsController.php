@@ -18,9 +18,9 @@ class NewsController extends Controller {
 
 		
 	 
-
+        $all_news = News::where('status', 'active')->orderBy('id','desc')->get();
 	    $data['news'] = News::where('slug',$slug)->first();
-	    return view('news::v_news_detail',$data);
+	    return view('news::v_news_detail',$data)->with('all_news', $all_news);
     }
 
     public function category($slug){
