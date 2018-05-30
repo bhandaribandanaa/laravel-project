@@ -42,6 +42,14 @@ class Helper
         }])->where('is_active',1)->where('parent_id',0)->orderBy('order_postition','ASC')->take($items)->get();
     }
 
+
+    public static function getJobCategories() {
+        return Content::with(['children' => function ($query) {
+            $query->where('is_active',1);
+            $query->orderBy('order_postition','ASC');
+        }])->where('is_active',1)->where('parent_id',20)->orderBy('order_postition','ASC')->get();
+   }
+
     public static function getAbout(){
         $about = Content::where('page_title','About')->first();
         $about = (strlen($about->description) > 150) ? substr($about->description , 0 , 150).'...' : $about->description;

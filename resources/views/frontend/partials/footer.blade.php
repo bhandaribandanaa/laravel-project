@@ -16,31 +16,24 @@
                 </div>
             </div>
 
+
             <div class="col-md-4">
-                <div class="widget widget_links">
-                    <h2 class="widget-title"><span>COMPANY LINKS</span></h2>
-                    <ul class="wprt-links clearfix col2">
+               <div class="widget widget_links">
+                   <h2 class="widget-title"><span>JOB CATEGORIES</span></h2>
+                    <?php $jobcategories = App\Classes\Helper::getJobCategories(); ?>
+                   @if(count($jobcategories)>0)
+                       <ul class="sub-menu">
+                           @foreach($jobcategories as $jc)
+                               <li class="menu-item">
+                                   <a href="{{ route('pages.detail',$jc->slug) }}">{{ $jc->page_title }}</a>
+                               c/li>
+                           @endforeach
+                       </ul>
+                   @endif
+               </div>
+           </div>
 
-                      
-
-
-                            <ul class="wprt-links clearfix col2">
-                        <li class="style-2"><a href="#">Professional</a></li>
-                        <li class="style-2"><a href="#">Skilled Labor</a></li>
-                        <li class="style-2"><a href="#">Semi-Skilled Labor</a></li>
-                        <li class="style-2"><a href="#">Hotel / Service Industry</a></li>
-                        <li class="style-2"><a href="#">Unskilled Labor</a></li>
-                        <li class="style-2"><a href="#">Domestic Maid</a></li>
-       
-                    </ul>
-                        
-       
-                    </ul>
-                      
-                       
-                    </ul>
-                </div>
-            </div>
+        
 
             <div class="col-md-4">
                 <div class="widget widget_information">

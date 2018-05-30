@@ -43,7 +43,7 @@ class HomeController extends Controller
  {
       $banner = Banner::where('is_active',1)->get();
 
-        $demands = Demand::where('status','active')->paginate(8);
+        $demands = Demand::where('status','active')->get();
         
 $testimonials = Testimonial::where('status','active')->get();
  

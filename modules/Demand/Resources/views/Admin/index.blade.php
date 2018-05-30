@@ -73,7 +73,7 @@
                             <td>{{ $d->request_number }}</td>
                             <td>{{ $d->fooding }}</td>
                             <td>{{ $d->accomodation}}</td>
-                            <td>{{ $d->date}}</td>
+                            <td>{{ $d->published_date}}</td>
 
                             <td>{{ Carbon\Carbon::parse($d->created_at)->toFormattedDateString() }}</td>
                             <td>
