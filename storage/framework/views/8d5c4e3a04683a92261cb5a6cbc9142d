@@ -1,0 +1,124 @@
+<?php $__env->startSection('title', 'Assign Doctors'); ?>
+<?php $__env->startSection('header_css'); ?>
+    <?php echo Html::style('backend/css/dataTables.material.min.css'); ?>
+
+    <?php echo Html::style('backend/css/material.min.css'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+    <div class="loading_modal" style="display: none">
+        <div class="loading">
+            <!-- <img alt="" src="<?php echo e(asset('backend/img/loading.gif')); ?>"/> -->
+        </div>
+    </div>
+    <?php /*admin.member.add*/ ?>
+    <div class="container">
+        <div class="block-header">
+            <h2>Member Management</h2>
+        </div>
+
+        <div class="card">
+            
+            <?php $success = Session::get('success'); ?>
+            <?php if($success): ?>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                    <?php echo e($success); ?>
+
+                </div>
+            <?php endif; ?>
+
+            <div class="table-responsive">
+                <table class="table table-striped datatable">
+                    <thead>
+                    <tr>
+                        <th>S N</th>
+                        <th>Full Name</th>
+                        <th>Specialization</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(count($doctors)>0): ?>
+                        <?php foreach($doctors as $index=>$doctor): ?>
+                            <tr>
+                                <td><?php echo e(++$index); ?></td>
+                                <td><?php echo e($doctor->full_name); ?></td>
+                                <td><?php echo e($doctor->professional_title); ?></td>
+                                <td>
+                                        <?php if($doctor->is_assigned == 'yes'): ?>
+                                            <a id="<?php echo e($doctor->id); ?>" href="javascript:void(0)"
+                                               class="assign_doctors btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                               data-id="<?php echo e($doctor->id); ?>" data-option="remove" data-package="<?php echo e($package_id); ?>" data-toggle="tooltip" title="Remove Doctor"><i class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                        <?php else: ?>
+                                            <a id="<?php echo e($doctor->id); ?>" href="javascript:void(0)"
+                                               class="assign_doctors btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                              data-id="<?php echo e($doctor->id); ?>" data-option="add" data-package="<?php echo e($package_id); ?>" data-toggle="tooltip" title="Assign Doctor"><i class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                        <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="7"><h5 style="text-align: center;">No Doctors found.</h5></td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footer_js'); ?>
+ <?php echo Html::script('backend/js/jquery.dataTables.min.js'); ?>
+
+    <?php echo Html::script('backend/js/dataTables.material.min.js'); ?>
+
+    <script type="text/javascript" language="javascript" class="init">
+        $(document).ready(function () {
+            $('.datatable').dataTable();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.datatable').on('click', '.assign_doctors', function (event) {
+                alert(1);
+                event.preventDefault();
+                var package_id = $(this).data("package");
+                var doctor_id = $(this).data("id");
+                var option = $(this).data("option");
+
+                var url = "<?php echo e(url('admin/packages/assign_doctors')); ?>/"+package_id+"/"+doctor_id+"/"+option;
+                
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    datatype: "json",
+                    success: function(data){
+                        var obj = jQuery.parseJSON(data);
+                        if(obj.status == "success"){
+                            swal("Success!", obj.value, "success")
+                            if(option == 'add'){
+                                $("#"+doctor_id).html('<i class="zmdi zmdi-check-circle zmdi-hc-fw"></i>');
+                                $("#"+doctor_id).data("option","remove");
+                            }else{
+                                $("#"+doctor_id).html('<i class="zmdi zmdi-lock zmdi-hc-fw"></i>');
+                                $("#"+doctor_id).data("option","add");
+                            }
+                        }
+                    },
+                    error: function (e) {
+                        swal("Error !", 'Something went wrong', "error");
+                    }
+                });
+
+            });
+    
+
+        });
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

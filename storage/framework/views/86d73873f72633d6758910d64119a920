@@ -1,0 +1,301 @@
+<?php $__env->startSection('title', 'Appointments'); ?>
+<?php $__env->startSection('header_css'); ?>
+    <style>
+
+        div.text-container {
+            margin: 0 auto;
+            width: 75%;
+        }
+
+        .text-content{
+            line-height: 1em;
+        }
+
+        .short-text {
+            overflow: hidden;
+            height: 2em;
+        }
+
+        .full-text{
+            height: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .show-more {
+            padding: 10px 0;
+            text-align: center;
+        }
+        .cardstyle ul li a{ background: #fff;color: #717171;}
+		
+    </style>
+
+    <?php echo Html::style('backend/sweetAlert/sweetalert.css'); ?>
+
+    <?php echo Html::style('backend/sweetAlert/swal-forms.css'); ?>
+
+    <?php echo Html::style('backend/css/dataTables.material.min.css'); ?>
+
+    <?php echo Html::style('backend/css/material.min.css'); ?>
+
+    <?php echo Html::style('backend/plugins/bootstrap-select/dist/css/bootstrap-select.css'); ?>
+
+    <?php echo Html::style('datepicker.min.css'); ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+    <div class="container">
+        <div class="block-header">
+            <h2>Confirmed Appointments</h2>
+        </div>
+
+        <div class="card cardstyle" style="margin-bottom:0;">
+            <div class="card-header ch-alt ">
+                <ul class="nav nav-pills nav-justified row">
+                    <li class=" col-xs-12 col-sm-4 col-md-4 active"><a href="<?php echo e(route('admin.appointments.index')); ?>">Confirmed</a></li>
+                    <li class="col-xs-12 col-sm-4 col-md-4"><a href="<?php echo e(route('admin.appointments.successful')); ?>">Successful</a></li>
+                    <li class="col-xs-12 col-sm-4 col-md-4"><a href="<?php echo e(route('admin.appointments.pending')); ?>">Requests</a></li>
+                    <a class="manuallink" href="<?php echo e(route('admin.appointments.manualAppointment')); ?>">
+                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="card cardstyle">
+
+
+            <form action="" method="get">
+
+                <div class="card-body card-padding" style="padding-bottom:0;">
+                    <div class="row">
+                        <div class="col-sm-3 course-div">
+                            <div class="form-group fg-float fg-toggled">
+                                <div class="fg-line">
+                                    <?php /**/$doctors = Helpers::getAllDoctors()/**/ ?>
+                                    <select name="doctor" id="" class="selectpicker" data-live-search="true">
+                                        <option value="" <?php if($doctor_selected == ""): ?> selected <?php endif; ?>>Select Doctor</option>
+                                        <?php $__empty_1 = true; foreach($doctors as $doc): $__empty_1 = false; ?>
+                                            <option value="<?php echo e($doc->id); ?>" <?php if($doctor_selected == $doc->id): ?> selected <?php endif; ?>><?php echo e($doc->full_name); ?></option>
+                                        <?php endforeach; if ($__empty_1): ?>
+                                            No doctors present.
+                                        <?php endif; ?>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-offset-4 col-sm-4 course-div dateselector">
+                            <div class="">
+                                <div>
+                                    Select Date: <input type="text" name="date"  id="datepicker" <?php if($date_selected != ""): ?> value="<?php echo e($date_selected); ?>" <?php endif; ?>>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <!--<input type="submit" class="" value="Filter">-->
+                            <button type="submit" class="btn btn-primary waves-effect">Filter</button>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </form>
+
+
+
+            <div class="table-responsive">
+                <table class="table table-striped datatable">
+                    <thead>
+                    <tr>
+                        <th>S N</th>
+                        <th>Patient Name</th>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php /**/$i=1/**/ ?>
+                    <?php $__empty_1 = true; foreach($conf_app as $app): $__empty_1 = false; ?>
+
+                        <tr>
+                            <td><?php echo e($i); ?></td>
+                            <td><?php echo e($app->f_name); ?></td>
+                            <td><?php echo e($app->doctor); ?></td>
+                            <td><?php echo e($app->date); ?></td>
+                            <td class="fonts">
+                                <a class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float zmdi zmdi-eye " data-toggle="modal" data-target="#myModal<?php echo e($i); ?>" data-toggle="tooltip" title="View Details"></a>
+                                <!-- Modal -->
+                                <div id="myModal<?php echo e($i++); ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                                <h4 class="modal-title">Appointment Details</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Patient Name : <?php echo e($app->f_name); ?></p>
+                                                <p>Doctor : <?php echo e($app->doctor); ?></p>
+                                                <p>Date : <?php echo e($app->date); ?></p>
+                                                <p>Shift : <?php echo e($app->shift); ?></p>
+                                                <p>Address : <?php echo e($app->address); ?></p>
+                                                <p>Mobile : <?php echo e($app->mobile); ?></p>
+                                                <p>Email : <?php echo e($app->email); ?></p>
+                                                <p>Message : <?php echo $app->message; ?></p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <?php if($app->is_success == 1): ?>
+                                    <a href="#" class="change-success btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $app->id; ?>"  data-toggle="tooltip" title="Switch to Success Mode"><i
+                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                <?php else: ?>
+                                    <a href="#" class="change-success btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $app->id; ?>"  data-toggle="tooltip" title="Switch to Success Mode"><i
+                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                <?php endif; ?>
+
+
+
+                            <?php if($app->is_confirmed == 1): ?>
+                                    <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $app->id; ?>"  data-toggle="tooltip" title="Switch to Pending Mode"><i
+                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                <?php else: ?>
+                                    <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $app->id; ?>"  data-toggle="tooltip" title="Switch to Pending Mode"><i
+                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                <?php endif; ?>
+
+                            </td>
+                        </tr>
+
+                    <?php endforeach; if ($__empty_1): ?>
+                        <tr>
+                            <td colspan="7"><h5 style="text-align: center;">No records added yet.</h5></td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footer_js'); ?>
+    <?php echo Html::script('backend/sweetAlert/sweetalert.min.js'); ?>
+
+    <?php echo Html::script('backend/plugins/bootstrap-select/dist/js/bootstrap-select.js'); ?>
+
+    <?php echo Html::script('datepicker.min.js'); ?>
+
+
+    <?php echo Html::script('backend/js/jquery.dataTables.min.js'); ?>
+
+    <?php echo Html::script('backend/js/dataTables.material.min.js'); ?>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('.change-status').click(function (event) {
+                event.preventDefault();
+                $object = this;
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo e(route("admin.appointments.change_status")); ?>',
+                    data: {id: $object.id, _token: '<?php echo csrf_token(); ?>'},
+                    success: function (response) {
+                        if (response.is_confirmed == 1) {
+                            $($object).html('<i class="zmdi zmdi-check-circle zmdi-hc-fw"></i>');
+                        } else {
+                            $($object).html('<i class="zmdi zmdi-lock zmdi-hc-fw"></i>');
+                        }
+                        swal({
+                            title: "Success!",
+                            text: response.message,
+                            imageUrl: AdminAssetPath + "img/thumbs-up.png",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    },
+                    error: function (e) {
+                        debugger;
+                    },
+                });
+            });
+
+            $('.change-success').click(function (event) {
+                event.preventDefault();
+                $object = this;
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo e(route("admin.appointments.change_success")); ?>',
+                    data: {id: $object.id, _token: '<?php echo csrf_token(); ?>'},
+                    success: function (response) {
+                        if (response.is_success == 1) {
+                            $($object).html('<i class="zmdi zmdi-check-circle zmdi-hc-fw"></i>');
+                        } else {
+                            $($object).html('<i class="zmdi zmdi-lock zmdi-hc-fw"></i>');
+                        }
+                        swal({
+                            title: "Success!",
+                            text: response.message,
+                            imageUrl: AdminAssetPath + "img/thumbs-up.png",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    },
+                    error: function (e) {
+                    },
+                });
+            });
+        });
+
+    </script>
+
+
+    <script type="text/javascript" language="javascript" class="init">
+        $(document).ready(function () {
+            $("#datepicker").datepicker({
+                format: 'yyyy-mm-dd'
+            });
+
+            $('.datatable').DataTable({
+                columnDefs: [
+                    {
+                        targets: [0, 1, 2],
+                        className: 'mdl-data-table__cell--non-numeric'
+                    }
+                ]
+            });
+
+            $("#data-table-basic").bootgrid({
+                css: {
+                    icon: 'zmdi icon',
+                    iconColumns: 'zmdi-view-module',
+                    iconDown: 'zmdi-expand-more',
+                    iconRefresh: 'zmdi-refresh',
+                    iconUp: 'zmdi-expand-less'
+                },
+
+            });
+        });
+    </script>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

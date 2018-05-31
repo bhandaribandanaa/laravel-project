@@ -1,0 +1,143 @@
+<?php $__env->startSection('title', 'Doctor\'s Appointment'); ?>
+<?php $__env->startSection('header_js'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+<!--Page header & Title-->
+<section id="page_header">
+<div class="page_title">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+         <h2 class="title">Appointment with Dr. <?php echo e($doctor->full_name); ?></h2>
+         <div class="page_link"><a href="<?php echo e(route('home')); ?>">Home</a><i class="fa fa-long-arrow-right"></i><span>Appointment with Dr. <?php echo e($doctor->full_name); ?></span></div>
+      </div>
+    </div>
+  </div>
+</div>  
+</section>
+
+
+<section class="padding">
+  <div class="container">
+    <div class="row">
+        <?php if(Session::get('success')): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Success!</strong> <?php echo e(Session::get('success')); ?>
+
+            </div>
+        <?php endif; ?>
+      <div class="col-md-12">
+          <form class="callus" id="contact_form" style="margin-top:0" method="post" action="<?php echo e(route('doctors.book')); ?>">
+              <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group">
+                          <input class="form-control" type="text" name="f_name" id="f_name"  placeholder="Full Name*" value="<?php echo e(old('f_name')); ?>" required />
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group">
+                          <input class="form-control" type="text" name="address" id="address"  placeholder="Address*" value="<?php echo e(old('address')); ?>" required />
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group">
+                          <input class="form-control" type="text" name="mobile" id="mobile"  placeholder="Mobile No.*" value="<?php echo e(old('mobile')); ?>" required />
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group">
+                          <input class="form-control" type="email" name="email" id="email"  placeholder="Email Address*" value="<?php echo e(old('email')); ?>" required />
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group">
+                          <input class="form-control" type="text" name="date" id="date"  placeholder="Date* " value="<?php echo e(old('date')); ?>" required />
+                      </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group">
+                          <select id="day" name="day" class="form-control" >
+                              <option value="">Select a day</option>
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div id="shiftDiv" class="form-group">
+                          
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div id="timeDiv" class="form-group">
+                          
+                      </div>
+                  </div>
+                  <input type="hidden" name="doctor_name" value="<?php echo e($doctor->full_name); ?>">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <textarea placeholder="Message" name="message" id="message"></textarea>
+                      </div>
+                      <div class="form-group">
+                          <div class="btn-submit button3">
+                              <input type="submit" value="Submit Request" id="btn_contact_submit">
+                          </div>
+                      </div>
+                  </div>
+                  <?php echo csrf_field(); ?>
+
+              </div>
+          </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<?php $__env->startSection('footer_js'); ?>
+  <script>
+    $(function(){
+      $("#day").change(function(){
+          var day = $(this).val();
+          var doctor_id = <?php echo $doctor->id; ?>;
+          var url = "<?php echo e(url('doctors/getShift')); ?>/"+doctor_id+"/"+day;
+          $.ajax({
+            type: "GET",
+            url: url,
+            datatype: "json",
+            success: function(data){
+              var obj = jQuery.parseJSON(data);
+              if(obj.status == "success"){
+                  
+                  var shift = "";
+                  shift = "<select id='shift' name='shift' class='form-control' >";
+                  $.each( obj.value, function(key,val) {
+                    shift += '<option value="'+val.shift+'">'+val.shift+'</option>'; 
+                  });
+                  shift += "</select>";  
+
+                $("#shiftDiv").html(shift);
+              }else{
+                  var shift = "";
+                  shift = "<select id='shift' name='shift' class='form-control' ><option value='' selected> No Shift Found </option></select> ";
+                  $("#shiftDiv").html(shift);
+              }
+            }
+          });
+      });
+    });
+
+  </script>
+<?php $__env->stopSection(); ?>
+
+    
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.frontend.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

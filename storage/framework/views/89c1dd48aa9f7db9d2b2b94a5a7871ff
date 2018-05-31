@@ -1,0 +1,135 @@
+<?php $__env->startSection('title', 'Doctor\'s Appointment'); ?>
+<?php $__env->startSection('header_js'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main'); ?>
+
+    <!--Page header & Title-->
+    <section id="page_header">
+        <div class="page_title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title">Appointment Success</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <img class="sucessimg" src="<?php echo e(asset('images/sucess.png')); ?>" alt="" />
+                    <div class="classwrapper"><div class="username">Dear <?php echo e($detail['f_name']); ?>, </div>your appointment with <span><?php echo e($doctor_name); ?></span> has been scheduled on <span><?php echo e($detail['date']); ?>.</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table table-bordered table-striped successtable">
+
+                        <input type="hidden" id="sms_message" name="sms_message" value="Dear <?php echo e($detail['f_name']); ?>, your appointment with <?php echo e($doctor_name); ?> has been scheduled on <?php echo e($detail['date']); ?>">.
+
+                        <tr>
+
+                            <td width="25%">Full Name</td>
+                            <td width="75%"><?php echo e($detail['f_name']); ?></td>
+                        </tr>
+                        <tr>
+
+                            <td>Address</td>
+                            <td><?php echo e($detail['address']); ?></td>
+                        </tr>
+
+                        <tr>
+
+                            <td>Mobile</td>
+                            <td><?php echo e($detail['mobile']); ?></td>
+                        </tr>
+                        <tr>
+
+                            <td>Email Address</td>
+                            <td><?php echo e($detail['email']); ?></td>
+                        </tr>
+                        <tr>
+
+                            <td>Date</td>
+                            <td><?php echo e(Carbon\Carbon::parse($detail['date'])->toFormattedDateString()); ?></td>
+                        </tr>
+                        <tr>
+
+                            <td>Shift</td>
+                            <td><?php echo e($detail['shift']); ?></td>
+                        </tr>
+                        <tr>
+
+                            <td valign="top">Message</td>
+                            <td><?php echo e($detail['message']); ?></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+<?php $__env->startSection('footer_js'); ?>
+    <script>
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, "script", "Messenger"));
+
+        window.extAsyncInit = function () {
+            // the Messenger Extensions JS SDK is done loading
+            //close the webview
+            MessengerExtensions.requestCloseBrowser(function success() {
+
+            }, function error(err) {
+
+            });
+
+        };
+    </script>
+
+    <script>
+        $(function(){
+            var sender_id = "<?php echo e($sender_id); ?>";
+            var date = "<?php echo e($detail['date']); ?>";
+            var shift = "<?php echo e($detail['shift']); ?>";
+            var doctor_name = "<?php echo e($doctor_name); ?>";
+            var url = "https://norvic-chat-bot.herokuapp.com/appointment-success-callback?sender_id="+sender_id+"&date="+date+"&shift="+shift+"&doctor_name="+doctor_name;
+            $.ajax({
+                type: "GET",
+                url:url,
+                headers: {
+                    "Accept" : "application/json"
+                },
+                dataType: "json",
+                success: function(data){
+                    var sms_url = "<?php echo e(url('api/doctors/sendSMS/980211240/Amit')); ?>";
+                    console.log(sms_url);
+                    $.ajax({
+                        type: "GET",
+                        url: sms_url,
+                        success: function(data1){
+
+                        }
+
+                    })
+                }
+            });
+
+
+        });
+    </script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.api.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

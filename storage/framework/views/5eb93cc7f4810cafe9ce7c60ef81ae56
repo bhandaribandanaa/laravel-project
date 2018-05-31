@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Nirvana - <?php echo $__env->yieldContent('title'); ?></title>
+
+<?php echo Html::style('css/bootstrap.min.css'); ?>
+
+<?php echo Html::style('css/font-awesome.min.css'); ?>
+
+<?php echo Html::style('css/medical-guide-icons.css'); ?>
+
+<?php echo Html::style('css/animate.min.css'); ?>
+
+<?php echo Html::style('css/settings.css'); ?>
+
+<!-- REVOLUTION NAVIGATION STYLES -->
+    <?php echo Html::style('css/navigation.css'); ?>
+
+    <?php echo Html::style('css/owl.carousel.css'); ?>
+
+    <?php echo Html::style('css/owl.transitions.css'); ?>
+
+    <?php echo Html::style('css/jquery.fancybox.css'); ?>
+
+    <?php echo Html::style('css/zerogrid.css'); ?>
+
+    <?php echo Html::style('css/style.css'); ?>
+
+    <?php echo Html::style('css/loader.css'); ?>
+
+    <link rel="shortcut icon" href="<?php echo e(url('favicon.png')); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+    <?php echo $__env->yieldContent('header_css'); ?>
+
+</head>
+<body>
+<!--Loader-->
+<?php /*<div class="loader">
+  <div class="loader__figure"></div>
+  <p class="loader__label"><img src="<?php echo e(url('public/images/logo.png')); ?>" alt="logo"></p>
+</div>*/ ?>
+
+
+<?php echo $__env->yieldContent('main'); ?>
+
+
+<!-- Jquery -->
+
+<?php echo Html::script('js/jquery-2.2.3.js'); ?>
+
+<?php echo Html::script('js/bootstrap.min.js'); ?>
+
+
+<?php echo Html::script('js/jquery.tools.min.js'); ?>
+
+<?php echo Html::script('js/jquery.revolution.min.js'); ?>
+
+<?php echo Html::script('js/revolution.extension.layeranimation.min.js'); ?>
+
+<?php echo Html::script('js/revolution.extension.navigation.min.js'); ?>
+
+<?php echo Html::script('js/revolution.extension.parallax.min.js'); ?>
+
+<?php echo Html::script('js/revolution.extension.slideanims.min.js'); ?>
+
+<?php echo Html::script('js/revolution.extension.video.min.js'); ?>
+
+<?php echo Html::script('js/slider.js'); ?>
+
+<?php echo Html::script('js/owl.carousel.min.js'); ?>
+
+<?php echo Html::script('js/jquery.parallax-1.1.3.js'); ?>
+
+
+<?php echo Html::script('js/functions.js'); ?>
+
+<?php echo Html::script('js/parallax.js'); ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+
+<?php echo $__env->yieldContent('footer_js'); ?>
+
+
+
+</body>
+</html>

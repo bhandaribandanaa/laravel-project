@@ -1,0 +1,174 @@
+<?php $__env->startSection('title', 'News Management'); ?>
+<?php $__env->startSection('main'); ?>
+
+    <div class="container">
+        <div class="block-header">
+            <h2>News</h2>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="<?php echo e(route('admin.news.add')); ?>" class="btn btn-primary waves-effect">Add News</a>
+            </div>
+            <?php if(Session::has('add_success')): ?>
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> <?php echo e(Session::get('add_success')); ?>
+
+                </div>
+            <?php endif; ?>
+
+            <?php if(Session::has('edit_success')): ?>
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> <?php echo e(Session::get('edit_success')); ?>
+
+                </div>
+            <?php endif; ?>
+
+            <?php if(Session::has('del_success')): ?>
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> <?php echo e(Session::get('del_success')); ?>
+
+                </div>
+            <?php endif; ?>
+
+            <?php if(Session::has('error')): ?>
+                <div class="alert alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Warning!</strong> <?php echo e(Session::get('error')); ?>
+
+                </div>
+            <?php endif; ?>
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Added On</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php /**/$i=1/**/ ?>
+
+                    <?php $__empty_1 = true; foreach($news as $n): $__empty_1 = false; ?>
+                        <tr>
+                            <td><?php echo e($i++); ?></td>
+                            <td><?php echo e($n->title); ?></td>
+                            <td>
+                                <?php if($n->image): ?>
+                                    <img src="<?php echo e(asset('uploads/news/'.$n->image)); ?>" style="height: 90px; width: 160px;">
+                                <?php endif; ?>
+                            </td>
+                            <td> <span class="badge"><?php echo e($n->category); ?></span></td>
+                            <td><?php echo Helpers::string_limit($n->description,100); ?></td>
+                            <td>
+                                <?php if($n->status=='active'): ?>
+                                    <a class="label label-success">Published</a>
+                                <?php else: ?>
+                                    <a class="label label-danger">Unpublished</a>
+                                <?php endif; ?>
+                            </td>
+                            <td><?php echo e(Carbon\Carbon::parse($n->published_date)->toFormattedDateString()); ?></td>
+                            <td>
+                                <a href="<?php echo e(route('admin.news.edit',[$n->id])); ?>" title="Edit News"
+                                   data-toggle="tooltip"
+                                   class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i
+                                            class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
+
+                                <?php if($n->status == 1): ?>
+                                    <a href="<?php echo e(route('admin.news.changeStatus',[$n->id,'not_active'])); ?>"
+                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                       data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                <?php else: ?>
+                                    <a href="<?php echo e(route('admin.news.changeStatus',[$n->id,'active'])); ?>"
+                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                        data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                <?php endif; ?>
+
+                                <a href="javascript:void(0)"
+                                   class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                   data-id="<?php echo e($n->id); ?> data-toggle="tooltip" title="Delete News" data-placement="top"><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
+
+
+
+                            </td>
+                        </tr>
+                    <?php endforeach; if ($__empty_1): ?>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+                <div align="center">
+                    <?php echo $news->render(); ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footer_js'); ?>
+    <script type="text/javascript">
+
+        $(function(){
+            $(".delete").click(function(){
+                var id = $(this).data("id");
+                var $tr = $(this).closest('tr')
+                swal({
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this news!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    },
+                    function(){
+                        var url = "<?php echo e(url('admin/news/delete')); ?>/"+id;
+                        $.ajax({
+                            type: "GET",
+                            url: url,
+                            datatype: "json",
+                            success: function(data){
+                                var obj = jQuery.parseJSON(data);
+                                if(obj.status == 'success'){
+                                    swal("Deleted!", "News has been deleted.", "success");
+                                    $tr.find('td').fadeOut(1000,function(){
+                                        $tr.remove();
+                                    });
+                                }
+                            }
+                        });
+                    });
+            });
+        });
+
+    </script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

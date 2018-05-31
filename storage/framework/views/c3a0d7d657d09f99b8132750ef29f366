@@ -1,0 +1,82 @@
+<?php $__env->startSection('title', 'Add Gallery'); ?>
+<?php $__env->startSection('main'); ?>
+    <div class="container">
+    <ol class="breadcrumb" style="margin-bottom: 5px;">
+        <li><a href="<?php echo e(route('admin.dashboard')); ?>">Home</a></li>
+        <li><a href="<?php echo e(route('admin.choose.index')); ?>">Choose</a></li>
+        <li class="active">Add new Gallery</li>
+    </ol>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Add Choose Title
+                <small></small>
+            </h2>
+        </div>
+
+        <div class="card-body card-padding">
+            <?php if(count($errors) > 0): ?>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                    <ul class="list-unstyled">
+                        <?php foreach($errors->all() as $error): ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <form action="<?php echo e(route('admin.choose.editSubmit')); ?>" method="post" class="row" role="form"
+                  enctype="multipart/form-data" id="contentForm">
+
+                <div class="col-sm-12">
+                    <div class="form-group fg-line">
+                        <label class="" for="exampleInputEmail2">Title *</label>
+                        <input type="text" class="form-control input-sm" name="title" id=""
+                               placeholder="Enter Title" value="<?php echo e($choose->title); ?>">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group fg-line">
+                        <label class="" for="exampleInputEmail2">Subtitle *</label>
+                        <input type="text" class="form-control input-sm" name="subtitle" id=""
+                               placeholder="Enter Subtitle" value="<?php echo e($choose->subtitle); ?>">
+                    </div>
+                </div>
+                
+
+
+                <div class="col-sm-6">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Publish</label>
+                        <br/>
+                        <br/>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_active" value="1" checked="checked">
+                            <i class="input-helper"></i>
+                            Yes
+                        </label>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_active" value="0">
+                            <i class="input-helper"></i>
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <input type="hidden" name="id" value="<?php echo e($choose->id); ?>">
+                <?php echo csrf_field(); ?>
+
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary btn-sm m-t-5">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footer_js'); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

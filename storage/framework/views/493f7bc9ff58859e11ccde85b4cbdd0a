@@ -1,0 +1,199 @@
+
+<?php $__env->startSection('title', 'Timetable Management'); ?>
+<?php $__env->startSection('main'); ?>
+
+
+    <div class="container">
+        <div class="block-header">
+            <h2><?php echo e($doctor); ?>'s Timetable</h2>
+        </div>
+
+        <?php if(Session::get('success')): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Success!</strong> <?php echo e(Session::get('success')); ?>
+
+            </div>
+        <?php endif; ?>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="<?php echo e(route('admin.doctors.addSchedule',[$doctor_id])); ?>" class="btn btn-primary">Add New</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>S N</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Shift</th>
+                        <th>Days</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php /**/$i=1/**/ ?>
+
+                    <?php if(count($unavailable)==2): ?>
+                        <tr style="background-color: #ffb3b8k !important">
+                            <td><?php echo e($i++); ?></td>
+                            <td><?php echo e($unavailable[0]); ?></td>
+                            <td><?php echo e($unavailable[1]); ?></td>
+                            <td>Unavailable</td>
+                            <td>Unavailable</td>
+                            <td>
+                                <a href="#" class="delete-unavailable-time btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo e($doctor_id); ?>"
+                                   title="Delete Time" data-toggle="tooltip" ><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php $__empty_1 = true; foreach($timetable as $time): $__empty_1 = false; ?>
+
+                        <tr>
+                            <td><?php echo e($i++); ?></td>
+                            <td><?php echo e($time->start_date); ?></td>
+                            <td><?php echo e($time->end_date); ?></td>
+                            <td><?php echo $time->shift; ?></td>
+
+                            <td><?php echo $time->days; ?></td>
+                            <td>
+
+                                <?php if($time->status == 1): ?>
+                                    <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $time->id; ?>"  data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                <?php else: ?>
+                                    <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $time->id; ?>"  data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                <?php endif; ?>
+
+                                <a href="<?php echo e(route('admin.doctors.editTime',[$time->id])); ?>" title="Edit Time"
+                                   data-toggle="tooltip" class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
+                                <a href="#" class="delete-time btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="<?php echo $time->id; ?>"
+                                   title="Delete Time" data-toggle="tooltip" ><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
+                            </td>
+                        </tr>
+
+                    <?php endforeach; if ($__empty_1): ?>
+                        <tr>
+                            <td colspan="7"><h5 style="text-align: center;">No doctor schedule added yet.</h5></td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+                <?php echo $timetable->render(); ?>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer_js'); ?>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.delete-time').click(function (event) {
+                event.preventDefault();
+                $object = this;
+//
+                swal({
+                    title: "Are you sure?",
+                    text: "You will do you want to delete this record ?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                }, function () {
+                    debugger;
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo e(route("admin.doctors.timeDelete")); ?>',
+                        data: {id: $object.id, _token: '<?php echo csrf_token(); ?>'},
+                        success: function (response) {
+                            if (response.status == true) {
+                                $($object).parent('td').parent('tr').remove();
+                                swal("Deleted!", response.message, "success");
+                            }
+                            else {
+                                swal("Error !", response.message, "error");
+                            }
+                        },
+                        error: function (e) {
+                            swal("Error !", response.message, "error");
+                        },
+                    });
+                });
+            });
+
+            $('.delete-unavailable-time').click(function (event) {
+                event.preventDefault();
+                $object = this;
+//
+                swal({
+                    title: "Are you sure?",
+                    text: "You will do you want to delete this record ?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                }, function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo e(route("admin.doctors.untimeDelete")); ?>',
+                        data: {id: $object.id, _token: '<?php echo csrf_token(); ?>'},
+                        success: function (response) {
+                            if (response.status == true) {
+                                $($object).parent('td').parent('tr').remove();
+                                swal("Deleted!", response.message, "success");
+                            }
+                            else {
+                                swal("Error !", response.message, "error");
+                            }
+                        },
+                        error: function (e) {
+                            swal("Error !", response.message, "error");
+                        },
+                    });
+                });
+            });
+
+            $('.change-status').click(function (event) {
+                event.preventDefault();
+                $object = this;
+                debugger;
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo e(route("admin.doctors.change_time_status")); ?>',
+                    data: {id: $object.id, _token: '<?php echo csrf_token(); ?>'},
+                    success: function (response) {
+                        if (response.is_active == 1) {
+                            $($object).html('<i class="zmdi zmdi-check-circle zmdi-hc-fw"></i>');
+                        } else {
+                            $($object).html('<i class="zmdi zmdi-lock zmdi-hc-fw"></i>');
+                        }
+                        swal({
+                            title: "Success!",
+                            text: response.message,
+                            imageUrl: AdminAssetPath + "img/thumbs-up.png",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    },
+                    error: function (e) {
+                        debugger;
+                    },
+                });
+            });
+        });
+
+    </script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -10,7 +10,7 @@ class NewsController extends Controller {
 	public function index()
 	{
 	    $data['category'] = NewsCategory::where('status','active')->get();
-        $data['all_news'] = News::where('status','active')->orderBy('id','desc')->paginate(6);
+        $data['all_news'] = News::where('status','active')->orderBy('published_date','desc')->paginate(6);
 		return view('news::v_news',$data);
 	}
 

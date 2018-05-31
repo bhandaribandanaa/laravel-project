@@ -1,0 +1,171 @@
+<?php $__env->startSection('title', 'Add Content'); ?>
+<?php $__env->startSection('header_css'); ?>
+    <?php echo Html::style('backend/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css'); ?>
+
+    <?php echo Html::style('backend/vendors/bower_components/summernote/dist/summernote.css'); ?>
+
+    <?php echo Html::style('backend/vendors/chosen_v1.4.2/chosen.min.css'); ?>
+
+    <?php echo Html::style('backend/css/formValidation.min.css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+    <div class="container">
+
+    <ol class="breadcrumb" style="margin-bottom: 5px;">
+        <li><a href="<?php echo e(route('admin.dashboard')); ?>">Home</a></li>
+        <li><a href="<?php echo e(route('admin.doctors.index')); ?>">Doctors</a></li>
+        <li class="active">Edit time</li>
+    </ol>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Edit time
+                <small></small>
+            </h2>
+        </div>
+
+        <div class="card-body card-padding">
+            <?php if(count($errors) > 0): ?>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                    <ul class="list-unstyled">
+                        <?php foreach($errors->all() as $error): ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
+            <?php if(Session::get('exists')): ?>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Warning!</strong> <?php echo e(Session::get('exists')); ?>
+
+                </div>
+            <?php endif; ?>
+
+            <form action="<?php echo e(route('admin.doctors.editTimeSubmit')); ?>" method="post" class="row" role="form"
+                  enctype="multipart/form-data" id="contentForm">
+
+                <div class="col-sm-12" style="margin-bottom: 20px;">
+                    <p class="f-500 m-b-15 c-black">Select Day*</p>
+                    <select class="selectpicker" name="day" data-live-search="true" id="parent_id">
+                        <option value="Sunday" <?php if($time->day == 'Sunday'): ?> selected <?php endif; ?>>Sunday</option>
+                        <option value="Monday" <?php if($time->day == 'Monday'): ?> selected <?php endif; ?>>Monday</option>
+                        <option value="Tuesday" <?php if($time->day == 'Tuesday'): ?> selected <?php endif; ?>>Tuesday</option>
+                        <option value="Wednesday" <?php if($time->day == 'Wednesday'): ?> selected <?php endif; ?>>Wednesday</option>
+                        <option value="Thursday" <?php if($time->day == 'Thursday'): ?> selected <?php endif; ?>>Thursday</option>
+                        <option value="Friday" <?php if($time->day == 'Friday'): ?> selected <?php endif; ?>>Friday</option>
+                        <option value="Saturday" <?php if($time->day == 'Saturday'): ?> selected <?php endif; ?>>Saturday</option>
+                    </select>
+                </div>
+                
+                <div class="col-sm-12" style="margin-bottom: 20px;">
+                    <p class="f-500 m-b-15 c-black">Select Shift*</p>
+                    <select class="selectpicker" name="shift" data-live-search="true" id="parent_id">
+                        <option value="Morning" <?php if($time->shift == 'Morning'): ?> selected <?php endif; ?>>Morning</option>
+                        <option value="Day" <?php if($time->shift == 'Day'): ?> selected <?php endif; ?>>Day</option>
+                        <option value="Evening" <?php if($time->shift == 'Evening'): ?> selected <?php endif; ?>>Evening</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Enter Time *</label>
+                        <input type="text" class="form-control input-sm" name="time" id="" value="<?php echo e($time->time); ?>"
+                               placeholder="Enter Time">
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Publish</label>
+                        <br/>
+                        <br/>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="status" value="1" checked="checked">
+                            <i class="input-helper"></i>
+                            Yes
+                        </label>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="status" value="0">
+                            <i class="input-helper"></i>
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <input type="hidden" name="id" value="<?php echo e($time->id); ?>">
+                <?php echo csrf_field(); ?>
+
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary btn-sm m-t-5">Edit Shift</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer_js'); ?>
+    <?php echo Html::script('backend/js/formValidation.min.js'); ?>
+
+    <?php echo Html::script('backend/js/form_bootstrap.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js'); ?>
+
+    <?php echo Html::script('backend/vendors/bower_components/summernote/dist/summernote.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/fileinput/fileinput.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/chosen_v1.4.2/chosen.jquery.min.js'); ?>
+
+    <script>
+        $(document).ready(function () {
+            $('#contentForm')
+
+                    .formValidation({
+                        framework: 'bootstrap',
+                        excluded: [':disabled'],
+                        icon: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            day: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The day is required'
+                                    }
+                                }
+                            },
+                            shift: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The shift is required'
+                                    }
+                                }
+                            },
+                            time: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The time field is required'
+                                    }
+                                }
+                            }                               
+
+                        }
+                    })
+                    
+
+        });
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

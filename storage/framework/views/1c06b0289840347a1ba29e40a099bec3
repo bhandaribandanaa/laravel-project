@@ -1,0 +1,233 @@
+<?php $__env->startSection('title', 'Add Manual Booking'); ?>
+<?php $__env->startSection('header_css'); ?>
+    <?php echo Html::style('backend/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css'); ?>
+
+    <?php echo Html::style('backend/vendors/bower_components/summernote/dist/summernote.css'); ?>
+
+    <?php echo Html::style('backend/vendors/chosen_v1.4.2/chosen.min.css'); ?>
+
+    <?php echo Html::style('backend/css/formValidation.min.css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+    <div class="container">
+
+        <ol class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="<?php echo e(route('admin.dashboard')); ?>">Home</a></li>
+            <li><a href="<?php echo e(route('admin.appointments.index')); ?>">Appointments</a></li>
+            <li class="active">Add Manual Appointment</li>
+        </ol>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Enter Patient Info
+                    <small></small>
+                </h2>
+            </div>
+
+            <div class="card-body card-padding">
+                <?php if(count($errors) > 0): ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">×</span></button>
+                        <ul class="list-unstyled">
+                            <?php foreach($errors->all() as $error): ?>
+                                <li><?php echo e($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+                <form action="<?php echo e(route('admin.appointments.manualAppointmentSubmit')); ?>" method="post" class="row" role="form"
+                      enctype="multipart/form-data" id="contentForm">
+
+                    <div class="col-sm-12">
+                        <div class="form-group fg-line">
+                            <label class="" for="exampleInputEmail2">Full Name *</label>
+                            <input type="text" class="form-control input-sm" name="full_name" id="" value="<?php echo e(old('full_name')); ?>"
+                                   placeholder="Enter Full Name" required>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group fg-line">
+                            <label class="" for="">Doctor*</label>
+                            <select name="doctor_id" id="" class="selectpicker" data-live-search="true" required>
+                                <option value="">Choose a doctor</option>
+                                <?php foreach($doctors as $doc): ?>
+                                    <option value="<?php echo e($doc->id); ?>"> <?php echo e($doc->full_name); ?> </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group fg-line">
+                            <label class="" for="exampleInputEmail2">Address</label>
+                            <input type="text" class="form-control input-sm" name="address" id="" value="<?php echo e(old('address')); ?>"
+                                   placeholder="Enter Address">
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group fg-line">
+                            <label class="" for="exampleInputEmail2">Mobile</label>
+                            <input type="text" class="form-control input-sm" name="mobile" id="" value="<?php echo e(old('mobile')); ?>"
+                                   placeholder="Enter Contact">
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group fg-line">
+                            <label class="" for="exampleInputEmail2">Email</label>
+                            <input type="text" class="form-control input-sm" name="email" id="" value="<?php echo e(old('email')); ?>"
+                                   placeholder="Enter Email">
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group fg-line">
+                            <label class="" for="exampleInputEmail2">Message</label>
+                            <p><textarea name="message" placeholder="Message" rows="5" cols="100"></textarea></p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group fg-line">
+                            <label class="" for="">Booking as</label>
+                            <br/>
+                            <br/>
+                            <label class="radio radio-inline m-r-20">
+                                <input type="radio" name="status" value="successful">
+                                <i class="input-helper"></i>
+                                Successful
+                            </label>
+                            <label class="radio radio-inline m-r-20">
+                                <input type="radio" name="status" value="confirm" checked="checked">
+                                <i class="input-helper"></i>
+                                Confirm
+                            </label>
+                            <label class="radio radio-inline m-r-20">
+                                <input type="radio" name="status" value="pending">
+                                <i class="input-helper"></i>
+                                Pending
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <?php echo csrf_field(); ?>
+
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary btn-sm m-t-5">Add Appointment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer_js'); ?>
+    <?php echo Html::script('backend/js/formValidation.min.js'); ?>
+
+    <?php echo Html::script('backend/js/form_bootstrap.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js'); ?>
+
+    <?php echo Html::script('backend/vendors/bower_components/summernote/dist/summernote.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/fileinput/fileinput.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/chosen_v1.4.2/chosen.jquery.min.js'); ?>
+
+    <script>
+        $(function(){
+            $("#description").summernote();
+        });
+
+        $(document).ready(function () {
+            $('#contentForm')
+
+                .find('[name="display_in[]"]')
+                .selectpicker()
+                .change(function (e) {
+                    // revalidate the color when it is changed
+                    $('#contentForm').formValidation('revalidateField', 'display_in[]');
+                })
+                .end()
+
+
+                .formValidation({
+                    framework: 'bootstrap',
+                    excluded: [':disabled'],
+                    icon: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        heading: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The heading is required'
+                                }
+                            }
+                        },
+                        "display_in[]": {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The display in is required'
+                                }
+                            }
+                        },
+                        full_name: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Patient name is required.'
+                                }
+                            }
+                        },
+
+                        doctor_id: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please select a doctor.'
+                                }
+                            }
+                        },
+                        content: {
+                            validators: {
+                                callback: {
+                                    message: 'The content is required and cannot be empty',
+                                    callback: function (value, validator, $field) {
+                                        var code = $('[name="content"]').code();
+                                        // <p><br></p> is code generated by Summernote for empty content
+                                        return (code !== '' && code !== '<p><br></p>');
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                })
+                .find('[name="content"]')
+                .summernote({
+                    height: 400
+                })
+                .on('summernote.change', function (customEvent, contents, $editable) {
+                    // Revalidate the content when its value is changed by Summernote
+                    $('#contentForm').formValidation('revalidateField', 'content');
+                })
+
+                .on('err.form.fv', function (e) {
+                })
+                .end();
+
+        });
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

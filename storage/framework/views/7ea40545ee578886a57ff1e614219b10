@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 9 ]>
+<html class="ie9">
+    <![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PNDC Admin - 13th International Conference of SIMON&#39;s Participants</title>
+        <!-- Vendor CSS -->
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/plugins/animate.css/animate.min.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/plugins/bootstrap-sweetalert/lib/sweet-alert.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/plugins/bootstrap-sweetalert/lib/sweetalert2.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/plugins/material-design-iconic-font/css/material-design-iconic-font.min.css">
+        <!-- CSS -->
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/sweetAlert/sweetalert.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/sweetAlert/swal-forms.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/css/dataTables.material.min.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/css/material.min.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/css/app.min.1.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/css/app.min.2.css">
+        <link media="all" type="text/css" rel="stylesheet" href="http://localhost/pn/simon/public/backend/css/style.css">
+        <script src="http://localhost/pn/simon/public/backend/js/jquery.min.js"></script>
+    </head>
+    <body>
+        <header id="header">
+            <ul class="header-inner">
+            <li id="menu-trigger" data-trigger="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+            <li class="logo hidden-xs">
+                <a href="http://localhost/pn/simon/public/admin/dashboard">Simon Admin</a>
+            </li>
+            <li class="pull-right">
+                <ul class="top-menu">
+                    <li id="toggle-width">
+                        <div class="toggle-switch">
+                            <input id="tw-switch" type="checkbox" hidden="hidden">
+                            <label for="tw-switch" class="ts-helper"></label>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="tm-settings" href=""></a>
+                        <ul class="dropdown-menu dm-icon pull-right">
+                            <li class="hidden-xs">
+                                <a href="http://localhost/pn/simon/public/admin/users/profile"><i class="zmdi zmdi-account"></i>Update Profile</a>
+                            </li>
+                            <li class="hidden-xs">
+                                <a href="http://localhost/pn/simon/public/admin/users/change-password"><i
+                                    class="zmdi zmdi-key zmdi-hc-fw"></i>Change
+                                Password</a>
+                            </li>
+                            <li class="hidden-xs">
+                                <a href="http://localhost/pn/simon/public/admin/logout"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    </li>
+                </ul>
+        </header>
+        <section id="main">
+        <aside id="sidebar">
+        <div class="sidebar-inner c-overflow">
+        <div class="profile-menu">
+        <a href="javascript:void(0)">
+        <div class="profile-pic">
+        <img src="http://localhost/pn/simon/public/uploads/users/users_z3udbFZQm3REaBfihy1r.png">
+        </div>
+        <div class="profile-info">
+        Simon Admin
+        <i class="zmdi zmdi-arrow-drop-down"></i>
+        </div>
+        </a>
+        <ul class="main-menu">
+        <li>
+        <a href="http://localhost/pn/simon/public/admin/users/profile"><i class="zmdi zmdi-account"></i>Update Profile</a>
+        </li>
+        <li>
+        <a href="http://localhost/pn/simon/public/admin/users/change-password"><i class="zmdi zmdi-key zmdi-hc-fw"></i>Change
+        Password</a>
+        </li>
+        <li>
+        <a href="http://localhost/pn/simon/public/admin/logout"><i class="zmdi zmdi-time-restore"></i>Logout</a>
+        </li>
+        </ul>
+        </div>
+        <ul class="main-menu">
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/dashboard"><i class="zmdi zmdi-home"></i> Home</a></li>
+        <li class="sub-menu ">
+        <a href=""><i class="zmdi zmdi-widgets"></i> Configurations</a>
+        <ul>
+        <li><a href="http://localhost/pn/simon/public/admin/configuration/usertypes"
+            class=""><i
+            class="zmdi zmdi-apps zmdi-hc-fw"></i> User Types</a></li>
+        </ul>
+        </li>
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/content"><i class="zmdi zmdi-collection-item"></i>Content
+        Management</a></li>
+        <li class="sub-menu active toggled">
+        <a href="javascript:void(0)"><i class="zmdi zmdi-calendar"></i>Event Management</a>
+        <ul>
+        <li><a href="http://localhost/pn/simon/public/admin/events"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>
+        Event</a></li>
+        <li><a href="http://localhost/pn/simon/public/admin/events/registration/1"
+            class=""><i
+            class="zmdi zmdi-format-align-center zmdi-hc-fw"></i> Event Register type</a>
+        </li>
+        </ul>
+        </li>
+        <li class="sub-menu ">
+        <a href="javascript:void(0)"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>Member Management</a>
+        <ul>
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/members/existing"><i
+            class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>Members</a>
+        </li>
+        <li><a href="http://localhost/pn/simon/public/admin/members/new"
+            class=""><i
+            class="zmdi zmdi-format-align-center zmdi-hc-fw"></i> New Members</a>
+        </li>
+        </ul>
+        </li>
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/gallery"><i class="zmdi zmdi-image"></i>Gallery</a></li>
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/banner"><i class="zmdi zmdi-image"></i>Banner
+        Management</a>
+        </li>
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/newsletter"><i class="zmdi zmdi-view-subtitles"></i>Newsletter
+        Management</a></li>
+        <li class="sub-menu ">
+        <a href=""><i class="zmdi zmdi-download"></i> Download Management</a>
+        <ul>
+        <li><a href="http://localhost/pn/simon/public/admin/downloads/category"
+            class=""><i
+            class="zmdi zmdi-collection-video zmdi-hc-fw"></i>Category</a></li>
+        <li><a href="http://localhost/pn/simon/public/admin/downloads/video"
+            class=""><i
+            class="zmdi zmdi-collection-video zmdi-hc-fw"></i>Mange Video</a></li>
+        <li><a href="http://localhost/pn/simon/public/admin/downloads/file"
+            class=""><i
+            class="zmdi zmdi-image zmdi-hc-fw"></i>Manage File</a></li>
+        </ul>
+        </li>
+        <li class=""><a
+            href="http://localhost/pn/simon/public/admin/users/users"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>
+        Users</a></li>
+        <li>&nbsp;<br>
+        </li>
+        </ul>
+        </div>
+        </aside>
+        <section id="content">
+        <div class="container">
+        <div class="block-header">
+        <h2>13th International Conference of SIMON&#39;s Participants</h2>
+        </div>
+        <div class="card">
+        <form method="GET" action="http://localhost/pn/simon/public/admin/events/participants/4/13th-international-conference" accept-charset="UTF-8" class="" id="" enctype="multipart/form-data">
+        <div class="card-body card-padding">
+        <div class="row">
+        <div class="col-sm-3 course-div">
+        <div class="form-group fg-float fg-toggled">
+        <div class="fg-line">
+        <select class="form-control fg-input" name="payment_status"><option selected="selected" value="">Choose payment status</option><option value="1">Paid</option><option value="2">Credit</option><option value="3">Unpaid</option></select>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-3 course-div">
+        <div class="form-group fg-float fg-toggled">
+        <div class="fg-line">
+        <select class="form-control fg-input" id="event_registration_type" name="event_registration_type"><option value="" selected="selected">All Registration Type</option><option value="1">SIMON members and Residents</option><option value="2">SIMON Non Members</option><option value="3">SAARC Countries</option><option value="4">Non SAARC Countries</option></select>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-3 course-div">
+        <div class="form-group fg-float fg-toggled">
+        <div class="fg-line">
+        <select class="form-control fg-input" id="workshop_type" name="workshop_type"><option value="" selected="selected">With/Without Workshop Type</option><option value="1">Emergency Neurological Life Support</option><option value="2">Royal College of Physicians of Edinburg Acute Medicine</option></select>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-3 course-div">
+        <div class="form-group fg-float fg-toggled">
+        <div class="fg-line">
+        <select class="form-control fg-input" id="accompany_type" name="accompany_type"><option value="" selected="selected">With/Without Accompanying Person</option><option value="1">With Accompanying Person</option><option value="2">Without Accompanying Person</option></select>
+        </div>
+        </div>
+        </div>
+        <div class="col-md-12 actionbtns">
+        <input class="btn btn-primary waves-effect pull-right" style="background-color: #2196f3;" type="submit" value="SUBMIT"></form>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-header">
+        <a href="http://localhost/pn/simon/public/admin/events/participants/4/13th-international-conference/add"
+            class="left btn btn-primary waves-effect">Add Participants</a>
+        </div>
+        
+        </div>
+        </div>
+        </section>
+        </section>
+        <footer id="footer">
+        Copyright &copy; 2017 PNDC Admin
+        <ul class="f-menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">Dashboard</a></li>
+        <li><a href="">Reports</a></li>
+        <li><a href="">Support</a></li>
+        <li><a href="">Contact</a></li>
+        </ul>
+        </footer>
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+        <div class="ie-warning">
+        <h1 class="c-white">Warning!!</h1>
+        <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers
+        to access this website.</p>
+        <div class="iew-container">
+        <ul class="iew-download">
+        <li>
+        <a href="http://www.google.com/chrome/">
+        <img src="img/browsers/chrome.png" alt="">
+        <div>Chrome</div>
+        </a>
+        </li>
+        <li>
+        <a href="https://www.mozilla.org/en-US/firefox/new/">
+        <img src="img/browsers/firefox.png" alt="">
+        <div>Firefox</div>
+        </a>
+        </li>
+        <li>
+        <a href="http://www.opera.com">
+        <img src="img/browsers/opera.png" alt="">
+        <div>Opera</div>
+        </a>
+        </li>
+        <li>
+        <a href="https://www.apple.com/safari/">
+        <img src="img/browsers/safari.png" alt="">
+        <div>Safari</div>
+        </a>
+        </li>
+        <li>
+        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+        <img src="img/browsers/ie.png" alt="">
+        <div>IE (New)</div>
+        </a>
+        </li>
+        </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+        </div>
+        <![endif]-->
+        <!-- Javascript Libraries -->
+        <script src="http://localhost/pn/simon/public/backend/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/flot/jquery.flot.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/flot.curvedlines/curvedLines.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/sparklines/jquery.sparkline.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/moment/min/moment.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/simpleWeather/jquery.simpleWeather.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/Waves/dist/waves.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/fullcalendar/dist/fullcalendar.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/bootstrap-sweetalert/lib/sweetalert2.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/plugins/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <!--[if IE 9 ]>
+        <script src="http://localhost/pn/simon/public/backend/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+        <script src="http://localhost/pn/simon/public/backend/js/flot-charts/curved-line-chart.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/js/flot-charts/line-chart.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/js/charts.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/js/functions.js"></script>
+        <script>
+            var siteAdminURL = 'http://localhost/pn/simon/public/admin/';
+            var AdminAssetPath = 'http://localhost/pn/simon/public/backend/';
+        </script>
+        <script src="http://localhost/pn/simon/public/backend/sweetAlert/sweetalert.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/js/jquery.dataTables.min.js"></script>
+        <script src="http://localhost/pn/simon/public/backend/js/dataTables.material.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.datatable').on('click', '.delete-participant', function (event) {
+                    event.preventDefault();
+                    $object = this;
+                    swal({
+                        title: "Are you sure?",
+                        text: "You will do you want to delete this Participant ?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    }, function () {
+                        debugger;
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http://localhost/pn/simon/public/admin/events/delete-participant',
+                            data: {id: $object.id, _token: 'greqmfrK1f8z6oXjVXlBb96OP8Uf4izYJEhAyPAh'},
+                            success: function (response) {
+                                debugger;
+                                if (response.status == true) {
+                                    $($object).parent('td').parent('tr').remove();
+                                    swal("Deleted!", response.message, "success");
+                                }
+                                else {
+            
+                                    swal("Error !", response.message, "error");
+                                }
+            
+                            },
+                            error: function (e) {
+                                swal("Error !", response.message, "error");
+                            },
+                        });
+                    });
+                });
+                $('.change-barcode').click(function (event) {
+                    event.preventDefault();
+                    $object = this;
+                    swal({
+                                title: "Assign Barcode",
+                                text: "Barcode:",
+                                type: "input",
+                                showCancelButton: true,
+                                closeOnConfirm: false,
+                                animation: "slide-from-top",
+                                inputPlaceholder: "New Barcode number"
+                            },
+                            function (inputValue) {
+                                if (inputValue === false) return false;
+                                if (inputValue === "") {
+                                    swal.showInputError("Barcode number is required");
+                                    return false
+                                } else {
+                                    debugger;
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'http://localhost/pn/simon/public/admin/events/participants/update_barcode',
+                                        data: {
+                                            id: $object.id,
+                                            event_id: '4',
+                                            barcode: inputValue,
+                                            _token: 'greqmfrK1f8z6oXjVXlBb96OP8Uf4izYJEhAyPAh'
+                                        },
+                                        success: function (response) {
+                                            debugger;
+                                            if (response.status == true) {
+                                                swal("Updated !", response.message, "success");
+                                            }
+                                            else {
+                                                swal("Error !", response.message, "error");
+                                            }
+                                        },
+                                        error: function (e) {
+                                            swal("Error !", response.message, "error");
+                                        },
+                                    });
+                                }
+                            });
+                });
+            });
+        </script>
+        
+        <link rel='stylesheet' type='text/css' href='http://localhost/pn/simon/public/_debugbar/assets/stylesheets?v=1491460993'><script type='text/javascript' src='http://localhost/pn/simon/public/_debugbar/assets/javascript?v=1491460993'></script><script type="text/javascript">jQuery.noConflict(true);</script>
+        
+    </body>
+</html>
+

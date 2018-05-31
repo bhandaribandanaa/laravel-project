@@ -1,0 +1,177 @@
+<?php $__env->startSection('title', 'Add Package'); ?>
+<?php $__env->startSection('header_css'); ?>
+    <?php echo Html::style('backend/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css'); ?>
+
+    <?php echo Html::style('backend/vendors/bower_components/summernote/dist/summernote.css'); ?>
+
+    <?php echo Html::style('backend/vendors/chosen_v1.4.2/chosen.min.css'); ?>
+
+    <?php echo Html::style('backend/css/formValidation.min.css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+    <div class="container">
+
+    <ol class="breadcrumb" style="margin-bottom: 5px;">
+        <li><a href="<?php echo e(route('admin.dashboard')); ?>">Home</a></li>
+        <li><a href="<?php echo e(route('admin.packages.index')); ?>">Packages</a></li>
+        <li class="active">Add new doctor</li>
+    </ol>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Add new package
+                <small></small>
+            </h2>
+        </div>
+
+        <div class="card-body card-padding">
+            <?php if(count($errors) > 0): ?>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                    <ul class="list-unstyled">
+                        <?php foreach($errors->all() as $error): ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <form action="<?php echo e(route('admin.packages.addSubmit')); ?>" method="post" class="row" role="form"
+                  enctype="multipart/form-data" id="contentForm">
+
+                <div class="col-sm-12">
+                    <div class="form-group fg-line">
+                        <label class="" for="exampleInputEmail2">Title *</label>
+                        <input type="text" class="form-control input-sm" name="title" id="" value="<?php echo e(old('title')); ?>"
+                               placeholder="Enter Title">
+                    </div>
+
+                </div>
+               
+
+                <div class="col-sm-12">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Description</label>
+                        <textarea id="description" name="description" class="form-control" rows="3"
+                                  placeholder="Meta description"><?php echo e(old('description')); ?></textarea>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Image</label>
+                        <br/>
+
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
+                            <div>
+                                    <span class="btn btn-info btn-file">
+                                        <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="image">
+                                    </span>
+                                <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Publish</label>
+                        <br/>
+                        <br/>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="status" value="1" checked="checked">
+                            <i class="input-helper"></i>
+                            Yes
+                        </label>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="status" value="0">
+                            <i class="input-helper"></i>
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <?php echo csrf_field(); ?>
+
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary btn-sm m-t-5">Add Package</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer_js'); ?>
+    <?php echo Html::script('backend/js/formValidation.min.js'); ?>
+
+    <?php echo Html::script('backend/js/form_bootstrap.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js'); ?>
+
+    <?php echo Html::script('backend/vendors/bower_components/summernote/dist/summernote.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/fileinput/fileinput.min.js'); ?>
+
+    <?php echo Html::script('backend/vendors/chosen_v1.4.2/chosen.jquery.min.js'); ?>
+
+    <script>
+        $(function(){
+            $("#description").summernote();
+        });
+
+        $(document).ready(function () {
+            $('#contentForm')
+
+                    .find('[name="display_in[]"]')
+                    .selectpicker()
+                    .change(function (e) {
+                        // revalidate the color when it is changed
+                        $('#contentForm').formValidation('revalidateField', 'display_in[]');
+                    })
+                    .end()
+
+
+                    .formValidation({
+                        framework: 'bootstrap',
+                        excluded: [':disabled'],
+                        icon: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            title: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The title is required'
+                                    }
+                                }
+                            }
+
+                        }
+                    })
+                    .find('[name="content"]')
+                    .summernote({
+                        height: 400
+                    })
+                    .on('summernote.change', function (customEvent, contents, $editable) {
+                        // Revalidate the content when its value is changed by Summernote
+                        $('#contentForm').formValidation('revalidateField', 'content');
+                    })
+
+                    .on('err.form.fv', function (e) {
+                    })
+                    .end();
+
+        });
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

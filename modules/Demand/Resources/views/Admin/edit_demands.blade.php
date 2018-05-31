@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+.@extends('admin.layout.app')
 @section('title', 'Add Demand')
 @section('header_css')
     {!! Html::style('backend/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css') !!}

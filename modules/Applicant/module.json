@@ -1,0 +1,15 @@
+{
+    "name": "Applicant",
+    "alias": "applicant",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Applicant\\Providers\\ApplicantServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
