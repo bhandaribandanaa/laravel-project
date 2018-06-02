@@ -79,7 +79,6 @@ class ContentController extends Controller {
        $parent = Content::findBySlug($slug);
        $id =Content::findBySlug($slug);
 
-      $data= Content::with('image')->where('slug',$slug)->firstOrFail();
       
         $ids = $id -> id;
 
@@ -92,6 +91,8 @@ class ContentController extends Controller {
        elseif($parent_id == 1){
         if($ids == 29)
         {
+           $data= Content::with('image')->where('is_active' 1)->get();
+      
           $data = $data['image']->image;
 
             return view('companydocument::v_all')->with(array('data'=>$data));
