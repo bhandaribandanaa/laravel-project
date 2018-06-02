@@ -93,6 +93,11 @@
                             href="{{ route('admin.gallery.index') }}"><i class="zmdi zmdi-image"></i>Gallery</a></li>
             @endif
 
+            
+
+
+             
+
             <li class="sub-menu ">
                 <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>News</a>
                 <ul>
@@ -110,6 +115,16 @@
                     </li>
                 </ul>
             </li>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -140,6 +155,27 @@
                     
                 </ul>
             </li>
+
+            @if(Access::hasAccess('companydocument-management', 'access_view'))
+                <li class="{{ (Request::segment(2)=='companydocument' ? 'active':'') }}"><a
+                            href="{{ route('admin.companydocument.index') }}"><i class="zmdi zmdi-image"></i>Company Document</a></li>
+            @endif
+
+            <li class="sub-menu ">
+                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Company Document Management</a>
+                <ul>
+                    <li class=""><a
+                                href="{{ route('admin.companydocument.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Company Document</a>
+                    </li>
+                    <li><a href="{{ route('admin.companydocument.add') }}"
+                           class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Company Document</a>
+                    </li>
+                    
+                </ul>
+            </li>
+
+
+
 
 
 

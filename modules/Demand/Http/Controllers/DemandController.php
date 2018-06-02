@@ -10,7 +10,7 @@ class DemandController extends Controller {
 	{
 		
 	
-	    $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->get();
+	    $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->paginate(5);
         
 		return view('demand::v_demands')->with(array('demands' => $demands));
 	}

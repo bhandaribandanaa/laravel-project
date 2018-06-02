@@ -27,8 +27,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="title">Gallery</h2>
-                        <div class="page_link"><a href="#">Home</a><i class="fa fa-long-arrow-right"></i><span>Gallery</span></div>
+                        <h2 class="title">Company Document</h2>
+                        <div class="page_link"><a href="#">Home</a><i class="fa fa-long-arrow-right"></i><span>Company Document</span></div>
                     </div>
                 </div>
             </div>
@@ -53,9 +53,9 @@
                                     <div class="wrap-col">
                                         <div class="item-container">
                                             <div class="image">
-                                                <a href="{{ asset('uploads/gallery/'.$gal->image) }}"
+                                                <a href="{{ asset('uploads/companydocument/'.$gal->image) }}"
                                                    data-lightbox="gallery-{{$i}}" id="{{$i}}">
-                                                    <img src="{{ asset('uploads/gallery/'.$gal->image) }}">
+                                                    <img src="{{ asset('uploads/companydocument/'.$gal->image) }}">
                                                 </a>
                                             </div>
                                             <div class="gallery_content">

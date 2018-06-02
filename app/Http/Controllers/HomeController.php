@@ -7,8 +7,13 @@ use App\PackageBookings;
 use Modules\Banner\Entities\Banner;
 use Modules\Gallery\Entities\Album;
 use Modules\Gallery\Entities\Images;
+
 use Modules\Events\Entities\Events;
 use Input;
+use Redirect;
+use Session;
+use Auth;
+
 use Validator;
 use App\Newsletter;
 use App\News;
@@ -42,6 +47,7 @@ class HomeController extends Controller
     public function getHome()
  {
       $banner = Banner::where('is_active',1)->get();
+     
 
         $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->get();
         

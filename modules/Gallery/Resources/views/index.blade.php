@@ -1,5 +1,5 @@
 @extends('layout.frontend.app')
-@section('title', 'Gallery')
+@section('title', 'Company Documents')
 @section('header_css')
     <style>
         .news.vertical {
@@ -21,8 +21,8 @@
                                     <div class="news-image">
                                         <a href="{{ route('gallery.view',array($album->id)) }}">
 
-                                            @if($album->images && file_exists('uploads/gallery/'. $album->images[0]->image))
-                                                <img src="{{URL::asset('uploads/gallery/'. $album->images[0]->image) }}"
+                                            @if($album->images && file_exists('uploads/companydocument/'. $album->images[0]->image))
+                                                <img src="{{URL::asset('uploads/companydocument/'. $album->images[0]->image) }}"
                                                      class="responsive-img">
                                             @else
                                                 <img src="{{ asset('images/no-photo.jpg' ) }}" class="responsive-img">
@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="news-description">
                                         <div class="news-title"><a
-                                                    href="{{ route('gallery.view',array($album->id)) }}">{{ $album->name }}</a>
+                                                    href="{{ route('companydocument.view',array($album->id)) }}">{{ $album->name }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                 @else
 
 
-                    <p>No Gallery Added yet.</p>
+                    <p>No Company Document Added yet.</p>
                 @endif
 
                 <div class="col m12 mgt20">

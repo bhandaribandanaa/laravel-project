@@ -30,7 +30,7 @@ class AdminDemandController extends Controller
     public function index()
     {
 
-       $demands = Demand::paginate(8);
+       $demands = Demand::paginate(5);
        // dd("here");
       
           

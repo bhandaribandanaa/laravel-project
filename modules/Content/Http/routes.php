@@ -31,5 +31,6 @@ Route::group(['prefix' => 'pages', 'namespace' => 'Modules\Content\Http\Controll
     Route::post('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'ContentController@postContact'));
 
     Route::get('/gallery', array('as' => 'pages.gallery', 'uses' => 'ContentController@getGallery'));
+    
     Route::get('/{slug}', array('as' => 'pages.detail', 'uses' => 'ContentController@getPageBySlug'));
 });

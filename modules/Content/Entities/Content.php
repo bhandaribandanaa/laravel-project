@@ -58,6 +58,28 @@ class Content extends Model implements SluggableInterface
     /**
      * Get all of the content photos.
      */
+
+    public function images()
+    {
+        return $this->morphMany('Modules\CompanyDocument\Entities\Images', 'imageable');
+    }
+
+     public function image()
+    {
+        return $this->morphOne('Modules\CompanyDocument\Entities\Images', 'imageable');
+    }
+
+        public function albums()
+    {
+        return $this->morphMany('Modules\CompanyDocument\Entities\Album', 'imageable');
+    }
+
+     public function album()
+    {
+        return $this->morphOne('Modules\CompanyDocument\Entities\Album', 'imageable');
+    }
+
+
     public function photos()
     {
         return $this->morphMany('Modules\Media\Entities\Media', 'imageable');

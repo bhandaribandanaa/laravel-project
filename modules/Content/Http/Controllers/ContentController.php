@@ -77,6 +77,11 @@ class ContentController extends Controller {
        $content= Content::with('photo')->where('slug',$slug)->firstOrFail();
       
        $parent = Content::findBySlug($slug);
+       $id =Content::findBySlug($slug);
+
+      $data= Content::with('image')->where('slug',$slug)->firstOrFail();
+      
+        $ids = $id -> id;
 
         $parent_id = $parent->parent_id;
 
@@ -84,12 +89,24 @@ class ContentController extends Controller {
           $image_name = $content['photo']->file_name;
             return view('content::viewpage')->with(array('content'=>$content, 'image_name' => $image_name));
        } 
-       elseif($parent_id == 1) {
-            return view('content::content_detail')->with(array('content'=>$content));
-       } else {
-            return view('content::content_detail')->with(array('content'=>$content));
-       }
-     }
+       elseif($parent_id == 1){
+        if($ids == 29)
+        {
+          $data = $data['image']->image;
+
+            return view('companydocument::v_all')->with(array('data'=>$data));
+        }
+        else{
+        return view('content::content_detail')->with(array('content'=>$content));
+       }}
+
+         else
+           return view('content::content_detail')->with(array('content'=>$content));
+
+       } 
+            
+       
+     
 
     
 

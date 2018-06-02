@@ -1,0 +1,15 @@
+{
+    "name": "CompanyDocument",
+    "alias": "companydocument",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\CompanyDocument\\Providers\\CompanyDocumentServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

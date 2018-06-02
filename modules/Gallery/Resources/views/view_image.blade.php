@@ -1,5 +1,5 @@
 @extends('layout.frontend.app')
-@section('title', 'Gallery')
+@section('title', 'Company Document')
 @section('footer_js')
 
     <script type="text/javascript">
@@ -169,14 +169,14 @@
 
                         @foreach($album->images as $image)
 
-                            @if(!empty($image->image) && file_exists('uploads/gallery/'. $image->image))
+                            @if(!empty($image->image) && file_exists('uploads/companydocument/'. $image->image))
 
 
                                 <div class="col l3 col m3 col s6 gal_block_single" data-responsive=""
-                                    data-src="{{ URL::asset('uploads/gallery/'. $image->image) }}" data-sub-html="">
+                                    data-src="{{ URL::asset('uploads/companydocument/'. $image->image) }}" data-sub-html="">
                                     <a href="">
                                         <img class="img-responsive"
-                                             src="{{ URL::asset('uploads/gallery/'. $image->image) }}">
+                                             src="{{ URL::asset('uploads/companydocument/'. $image->image) }}">
                                     </a>
                                 </div>
 
