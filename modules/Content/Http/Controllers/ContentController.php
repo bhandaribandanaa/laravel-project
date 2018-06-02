@@ -91,7 +91,7 @@ class ContentController extends Controller {
        elseif($parent_id == 1){
         if($ids == 29)
         {
-           $data= Content::with('image')->where('is_active' 1)->get();
+           $data= Content::with('image')->where('is_active', 1)->get();
       
           $data = $data['image']->image;
 
