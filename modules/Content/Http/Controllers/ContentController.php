@@ -3,6 +3,7 @@
 use Pingpong\Modules\Routing\Controller;
 use Modules\Content\Entities\Content;
 use App\Classes\Email;
+use Modules\CompanyDocument\Entities\Images;
 use Validator;
 use Input, Session;
 
@@ -91,9 +92,7 @@ class ContentController extends Controller {
        elseif($parent_id == 1){
         if($ids == 29)
         {
-           $data= Content::with('image')->where('is_active', 1)->get();
-      
-          $data = $data['image']->image;
+           $data= Images::where('is_active', 1)->where('album_id', 12)->get();
 
             return view('companydocument::v_all')->with(array('data'=>$data));
         }

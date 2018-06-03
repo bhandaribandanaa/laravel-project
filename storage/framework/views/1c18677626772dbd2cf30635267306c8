@@ -5,11 +5,7 @@
                 <div class="widget widget_text">
                     <h2 class="widget-title"><span>ABOUT US</span></h2>
                     <div class="textwidget">
-
-                        <p>The company aims specializing in deployment Hospitality and Service Industry,
-                            Security guard, Skilled and Unskilled labor, Domestic Maid, Semi-Skilled Labor.
-                            Sadik International Overseas philosophy is based on the concept of quality and speed
-                            which can be best achieved by people with experience in the business.
+                        
                         </p>
 
                     </div>
@@ -41,16 +37,17 @@
                     <ul class="style-2">
                         <li class="address clearfix">
                             <span class="hl">Address:</span>
-                            <span class="text">Tokha - 10, Gongabu, Kathmandu, Nepal</span>
+                            <span class="text"><?php echo e((Session::has('settings')) ? Session::get('settings')['contact-address'] : ""); ?></span>
                         </li>
                         <li class="phone clearfix">
                             <span class="hl">Phone:</span>
-                            <span class="text">+977-1-4356489</span>
+                            <span class="text"><?php echo e((Session::has('settings')) ? Session::get('settings')['contact-number'] : ""); ?></span>
                         </li>
                         <li class="email clearfix">
                             <span class="hl">E-mail:</span>
                             <span class="text"><a
-                                        href="mailto:info@sadikintloverseas.com.np">info@sadikintloverseas
+                                        href="mailto:info@sadikintloverseas.com.np"><?php echo e((Session::has('settings')) ? Session::get('settings')['web-master-email'] : ""); ?>
+
                                     .com.np</a></span>
                         </li>
 
@@ -64,9 +61,9 @@
 
                 <div class="widget widget_socials">
                     <div class="socials">
-                        <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                        <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                        <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                        <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['web-master-email'] : ""); ?>"><i class="fa fa-twitter"></i></a>
+                        <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['facebook-link'] : ""); ?>"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['gplus-link'] : ""); ?>"><i class="fa fa-google-plus"></i></a>
 
 
                     </div>

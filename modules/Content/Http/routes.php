@@ -2,7 +2,7 @@
 /**
  * Route used to manage route of contents module.
  *
- * @author Kokil Thapa <thapa.kokil@gmail.com>
+ * 
  */
 
 // Content Admin Routes

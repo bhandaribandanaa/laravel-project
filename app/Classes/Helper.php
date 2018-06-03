@@ -12,6 +12,7 @@ use Modules\Events\Entities\Events;
 use Modules\Events\Entities\EventType;
 use Modules\Members\Entities\Members;
 use Modules\Gallery\Entities\Album;
+use Modules\Setting\Entities\Setting;
 class Helper
 {
     public static function getUpcomingEvent()
@@ -51,11 +52,26 @@ class Helper
    }
 
     public static function getAbout(){
-        $about = Content::where('page_title','About')->first();
-        $about = (strlen($about->description) > 150) ? substr($about->description , 0 , 150).'...' : $about->description;
-        return strip_tags($about);
+
+         return Content::where('is_active',1)->where('id',1)->get();
+       
     }
+
+
+     public static function getBusiness(){
+
+         return Content::where('is_active',1)->where('id',1)->get();
+       
+    }
+
+    // public static function getTopBar()
+    // {
+    //     if(!Session::has('settings')){
+    //     $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+    //     Session::put('settings', $settings);
+
+    // }
+}
 
     
 
-}

@@ -142,6 +142,20 @@
             </li>
 
 
+            <li class="sub-menu ">
+                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Settings Management</a>
+                <ul>
+                    <li class=""><a
+                                href="{{ route('admin.settings.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Setting</a>
+                    </li>
+                    <li><a href="{{ route('admin.settings.add') }}"
+                           class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Setting</a>
+                    </li>
+                    
+                </ul>
+            </li>
+
+
 
             <li class="sub-menu ">
                 <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Demand Management</a>

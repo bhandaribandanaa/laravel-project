@@ -7,6 +7,7 @@ use App\PackageBookings;
 use Modules\Banner\Entities\Banner;
 use Modules\Gallery\Entities\Album;
 use Modules\Gallery\Entities\Images;
+use Modules\Setting\Entities\Setting;
 
 use Modules\Events\Entities\Events;
 use Input;
@@ -46,6 +47,7 @@ class HomeController extends Controller
 
     public function getHome()
  {
+    // $settings = Setting::pluck('slug','value');
       $banner = Banner::where('is_active',1)->get();
      
 
@@ -64,6 +66,7 @@ $testimonials = Testimonial::where('status','active')->get();
  $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
 return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner));
+// ->with(array('settings' => $settings));
 
 
 
