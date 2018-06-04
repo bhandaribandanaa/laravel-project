@@ -33,6 +33,13 @@ Route::group(['prefix' => 'Setting', 'namespace' => 'Modules\Setting\Http\Contro
 	Route::get('/', 'SettingController@index');
 
 
+
+
+    Route::get('/contact-us', array('as' => 'setting.contact', 'uses' => 'SettingController@getContact'));
+    Route::post('/contact-us', array('as' => 'setting.contact', 'uses' => 'SettingController@postContact'));
+
+
+
 });
 
 

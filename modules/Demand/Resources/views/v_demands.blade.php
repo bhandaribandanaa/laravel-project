@@ -11,13 +11,15 @@
           <thead>
             <tr>
                  <th width="6%">S.N</th>
-                 <th width="25%">Job Positon</th>
+                 <th width="6%">Job_id</th>
+                 <th width="18%">Job Positon</th>
                  <th>Salary</th>
                  <th>Type</th>
-                 <th width="9%">Req No.</th>
+                 <th width="6%">Req No.</th>
                  <th>Fooding</th>
                 <th>Accommodation</th>
                 <th>Date</th>
+                <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -25,6 +27,7 @@
           @forelse($demands as $d)
                          <tr>
                             <td>{{$i++ }}</td>
+                            <td>{{ $d->id }}</td>
                             <td>{{ $d->job_position }}</td>
                             <td>{{ $d->salary }}</td>
                             <td>{{ $d->type }}</td>
@@ -32,6 +35,8 @@
                             <td>{{ $d->fooding }}</td>
                             <td>{{ $d->accomodation}}</td>
                             <td>{{ $d->published_date}}</td>
+                            <td><a href="/jobapply" target="_blank">Apply Online</a>
+                                </td>
                         </tr>
                          @empty
                         <tr>

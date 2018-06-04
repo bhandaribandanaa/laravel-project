@@ -1,31 +1,57 @@
 @extends('layout.frontend.app')
-@section('title', 'Contact Us')
-@section('header_js')
-@stop
-@section('main')
-    <section class="padding ">
-  <div class="container">
-    <div class="row">
-      
-      <div class="col-md-6 col-sm-6 ">
-        <h2 class="heading">Contact Details</h2>
-        <hr class="heading_space">  
-        <h3>Kathmandu Branch</h3><br />
-        <p><strong>Address:</strong>Lazimpat, Uttar Dhoka, Kathmandu, Nepal</p>
-        <p><strong>Phone:</strong>+977-1-4001121, 4416434</p>
-<br />
-<hr>
-<br />
-<h3>Lalitpur Branch</h3>
-<br />
-        <p><strong>Address:</strong> Shaligram Village Complex Jawalakhel, Lalitpur</p>
-        <p><strong>Phone:</strong> +977-1-5530443, 5542121</p>
+@section('content')
 
-<br />
-<hr>
-<br />
-        <p><strong>Email:</strong> <a href="mailto:info@nirvanawellnessclinic.com">info@nirvanawellnessclinic.com</a></p>
-        <p><strong>Web:</strong> <a href="http://www.nirvanawellnessclinic.com">www.nirvanawellnessclinic.com</a></p>
+    <div id="featured-title" class="clearfix featured-title-left">
+    <div id="featured-title-inner" class="container clearfix">
+        <div class="featured-title-inner-wrap">
+            <div class="featured-title-heading-wrap">
+                <h1 class="featured-title-heading">Contact Us </h1>
+            </div>
+            <div id="breadcrumbs">
+                <div class="breadcrumbs-inner">
+                    <div class="breadcrumb-trail">
+                        <a href="#" title="Construction" rel="home" class="trail-begin">Home</a>
+                        <span class="sep">/</span>
+                        <span class="trail-end">Contact Us </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <div class="page-content">
+
+<div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                    <section class="wprt-section">
+                        <div class="container">
+                            <div class="row">
+                              
+
+                                <div class="col-md-4">
+                                    <div class="wprt-information">
+                                        <h4 class="margin-bottom-15">Contact Details</h4>
+                                        
+                                        <ul class="style-2">
+                                            <li class="address">
+                                                <span class="hl">Address:</span>
+                                                <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['contact-address'] : "" }}</span>
+                                            </li>
+                                            <li class="phone">
+                                                <span class="hl">Phone:</span> 
+                                                <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['contact-number'] : "" }}</span>
+                                            </li>
+                                            <li class="email">
+                                                <span class="hl">E-mail:</span>
+                                                <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}</span>
+                                            </li>
+                                        </ul>
+                                    </div><!-- /.wprt-information -->
         
           <ul class="social_icon">
             <li class="black"><a href="http://www.fb.com/nirvanawellnessclinic" target="_blank" class="facebook"><i class="icon-facebook5"></i></a></li>

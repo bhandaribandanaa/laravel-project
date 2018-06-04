@@ -67,19 +67,7 @@ $testimonials = Testimonial::where('status','active')->get();
 
 return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner));
 // ->with(array('settings' => $settings));
-
-
-
-
-        
-
-
-      
-
-
-
-       
-    }
+ }
 
     public function subscribeNewsletter()
     {
@@ -102,4 +90,75 @@ return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->wit
             return response()->json(['status' => "failure", 'message' => 'Error: Oops. Something went wrong. Please try again later.']);
         }
     }
-}
+    
+
+    public function getJobApply()
+    {
+
+        return view('frontend.job_applyform');
+
+    }
+    public function sendJobEmail(Request $request){
+         Mail::send('jobapply.form',
+            array('first_name' => $request->get('first_name'),
+                'last_name' => $request->get('last_name'),
+                'email' => $request->get('email'),
+                'phone' => $request->get('phone'),
+                'address' => $request->get('address'),
+                'resume' => $request->get('resume')), function($message)
+        {
+            $message->from('');
+            $message->to('prakritiadhikari2@gmail.com', 'Prakriti')->subject('Test');
+        });
+
+    return Redirect::route('/')->with('message', 'Thank You. Your Message has been Submitted');
+
+
+     //    $jobs = new Job;
+
+     //        $jobs = new Job();
+     //        $jobs->first_name = Input::get('first_name');
+     //        $jobs->last_name = Input::get('last_name');
+     //        $jobs->email = Input::get('email');
+     //        $jobs->phone = Input::get('phone');
+     //        $jobs->address = Input::get('address');
+     //        $jobs->position = Input::get('position');
+     //        $jobs->job_id= Input::get('job_id');
+     //        $jobs->save();
+     //     Session::flash('add_success','Application has been successfully sent.');
+     //     return redirect('/');
+
+     // }
+         }
+     }
+
+
+
+    //      public function contactpage()
+    // {
+    //     $contact = AvoContact::all();
+
+    //     return view('pages.contact')->with(['contact' => $contact]);
+    // }
+
+    // public function store(ContactFormRequest $request)
+    // {
+
+    //     Mail::send('pages.contact',
+    //         array(
+    //             'name' => $request->get('name'),
+    //             'email' => $request->get('email'),
+    //             'phone' => $request->get('phone'),
+    //             'subject' => $request->get('subject'),
+    //             'message' => $request->get('message')
+    //         ), function($message)
+    //     {
+    //         $message->from('sanjiarya2112@gmail.com');
+    //         $message->to('mrtext21@gmail.com', 'Mr Cool')->subject('Test');
+    //     });
+
+    // return Redirect::route('contact')->with('message', 'Thank You. Your Message has been Submitted');
+
+    // }  
+
+

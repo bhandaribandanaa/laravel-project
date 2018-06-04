@@ -1,4 +1,9 @@
 <?php
+{
+      //   $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+      // }
+
+
 if(!Session::has('settings')){
         $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
         Session::put('settings', $settings);}
@@ -54,3 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('dashboard', array('as' => 'admin.dashboard', 'uses' => 'HomeController@index'));
     Route::get('logout', array('as' => 'admin.logout', 'uses' => 'Auth\AuthController@getLogout'));
 });
+
+Route::get('/jobapply', array('as' => 'jobapply.form', 'uses' => 'HomeController@getJobApply'));
+Route::post('/jobapply', array('as' => 'jobapply.form', 'uses' => 'HomeController@sendJobEmail'));
+	
+	}

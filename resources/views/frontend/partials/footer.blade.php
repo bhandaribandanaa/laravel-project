@@ -5,7 +5,8 @@
                 <div class="widget widget_text">
                     <h2 class="widget-title"><span>ABOUT US</span></h2>
                     <div class="textwidget">
-                        
+
+                        <p>{{ (Session::has('settings')) ? Session::get('settings')['contact-iframe'] : "" }}
                         </p>
 
                     </div>
@@ -47,7 +48,7 @@
                             <span class="hl">E-mail:</span>
                             <span class="text"><a
                                         href="mailto:info@sadikintloverseas.com.np">{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}
-                                    .com.np</a></span>
+                                </a></span>
                         </li>
 
 

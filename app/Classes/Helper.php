@@ -13,6 +13,7 @@ use Modules\Events\Entities\EventType;
 use Modules\Members\Entities\Members;
 use Modules\Gallery\Entities\Album;
 use Modules\Setting\Entities\Setting;
+Use Session;
 class Helper
 {
     public static function getUpcomingEvent()
@@ -51,16 +52,18 @@ class Helper
         }])->where('is_active',1)->where('parent_id',20)->orderBy('order_postition','ASC')->get();
    }
 
-    public static function getAbout(){
+    public static function getContact(){
 
-         return Content::where('is_active',1)->where('id',1)->get();
+         
+
+
        
     }
 
 
      public static function getBusiness(){
 
-         return Content::where('is_active',1)->where('id',1)->get();
+         return Content::where('is_active',1)->where('id',30)->get();
        
     }
 

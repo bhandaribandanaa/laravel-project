@@ -5,9 +5,22 @@
                 <ul class="bottom-nav">
                     <li><a href="{{URL::to('/')}}" title="Construction" rel="home" class="trail-begin">Home</a></li>
                    <li><a href="#/"> Why Recruitment from us</a></li>
-                    <li><a href="#/">Business Procedure</a></li>
+                    <li>
+                    <?php $business = App\Classes\Helper::getBusiness(); ?>
+                   
+                           @foreach($business as $jc)
+                               <li class="menu-item">
+                                   <a href="{{ route('pages.detail',$jc->slug) }}">{{ $jc->page_title }}</a></li>
+                              
+                           @endforeach
+                       </li>>
+                   
+
+
+
                     <li><a href="#/">Apply Online</a></li>
-                     <li><a href="#/">contact</a></li>
+                    <li><a href="#/">Contact Us</a></li>
+                     
                 </ul>       
             </div><!-- /.bottom-bar-menu -->
 
