@@ -35,7 +35,7 @@
                             <td>{{ $d->fooding }}</td>
                             <td>{{ $d->accomodation}}</td>
                             <td>{{ $d->published_date}}</td>
-                            <td><a href="{{route('applicants.add')}}" target="_blank">Apply Online</a>
+                            <td><a href="{{ route('applicants.add',$d->id) }}" target="_blank">Apply Online</a>
                                 </td>
                         </tr>
                          @empty

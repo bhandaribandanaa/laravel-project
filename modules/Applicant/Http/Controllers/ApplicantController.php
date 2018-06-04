@@ -5,8 +5,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Input;
 use Redirect;
+use App\Demand;
 
 use Session;
+
 use Image;
 use Auth;
 use App\Applicant;
@@ -34,9 +36,9 @@ class ApplicantController extends Controller
 
     }
 
-    public function add()
+    public function add($id)
     {
-        $applicants = Applicant::where('status','active')->get();
+        $applicants = Applicant::whereStatusAndId('active', $id)->get();
         return view('applicant::add')->with(array('applicants' => $applicants));
 
         // $menu_location = MenuLocation::where('is_active', 1)->lists('name', 'id');
@@ -51,7 +53,8 @@ class ApplicantController extends Controller
             'phone' => 'required']);
 
 
-        $applicants = new Applicant;
+        $applicants = Demand::find(Input::get('id'));
+        $applicants = new Applicant();
 
             $applicants = new Applicant();
             $applicants->name = Input::get('name');
@@ -59,7 +62,7 @@ class ApplicantController extends Controller
             $applicants->email = Input::get('email');
             $applicants->phone = Input::get('phone');
             $applicants->cv = Input::get('cv');
-            $applicants->job_id = Input::get('job_id');
+            $applicants->job_id = Demand::find(Input::get('id'));;
             $applicants->job_position = Input::get('job_position');
             $applicants->published_date = date('Y-m-d');
             $applicants->status = Input::get('status');

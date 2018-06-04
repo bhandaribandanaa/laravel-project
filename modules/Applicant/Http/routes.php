@@ -17,7 +17,7 @@ Route::group(['prefix' => 'Applicant', 'namespace' => 'Modules\Applicant\Http\Co
 {
 	
 
-	Route::get('add', ['as' => 'applicants.add',
+	Route::get('add/{id}', ['as' => 'applicants.add',
                             'uses' => 'ApplicantController@add']);
 
     Route::post('add/submit', ['as' => 'applicants.addSubmit',

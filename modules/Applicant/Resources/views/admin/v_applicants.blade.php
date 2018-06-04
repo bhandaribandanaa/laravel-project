@@ -62,7 +62,7 @@
           @forelse($applicants as $d)
                          <tr>
                             <td>{{$i++ }}</td>
-                            <td>{{ $d->job_id }}</td>
+                            <td>{{ $d->id }}</td>
                             <td>{{ $d->job_position }}</td>
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->address }}</td>
