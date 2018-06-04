@@ -68,8 +68,8 @@ class ApplicantController extends Controller
 
 
 
-        Session::flash('add_success','Demand has been successfully added.');
-        return redirect('admin/demands');
+        Session::flash('add_success','Application Submitted successfully.');
+        return redirect('/');
     }
 
 
