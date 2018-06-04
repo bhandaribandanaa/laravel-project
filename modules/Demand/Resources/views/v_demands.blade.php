@@ -35,7 +35,7 @@
                             <td>{{ $d->fooding }}</td>
                             <td>{{ $d->accomodation}}</td>
                             <td>{{ $d->published_date}}</td>
-                            <td><a href="/jobapply" target="_blank">Apply Online</a>
+                            <td><a href="{{applicants.add}}" target="_blank">Apply Online</a>
                                 </td>
                         </tr>
                          @empty

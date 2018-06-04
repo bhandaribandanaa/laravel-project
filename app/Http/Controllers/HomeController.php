@@ -107,6 +107,7 @@ return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->wit
                 'address' => $request->get('address'),
                 'resume' => $request->get('resume')), function($message)
         {
+            
             $message->from('');
             $message->to('prakritiadhikari2@gmail.com', 'Prakriti')->subject('Test');
         });

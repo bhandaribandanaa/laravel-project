@@ -140,6 +140,16 @@
                     
                 </ul>
             </li>
+             <li class="sub-menu ">
+                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Applicants</a>
+                <ul>
+                    <li class=""><a
+                                href="{{ route('admin.applicants.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Testimonial</a>
+                    </li>
+                   
+                    
+                </ul>
+            </li>
 
 
             <li class="sub-menu ">
