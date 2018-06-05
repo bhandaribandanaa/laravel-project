@@ -19,7 +19,7 @@
 
 
                     <li><a href="#/">Apply Online</a></li>
-                    <li><a href="{{ route('pages.contact_us') }}">Contact Us</a></li>
+                    <li><a href="{{ route('contacts.add') }}">Contact Us</a></li>
                      
                 </ul>       
             </div><!-- /.bottom-bar-menu -->

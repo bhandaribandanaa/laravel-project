@@ -1,0 +1,45 @@
+@extends('admin.layout.app')
+
+
+
+<table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+                 <th>S.N</th>
+                 <th>name</th>
+                 <th>email</th>
+                 <th>phone</th>
+                 <th>subject</th>
+                <th>message</th>
+                <th>Created_at</th>
+                
+            </tr>
+          </thead>
+          <tbody>
+            {{--*/$i=1/*--}}
+          @forelse($contacts as $d)
+                         <tr>
+                            <td>{{$i++ }}</td>
+                            <td>{{ $d->name }}</td>
+                            <td>{{ $d->email }}</td>
+                            <td>{{ $d->phone }}</td>
+                            <td>{{ $d->subject}}</td>
+                            <td>{{ $d->message}}</td>
+                            <td>{{ $d->created_at}}</td>
+                           
+                        </tr>
+                         @empty
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+         @endforelse
+                    </tbody>
+                </table>
+         
+
