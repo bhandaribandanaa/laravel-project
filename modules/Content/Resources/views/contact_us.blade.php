@@ -84,72 +84,16 @@
             </div>
           @endif
         </div>
-
-        <form class="callus" id="contact_form" method="post" action="{{ route('pages.contact_us') }}">
-          <div class="row">
-          
-           <div class="col-md-12">
-                    <div id="result" class="text-center form-group"></div>
-           </div>
-          
-            <div class="col-md-12">
-              <div class="form-group">
-                <input class="form-control" type="text" name="full_name" id="full_name"  placeholder="Full Name" required />
-              </div>
-            </div>
-            
-            <div class="col-md-6">
-              <div class="form-group">
-                <input class="form-control" type="email" name="email" id="email"  placeholder="Email Address" required />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input class="form-control" type="text" name="phone" id="phone" required placeholder="Phone No" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input class="form-control" type="text" name="address" id="address" required placeholder="Address" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input class="form-control" type="text" name="mobile_no" id="mobile" required placeholder="Mobile No" required>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <textarea placeholder="Message" name="message" id="message"></textarea>
-              </div>
-              {!! csrf_field() !!}
-              <div class="form-group">
-                 <div class="btn-submit button3">
-                <input type="submit" value="Submit Request" id="btn_contact_submit">
-                
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
       </div>
-
- <div class="col-md-12 col-sm-12 ">
-
-{{--<img src="{{ asset('images/nirvana-map.jpg') }}" width="100%" />--}}
-
-</div>
-
-
-
-
-
     </div>
   </div>
 </section>
-<style>
-  .alert-success{
-    line-height: 20px !important;
-  }
-</style>
-@stop
+</div>
+</div>
+</div>
+</div>
+</div>
+         
+@endsection
+
+       

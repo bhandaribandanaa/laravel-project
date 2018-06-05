@@ -1,16 +1,26 @@
-
-
-
-  
-
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h2>Apply
-                        <small></small>
-                    </h2>
+@extends('layout.frontend.app')
+@section('content')
+<!-- Slider -->
+<div id="featured-title" class="clearfix featured-title-left">
+    <div id="featured-title-inner" class="container clearfix">
+        <div class="featured-title-inner-wrap">
+            <div class="featured-title-heading-wrap">
+                <h1 class="featured-title-heading">Apply Online </h1>
+            </div>
+            <div id="breadcrumbs">
+                <div class="breadcrumbs-inner">
+                    <div class="breadcrumb-trail">
+                        <a href="{{URL::to('/')}}" title="Construction" rel="home" class="trail-begin">Home</a>
+                        <span class="sep">/</span>
+                        <span class="trail-end">Apply Online</span>
+                    </div>
                 </div>
-                <div class="card-body card-padding">
+            </div>
+        </div>
+    </div>
+</div>
+                                
+                                         <div class="card-body card-padding">
                     <form action="{{ route('applicants.addSubmit') }}" method="post" class="row" role="form" id="profile" enctype="multipart/form-data">
                         <div class="col-sm-6">
                             <div class="form-group fg-line">
@@ -115,30 +125,15 @@
                         </div>
 
 
-
-                        <div class="col-sm-12">
-                            <div class="form-group fg-line">
-                                <label class="" for="">Publish</label>
-                                <br/>
-                                <br/>
-                                <label class="radio radio-inline m-r-20">
-                                    <input type="radio" name="status" value="active" checked="checked">
-                                    <i class="input-helper"></i>
-                                    Yes
-                                </label>
-                                <label class="radio radio-inline m-r-20">
-                                    <input type="radio" name="status" value="not_active">
-                                    <i class="input-helper"></i>
-                                    No
-                                </label>
-                            </div>
-                        </div>
-
                         {!! csrf_field() !!}
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-primary btn-sm m-t-5">Sumbit</button>
                         </div>
                     </form>
-            </div>
-        </div>
+                </div>
+                                       
+                    
+         
+@endsection
 
+        

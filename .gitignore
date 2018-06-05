@@ -22,4 +22,5 @@ composer.lock
 public/uploads
 node_modules/
 storage/*
+/storage/logs
 test/*
