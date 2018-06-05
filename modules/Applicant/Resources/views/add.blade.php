@@ -24,7 +24,7 @@
                                     <button type="button" class="close close-sm" data-dismiss="alert">
                                         <i class="fa fa-times"></i>
                                     </button>
-                                    <strong>Warning!</strong> {{ $errors->first('job_position') }}.
+                                    <strong>Warning!</strong> {{ $errors->first('name') }}.
                                 </div>
                             @endif
                         </div>
@@ -98,9 +98,9 @@
                         <div class="col-sm-6">
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">job_id</label>
-                                <input type="text" class="form-control input-sm" name="accomodation"
-                                       id="exampleInputEmail2" value="{{ old('accomodation') }}"
-                                       placeholder="Enter Accomodation">
+                                <input type="text" class="form-control input-sm" name="id"
+                                       id="exampleInputEmail2" value="{{ old('id') }}"
+                                       placeholder="id">
                             </div>
                            
                         </div>

@@ -1,46 +1,6 @@
 @extends('admin.layout.app')
-@section('title', 'Appointments')
-@section('header_css')
-    <style>
 
-        div.text-container {
-            margin: 0 auto;
-            width: 75%;
-        }
 
-        .text-content{
-            line-height: 1em;
-        }
-
-        .short-text {
-            overflow: hidden;
-            height: 2em;
-        }
-
-        .full-text{
-            height: auto;
-        }
-
-        h1 {
-            font-size: 24px;
-        }
-
-        .show-more {
-            padding: 10px 0;
-            text-align: center;
-        }
-        .cardstyle ul li a{ background: #fff;color: #717171;}
-		
-    </style>
-
-    {!! Html::style('backend/sweetAlert/sweetalert.css') !!}
-    {!! Html::style('backend/sweetAlert/swal-forms.css') !!}
-    {!! Html::style('backend/css/dataTables.material.min.css') !!}
-    {!! Html::style('backend/css/material.min.css') !!}
-    {!! Html::style('backend/plugins/bootstrap-select/dist/css/bootstrap-select.css') !!}
-    {!! Html::style('datepicker.min.css') !!}
-
-@stop
 
 <table class="table table-bordered table-striped">
           <thead>
@@ -87,13 +47,6 @@
                 </table>
          
 
-@section('footer_js')
-    {!! Html::script('backend/sweetAlert/sweetalert.min.js') !!}
-    {!! Html::script('backend/plugins/bootstrap-select/dist/js/bootstrap-select.js') !!}
-    {!! Html::script('datepicker.min.js') !!}
-
-    {!! Html::script('backend/js/jquery.dataTables.min.js') !!}
-    {!! Html::script('backend/js/dataTables.material.min.js') !!}
 
     <script type="text/javascript">
 
@@ -185,4 +138,3 @@
     </script>
 
 
-@stop
