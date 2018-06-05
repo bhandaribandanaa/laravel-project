@@ -38,8 +38,7 @@ class ApplicantController extends Controller
 
     public function add($id)
     {
-        $applicants = Applicant::whereStatusAndId('active', $id)->get();
-        return view('applicant::add')->with(array('applicants' => $applicants));
+        return view('applicant::add')->with(array('id' => $id));
 
         // $menu_location = MenuLocation::where('is_active', 1)->lists('name', 'id');
         // return view('demand::admin.add')->with(array('parents_select' => Demand::Demand_list_for_DemandEntry(0, 0, ''), 'menu_location' => $menu_location->toArray()));
@@ -62,7 +61,7 @@ class ApplicantController extends Controller
             $applicants->email = Input::get('email');
             $applicants->phone = Input::get('phone');
             $applicants->cv = Input::get('cv');
-            $applicants->job_id = Demand::find(Input::get('id'));;
+            $applicants->job_id = Input::get('id');
             $applicants->job_position = Input::get('job_position');
             $applicants->published_date = date('Y-m-d');
             $applicants->status = Input::get('status');

@@ -105,24 +105,10 @@
 
 
 
-                        <div class="col-sm-6">
-                            <div class="form-group fg-line">
-                                <label class="" for="exampleInputEmail2">job_id</label>
-                                <input type="text" class="form-control input-sm" name="id"
-                                       id="exampleInputEmail2" value="{{ old('id') }}"
-                                       placeholder="id">
-                            </div>
-                           
-                        </div>
+                        <input type="hidden" name="id" value="{{ $id }}">
+                        
 
-                          <div class="col-sm-12">
-                            <div class="form-group fg-line">
-                                <label class="" for="">job_position</label>
-                                <input type="text" id="job_position" name="job_position">
-                                </textarea>
-                            </div>
-                            
-                        </div>
+                          
 
 
                         {!! csrf_field() !!}

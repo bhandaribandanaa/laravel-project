@@ -52,47 +52,60 @@
                                             </li>
                                         </ul>
                                     </div><!-- /.wprt-information -->
+
+
+                                     <div class="wprt-spacer" data-desktop="0" data-mobi="30" data-smobi="30"></div>
+                                </div><!-- /.col-md-4 -->
+
+                                <div class="col-md-8">
+                                    <h4 class="margin-bottom-15">Write To Us</h4>
+                                    <form action="{{ route('/') }}" method="post" class="contact-form wpcf7-form">
+                                        <div class="wprt-contact-form-1">
+                                            <span class="wpcf7-form-control-wrap name">
+                                                <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name *" required>
+                                            </span>
+                                            <span class="wpcf7-form-control-wrap email">
+                                                <input type="email" tabindex="2" id="email" name="email" value="" class="wpcf7-form-control" placeholder="E-mail *" required>
+                                            </span>
+                                            <span class="wpcf7-form-control-wrap phone">
+                                                <input type="text" tabindex="3" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="Phone Number">
+                                            </span>
+                                            <span class="wpcf7-form-control-wrap subject">
+                                                <input type="text" tabindex="4" id="subject" name="subject" value="" class="wpcf7-form-control" placeholder="Subject *" required>
+                                            </span>
+                                            <span class="wpcf7-form-control-wrap message">
+                                                <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message" required></textarea>
+                                            </span>
+                                            <div class="wrap-submit">
+                                                <input type="submit" value="SEND MESSAGE" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div><!-- /.col-md-8 -->
         
-          <ul class="social_icon">
-            <li class="black"><a href="http://www.fb.com/nirvanawellnessclinic" target="_blank" class="facebook"><i class="icon-facebook5"></i></a></li>
-          </ul>
-          <br><br>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.497592055954!2d85.30952121454654!3d27.67101173369579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb183265da5e4d%3A0x213cdedbd90eb86a!2sNirvana+Wellness+Centre+Pvt.+Ltd!5e0!3m2!1sen!2snp!4v1475044002128" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-      <div class="col-md-6 col-sm-6">
-        <h2 class="heading">Get in Touch</h2>
-        <hr class="heading_space">
+          
+     
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
 
-        <div class="card">
-          @if(Session::get('message') || $errors->any())
-            <div class="card-body card-padding">
-              @if(Session::get('message'))
-                <div class="{{ (Session::get('class')) ? Session::get('class') : 'alert alert-success' }} alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  {{ Session::get('message') }}
-                </div>
-              @endif
+        
+        <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                         
+                                    
+                                    
+                                    
+                           
+                        </div><!-- /.container -->
+                    </section>
 
-              @if ($errors->any())
-                @foreach($errors->all() as $error)
-                  <div class="alert alert-danger alert-dismissible" role="alert">
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      {{ $error }}
-                  </div>
-                @endforeach
-              @endif
+                    
+                </div><!-- /.page-content -->
             </div>
-          @endif
         </div>
-      </div>
     </div>
-  </div>
-</section>
 </div>
-</div>
-</div>
-</div>
-</div>
+
          
 @endsection
 

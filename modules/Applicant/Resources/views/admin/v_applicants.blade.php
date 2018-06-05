@@ -6,8 +6,7 @@
           <thead>
             <tr>
                  <th>S.N</th>
-                 <th>Job_id</th>
-                 <th>Job Positon</th>
+                 <th>Job Position</th>
                  <th>name</th>
                  <th>address</th>
                  <th>phone</th>
@@ -22,8 +21,7 @@
           @forelse($applicants as $d)
                          <tr>
                             <td>{{$i++ }}</td>
-                            <td>{{ $d->id }}</td>
-                            <td>{{ $d->job_position }}</td>
+                            <td>{{ $d->demand->job_position ?? "" }}</td>
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->address }}</td>
                             <td>{{ $d->phone }}</td>
