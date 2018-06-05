@@ -70,7 +70,7 @@
 //            uploadUrl: '#', // you must set a valid URL here else you will get an error
             allowedFileExtensions: ['jpg', 'png', 'gif'],
             overwriteInitial: false,
-            maxFileSize: 1000,
+            maxFileSize: 3000,
             maxFilesNum: 10,
             //allowedFileTypes: ['image', 'video', 'flash'],
             slugCallback: function (filename) {
@@ -90,7 +90,7 @@
             fileType: "any",
             allowedFileExtensions: ['jpg', 'png', 'gif'],
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-            maxFileSize: 1000,
+            maxFileSize: 3000,
             maxFilesNum: 10,
         });
         $("#file-4").fileinput({

@@ -51,6 +51,11 @@
          <?php endif; ?>
                     </tbody>
                 </table>
+                </table>
+               <div align="center">
+                   <?php echo $demands->render(); ?>
+
+               </div>
          
 
 

@@ -60,8 +60,7 @@ class ContactController extends Controller {
             $contacts->email = Input::get('email');
             $contacts->phone = Input::get('phone');
             $contacts->message = Input::get('message');
-            $contacts->subject = Input::get('subject');
-            $contacts->status = Input::get('active');
+            $contacts->subject = Input::get('subject'); 
             $contacts->save();
           
 

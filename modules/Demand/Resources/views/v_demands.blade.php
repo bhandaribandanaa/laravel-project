@@ -51,6 +51,10 @@
          @endforelse
                     </tbody>
                 </table>
+                </table>
+               <div align="center">
+                   {!! $demands->render() !!}
+               </div>
          
 
 

@@ -47,25 +47,16 @@ class HomeController extends Controller
 
     public function getHome()
  {
+
     // $settings = Setting::pluck('slug','value');
-      $banner = Banner::where('is_active',1)->get();
-     
+     $banner = Banner::where('is_active',1)->get();
+   $demands = Demand::where('status','active')->orderBy('created_at', 'desc')->paginate(5);
+   $testimonials = Testimonial::where('status','active')->get();
+   $images = Images::where('is_active',1)->where('album_id', 10)->orderBy('id', 'desc')->get();
+   $data = News::where('status','active')->orderBy('published_date','desc')->get();
+   $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
-        $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->get();
-        
-$testimonials = Testimonial::where('status','active')->get();
- 
- 
- $images = Images::where('is_active',1)->where('album_id', 10)->orderBy('id', 'desc')->paginate(6);
-        
-        
-
-
-
- $data = News::where('status','active')->orderBy('published_date','desc')->paginate(6);
- $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
-
-return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner));
+   return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner));
 // ->with(array('settings' => $settings));
  }
 

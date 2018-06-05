@@ -13,6 +13,7 @@ use Image;
 use Auth;
 use App\Applicant;
 
+use Mail;
 
 class ApplicantController extends Controller
 {
@@ -46,6 +47,7 @@ class ApplicantController extends Controller
 
     public function addSubmit(Request $request){
 
+        
         $this->validate($request,['name' => 'required',
             'address' => 'required',
             'email' => 'required',
@@ -65,13 +67,28 @@ class ApplicantController extends Controller
             $applicants->job_position = Input::get('job_position');
             $applicants->published_date = date('Y-m-d');
             $applicants->status = Input::get('status');
-            $applicants->save();
+            
+
+            if($applicants->save()){
+
+               
+                   Mail::send('emails.vacancy_submit',[], function($message) {
+                       $message->to('developer.prakriti@gmail.com')
+                               ->subject('Applicants');
+                 });
+
+
+
+                Session::flash('add_success','Application Submitted successfully.');
+                return redirect()->back();
+            }else{
+                Session::flash('error','Something went wrong.');
+                return redirect()->back();
+            }
           
 
 
 
-        Session::flash('add_success','Application Submitted successfully.');
-        return redirect('/');
     }
 
 
