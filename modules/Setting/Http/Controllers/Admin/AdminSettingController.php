@@ -89,7 +89,7 @@ class AdminSettingController extends Controller
 
         $settings = Setting::find(Input::get('id'));
 
-         $settings = new Setting();
+         
             $settings->name = Input::get('name');
             $settings->slug = Input::get('slug');
             $settings->value = Input::get('value');

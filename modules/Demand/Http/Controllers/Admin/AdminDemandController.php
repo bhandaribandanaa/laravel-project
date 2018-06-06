@@ -77,12 +77,13 @@ class AdminDemandController extends Controller
         return redirect('admin/demands');
     }
 
- public function edit()
+ public function edit($id)
     {
+        $demands = Demand::findOrFail($id);
 
-         $demands = Demand::where('status', 'active')->get();
+         
        
-            return view('demand::admin.edit_Demands', $demands);
+            return view('demand::admin.edit_Demands')->with(array('demands' => $demands));
     }
   public function editSubmit(Request $request){
 
@@ -95,7 +96,7 @@ class AdminDemandController extends Controller
 
         $demands = Demand::find(Input::get('id'));
 
-        $demands = new Demand();
+        
              $demands->job_position = Input::get('job_position');
             $demands->salary = Input::get('salary');
             $demands->type = Input::get('type');
@@ -106,7 +107,7 @@ class AdminDemandController extends Controller
             $demands->status = Input::get('status');
             $demands->save();
 
-        Session::flash('edit_success','Demand has been successfully added.');
+        Session::flash('edit_success','Demand has been successfully edited.');
         return redirect('admin/demands');
     }
 

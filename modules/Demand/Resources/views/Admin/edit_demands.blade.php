@@ -22,12 +22,12 @@
                     </h2>
                 </div>
                 <div class="card-body card-padding">
-                    <form action="{{ route('admin.demands.addSubmit') }}" method="post" class="row" role="form" id="profile" enctype="multipart/form-data">
+                    <form action="{{ route('admin.demands.editSubmit') }}" method="post" class="row" role="form" id="profile" enctype="multipart/form-data">
                         <div class="col-sm-6">
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Job Position</label>
                                 <input type="text" class="form-control input-sm" name="job_position"
-                                       id="exampleInputEmail2" value="{{ old('job_position') }}"
+                                       id="exampleInputEmail2" value="{{ $demands->job_position }}"
                                        placeholder="Enter Name">
                             </div>
                             @if($errors->has('job_position'))
@@ -46,7 +46,7 @@
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Salary</label>
                                 <input type="text" class="form-control input-sm" name="salary"
-                                       id="exampleInputEmail2" value="{{ old('salary') }}"
+                                       id="exampleInputEmail2" value="{{ $demands->salary}}"
                                        placeholder="Enter Salary
                                        ">
                             </div>
@@ -64,7 +64,7 @@
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Type</label>
                                 <input type="text" class="form-control input-sm" name="type"
-                                       id="exampleInputEmail2" value="{{ old('type') }}"
+                                       id="exampleInputEmail2" value="{{ $demands->type}}"
                                        placeholder="Enter Type">
                             </div>
                             @if($errors->has('type'))
@@ -81,7 +81,7 @@
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Request no.</label>
                                 <input type="text" class="form-control input-sm" name="request_number"
-                                       id="exampleInputEmail2" value="{{ old('request_number') }}"
+                                       id="exampleInputEmail2" value="{{ $demands->request_number }}"
                                        placeholder="Enter Request number">
                             </div>
                             @if($errors->has('request_number'))
@@ -98,7 +98,7 @@
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Fooding.</label>
                                 <input type="text" class="form-control input-sm" name="fooding"
-                                       id="exampleInputEmail2" value="{{ old('fooding') }}"
+                                       id="exampleInputEmail2" value="{{$demands->fooding }}"
                                        placeholder="Enter Fooding">
                             </div>
                             @if($errors->has('fooding'))
@@ -117,7 +117,7 @@
                             <div class="form-group fg-line">
                                 <label class="" for="exampleInputEmail2">Accomodation</label>
                                 <input type="text" class="form-control input-sm" name="accomodation"
-                                       id="exampleInputEmail2" value="{{ old('accomodation') }}"
+                                       id="exampleInputEmail2" value="{{ $demands->accomodation }}"
                                        placeholder="Enter Accomodation">
                             </div>
                             @if($errors->has('accomodation'))

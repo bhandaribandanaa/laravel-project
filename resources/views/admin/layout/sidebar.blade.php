@@ -99,7 +99,7 @@
              
 
             <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>News</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-headset-mic zmdi-hc-fw" aria-hidden="true"></i>News</a>
                 <ul>
                     <li class=""><a
                                 href="{{ route('admin.news.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View News</a>
@@ -129,7 +129,7 @@
 
 
             <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Testimonial Management</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-widgets aria-hidden="true"></i>Testimonial Management</a>
                 <ul>
                     <li class=""><a
                                 href="{{ route('admin.testimonials.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Testimonial</a>
@@ -141,17 +141,17 @@
                 </ul>
             </li>
              <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Applicants</a>
+                <a href="javascript:void(0)"><img src ="{{ asset('backend/img/icon/applicantss.png') }}" aria-hidden="true"></i>Applicants</a>
                 <ul>
                     <li class=""><a
-                                href="{{ route('admin.applicants.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Testimonial</a>
+                                href="{{ route('admin.applicants.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Applicants</a>
                     </li>
                    
                     
                 </ul>
             </li>
                <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Contact Message</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-sort-asc zmdi-hc-fw" aria-hidden="true"></i>Contact Message</a>
                 <ul>
                     <li class=""><a
                                 href="{{ route('admin.contacts.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Contact Messsage</a>
@@ -166,7 +166,7 @@
 
 
             <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Settings Management</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-widgets" aria-hidden="true"></i>Settings Management</a>
                 <ul>
                     <li class=""><a
                                 href="{{ route('admin.settings.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Setting</a>
@@ -181,7 +181,7 @@
 
 
             <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Demand Management</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-download" aria-hidden="true"></i>Demand Management</a>
                 <ul>
                     <li class=""><a
                                 href="{{ route('admin.demands.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Demand</a>
@@ -199,7 +199,7 @@
             @endif
 
             <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Company Document Management</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-image-alt zmdi-hc-fw" aria-hidden="true"></i>Company Document Management</a>
                 <ul>
                     <li class=""><a
                                 href="{{ route('admin.companydocument.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Company Document</a>

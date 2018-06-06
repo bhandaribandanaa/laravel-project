@@ -80,6 +80,18 @@
                                                     <strong>Warning!</strong> {{ $errors->first('phone') }}.
                                                 </div>
                                                 @endif
+                                                
+                                                <span class="wpcf7-form-control-wrap phone">
+                                                <input type="file" tabindex="3" id="cv" name="cv" value="" class="wpcf7-form-control" placeholder="cv">
+                                                </span>
+                                                @if($errors->has('cv'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('cv') }}.
+                                                </div>
+                                                @endif
                                                 <input type="hidden" name="id" value="{{ $id }}">
                                                 {!! csrf_field() !!}
                                             </div>

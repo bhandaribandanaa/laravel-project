@@ -82,31 +82,28 @@ class AdminTestimonialController extends Controller
        return redirect('admin/testimonials');
    }
 
+ public function edit($id)
+   {
+        $data['testimonials'] = Testimonial::where('id',$id)->first();
+        return view('testimonial::admin.edit_testimonials',$data);
+   }
 
- public function edit()
-    {
-
-         $testimonials = Testimonial::where('status', 'active')->get();
-       
-            return view('testimonials::admin.edit_testimonials', $testimonials);
-    }
-  public function editSubmit(Request $request){
+public function editSubmit(Request $request){
 
         $this->validate($request,['name' => 'required',
-            'company_name' => 'required',
-            'rating' => 'required',
-            'description' => 'required']);
+                                  'company_name' => 'required',
+                                  'rating' => 'required',
+                                  'description' => 'required']);
 
-        $testimonials = Testimonial::find(Input::get('id'));
+        $testimonial = Testimonial::find(Input::get('id'));
 
-        $testimonials = new Testimonial();
-            $testimonials->name = Input::get('name');
-            $testimonials->company_name = Input::get('company_name');
-            $testimonials->rating = Input::get('rating');
-            $testimonials->description = Input::get('description');
-            $testimonials->status = Input::get('status');
-            $testimonials->created_at = date('Y-m-d');
-            $testimonials->save();
+        $testimonial->name = Input::get('name');
+        $testimonial->company_name = Input::get('company_name');
+        $testimonial->rating = Input::get('rating');
+        $testimonial->description = Input::get('description');
+        $testimonial->status = Input::get('status');
+        $testimonial->created_at = date('Y-m-d');
+        $testimonial->save();
 
         if(Input::file('image')!=""){
             $image = Input::file('image');
@@ -116,7 +113,7 @@ class AdminTestimonialController extends Controller
             $testimonials_data['image'] = $image_name;
             Testimonial::where('id',Input::get('id'))->update($testimonials_data);
         }
-        Session::flash('edit_success','Testimonial has been successfully added.');
+        Session::flash('edit_success','Testimonial has been successfully edited.');
         return redirect('admin/testimonials');
     }
 

@@ -1,4 +1,17 @@
+
+
 @extends('admin.layout.app')
+@section('title', 'Message')
+@section('main')
+
+    <div class="container">
+        <div class="block-header">
+            <h2>Applicants</h2>
+        </div>
+        <div class="card">
+            <div class="card-header">
+               Message
+            </div>
 
 
 
