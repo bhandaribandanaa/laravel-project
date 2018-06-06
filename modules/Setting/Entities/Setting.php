@@ -11,7 +11,7 @@ class Setting extends Model {
      *
      * @var string
      */
-    protected $table = 'settingss';
+    protected $table = 'settings';
 
     /**
      * The attributes that should be mutated to dates.
