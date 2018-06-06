@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
                       <html lang="en">
                       <head>
@@ -13,7 +11,7 @@
                       </head>
                       <body >
                       <table border="0" style="width:650px; background:#f2f2f2; color:#333; margin:auto; font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:1.6">
-                      <tr><td style=" text-align:center;  padding-top:15px ;"><a target="_blank"><img src="'. asset('images/logo.png') .'" style="width:300px;"></a></td></tr>
+                      <tr><td style=" text-align:center;  padding-top:15px ;"><a target="_blank"><img src="{{ asset('images/logo.png') }}" style="width:300px;"></a></td></tr>
 
 
                         <tr>
@@ -21,7 +19,7 @@
                           
                           <table border="0" style="background:#fff; padding:20px; width:100%">
                       <tr>
-                        <td >Dear <strong>'. Input::get('f_name') . ', <br> Your booking for <strong>Dr. '. $doctor .'</strong> was successful. <br><br> 
+                        <td >Applicant <strong>'. {{ $name ?? "" }} . ',  
 
                       </td>
                       </tr>
@@ -33,43 +31,35 @@
                       <tr>
 
                       <td width="25%">Full Name</td>
-                      <td width="75%">'. Input::get('f_name') .'</td>
+                      <td width="75%">'. {{ $name ?? "" }} .'</td>
                       </tr>
                       <tr>
 
                       <td>Address</td>
-                      <td>'. Input::get('address') .'</td>
+                      <td>'. {{ $address ?? "" }} .'</td>
                       </tr>
                       <tr>
                       <tr>
 
                       <td>Mobile</td>
-                      <td>'. Input::get('mobile') .'</td>
+                      <td>'. {{ $phone ?? "" }} .'</td>
                       </tr>
                       <tr>
 
                       <td>Email Address</td>
-                      <td>'. Input::get('email') .'</td>
+                      <td>'. {{ $email ?? "" }} .'</td>
                       </tr>
-                      <tr>
+                      
                       <tr>
 
-                      <td>Date</td>
-                      <td>'. Carbon\Carbon::parse(Input::get('date'))->toFormattedDateString() .'</td>
+                      
                       </tr>
-                      <tr>
+                      
                       <tr>
 
-                      <td>Shift</td>
-                      <td>'. Input::get('shift') .'</td>
+                      <td>Job Position</td>
+                      <td>'. {{ $job_position ?? "" }} .'</td>
                       </tr>
-                      <tr>
-
-                      <td valign="top">Message</td>
-                      <td>'. Input::get('message') .'</td>
-                      </tr>
-
-                      <tr>
                       <td ></td>
 
                       </table>
@@ -84,4 +74,4 @@
                       </table>
 
                       </body>
-                      </html>';
+                      </html>

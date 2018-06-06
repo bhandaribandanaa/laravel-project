@@ -35,10 +35,9 @@
                                 <div class="col-md-6">
                                    
 
-                                    <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">We have 30 plus years in the building industry</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
-                                    </div>
+                                     {{--Job Categories--}}
+                    @include('content::about_us')
+                    {{--End Job Categories--}}
 
                                    
                                 </div><!-- /.col-md-6 -->

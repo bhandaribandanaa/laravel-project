@@ -51,6 +51,8 @@
                                                 <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}</span>
                                             </li>
                                         </ul>
+
+                                         <iframe src="https://www.google.com/maps/d/embed?mid=https://www.google.com/maps/d/embed?mid={{ (Session::has('settings')) ? Session::get('settings')['google-link'] : "" }}" width="100%" height="400"></iframe>
                                     </div><!-- /.wprt-information -->
 
 
@@ -82,6 +84,10 @@
                                         </div>
                                     </form>
                                 </div><!-- /.col-md-8 -->
+
+
+
+                                
         
           
      
