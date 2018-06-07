@@ -3,16 +3,19 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="widget widget_text">
-                    <h2 class="widget-title"><span>ABOUT US</span></h2>
-                    <div class="textwidget">
+                  <?php $aboutus = App\Classes\Helper::getAboutUS(); ?>
 
-                        <p><?php echo e((Session::has('settings')) ? Session::get('settings')['contact-iframe'] : ""); ?>
+                     <?php foreach($aboutus as $c): ?>
+                  <h2 class="widget-title"><span> <?php echo e($c -> heading); ?></span></h2>
 
-                        </p>
+                <p><?php echo $c ->short_description; ?></p>
+                    <?php endforeach; ?>
+          </div>
 
-                    </div>
+                   
+                   
                 </div>
-            </div>
+            
 
 
             <div class="col-md-4">

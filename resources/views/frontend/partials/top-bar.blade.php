@@ -12,9 +12,9 @@
 
             <div class="top-bar-content">
                     <span id="top-bar-text">
-                        <i class="fa fa-phone-square"> {{ (Session::has('settings')) ? Session::get('settings')['contact-number'] : "" }} </i>
-                        <i class="fa fa-envelope">{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}</i>
-                        <i class="fa fa-map-marker">{{ (Session::has('settings')) ? Session::get('settings')['contact-address'] : "" }}</i>
+                        <i class="fa fa-phone-square">&nbsp {{ (Session::has('settings')) ? Session::get('settings')['contact-number'] : "" }} </i>
+                        <i class="fa fa-envelope">&nbsp{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}</i>
+                        <i class="fa fa-map-marker">&nbsp{{ (Session::has('settings')) ? Session::get('settings')['contact-address'] : "" }}</i>
                     </span><!-- /#top-bar-text -->
             </div><!-- /.top-bar-content -->
         </div>

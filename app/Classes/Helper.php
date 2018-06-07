@@ -67,6 +67,14 @@ class Helper
        
     }
 
+     public static function getAboutUs(){
+
+         return Content::where('is_active',1)->where('id',1)->get();
+       
+    }
+
+    
+
     // public static function getTopBar()
     // {
     //     if(!Session::has('settings')){

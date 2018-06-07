@@ -2,6 +2,10 @@
 
 <?php
 
+if(!Session::has('settings')){
+        $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+        Session::put('settings', $settings);}
+
 Route::group(['prefix' => 'admin/contacts', 'middleware' => 'admin', 'namespace' => 'Modules\Contact\Http\Controllers\Admin'], function () {
 
     Route::get('/', ['as' => 'admin.contacts.index',
