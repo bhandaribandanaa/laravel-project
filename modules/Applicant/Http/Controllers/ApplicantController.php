@@ -73,11 +73,71 @@ class ApplicantController extends Controller
                 $email_data['to']= 'developer.prakriti@gmail.com';
         
         
-             $email_data['name'] = $name; 
-             $email_data['address']= $address;
-             $email_data['email'] = $email;
-             $email_data['phone']= $phone;
-             $email_data['job_position'] =$job_position;
+             $email_data['name'] = $applicants->name; 
+             $email_data['address']= $applicants->address;
+             $email_data['email'] = $applicants->email;
+             $email_data['phone']= $applicants->phone;
+             $email_data['job_position'] =$applicants->job_id;
+             
+        
+        General::sendMailFunction('emails.vacancy_submit',$email_data,'Inquiry from '.Input::get('name'));
+
+               
+                   // Mail::send($content,[], function($message) {
+                   //     $message->to('developer.prakriti@gmail.com')
+                   //             ->subject('Applicants');
+                 // });
+
+
+
+                Session::flash('add_success','Application Submitted successfully.');
+                return redirect()->back();
+            }else{
+                Session::flash('error','Something went wrong.');
+                return redirect()->back();
+            }
+          
+
+
+
+    }
+
+    public function onlineadd()
+    {
+        return view('applicant::apply_online');
+    }
+
+    public function onlineSubmit(Request $request){
+
+        
+        $this->validate($request,['name' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'job_position'=> 'required']);
+
+
+        
+        $applicants = new Applicant();
+
+            $applicants = new Applicant();
+            $applicants->name = Input::get('name');
+            $applicants->address = Input::get('address');
+            $applicants->email = Input::get('email');
+            $applicants->phone = Input::get('phone');
+            $applicants->job_position = Input::get('job_position');
+            $applicants->published_date = date('Y-m-d');
+            $applicants->status = Input::get('status');
+
+            if($applicants->save()){
+                $email_data['to']= 'developer.prakriti@gmail.com';
+        
+        
+             $email_data['name'] = $applicants->name; 
+             $email_data['address']= $applicants->address;
+             $email_data['email'] = $applicants->email;
+             $email_data['phone']= $applicants->phone;
+             $email_data['job_position'] =$applicants->job_position;
              
         
         General::sendMailFunction('emails.vacancy_submit',$email_data,'Inquiry from '.Input::get('name'));

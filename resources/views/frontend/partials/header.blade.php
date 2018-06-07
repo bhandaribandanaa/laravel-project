@@ -49,7 +49,7 @@
 
 
                      <li class="menu-item"><a href="{{ route('contacts.add') }}">Contact Us</a></li>
-                    <li class="menu-item wprt-button "><a href="">Apply Online</a></li>
+                    <li class="menu-item wprt-button "><a href="{{ route('applyOnline') }}">Apply Online</a></li></li>
 
                 </ul>
             </nav>

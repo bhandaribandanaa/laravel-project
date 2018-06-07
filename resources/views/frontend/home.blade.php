@@ -35,9 +35,9 @@
                                 <div class="col-md-6">
                                    
 
-                                     {{--Job Categories--}}
+                                     {{--About Us--}}
                     @include('content::about_us')
-                    {{--End Job Categories--}}
+                    {{--End About Us--}}
 
                                    
                                 </div><!-- /.col-md-6 -->

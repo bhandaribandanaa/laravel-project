@@ -33,7 +33,7 @@
                             <div class="row">
                               
 
-                                    <form action="{{ route('applicants.addSubmit') }}" method="post" class="contact-form wpcf7-form">
+                                    <form action="{{ route('applyOnlineSubmit') }}" method="post" class="contact-form wpcf7-form">
                                         <div class="col-md-12">
                                             <div class="wprt-contact-form-1">
                                                 <span class="wpcf7-form-control-wrap name">
@@ -80,7 +80,18 @@
                                                     <strong>Warning!</strong> {{ $errors->first('phone') }}.
                                                 </div>
                                                 @endif
-                                                <input type="hidden" name="id" value="{{ $id }}">
+                                                  <span class="wpcf7-form-control-wrap phone">
+                                                <input type="text" tabindex="3" id="phone" name="job_position
+                                                " value="" class="wpcf7-form-control" placeholder="Job position">
+                                                </span>
+                                                @if($errors->has('job_position'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('phone') }}.
+                                                </div>
+                                                @endif
                                                 {!! csrf_field() !!}
                                             </div>
                                         </div>

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Sadik International Overseas Pvt Ltd.</title>
+    <title>{{ (Session::has('settings')) ? Session::get('settings')['website-name'] : "" }}
+    </title>
 
 
     <!-- Mobile Specific Metas -->

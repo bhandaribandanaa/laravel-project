@@ -13,7 +13,7 @@ Route::group(['prefix' => 'admin/applicants', 'middleware' => 'admin', 'namespac
 
 //for frontend 
 
-Route::group(['prefix' => 'Applicant', 'namespace' => 'Modules\Applicant\Http\Controllers'], function()
+Route::group(['prefix' => 'applicant', 'namespace' => 'Modules\Applicant\Http\Controllers'], function()
 {
 	
 
@@ -22,6 +22,13 @@ Route::group(['prefix' => 'Applicant', 'namespace' => 'Modules\Applicant\Http\Co
 
     Route::post('add/submit', ['as' => 'applicants.addSubmit',
                             'uses' => 'ApplicantController@addSubmit']);
+
+    Route::get('onlineadd/', ['as' => 'applicants.onlineadd',
+                            'uses' => 'ApplicantController@onlinesubmit']);
+
+
+    Route::post('onlineadd/submit', ['as' => 'applicants.onlineSubmit',
+                            'uses' => 'ApplicantController@onlineApply']);
 
 	
 });

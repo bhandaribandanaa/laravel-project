@@ -60,7 +60,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('logout', array('as' => 'admin.logout', 'uses' => 'Auth\AuthController@getLogout'));
 });
 
-Route::get('/jobapply', array('as' => 'jobapply.form', 'uses' => 'HomeController@getJobApply'));
-Route::post('/jobapply', array('as' => 'jobapply.form', 'uses' => 'HomeController@sendJobEmail'));
+Route::get('/applyOnline', ['as' => 'applyOnline',
+                            'uses' => 'HomeController@getJobApply']);
+
+    Route::post('applyOnline/submit', ['as' => 'applyOnlineSubmit',
+                            'uses' => 'HomeController@getjobApplySubmit']);
+
+
 	
 	}

@@ -49,7 +49,7 @@
 
 
                      <li class="menu-item"><a href="<?php echo e(route('contacts.add')); ?>">Contact Us</a></li>
-                    <li class="menu-item wprt-button "><a href="">Apply Online</a></li>
+                    <li class="menu-item wprt-button "><a href="<?php echo e(route('applyOnline')); ?>">Apply Online</a></li></li>
 
                 </ul>
             </nav>

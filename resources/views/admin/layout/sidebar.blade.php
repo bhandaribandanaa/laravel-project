@@ -141,10 +141,10 @@
                 </ul>
             </li>
              <li class="sub-menu ">
-                <a href="javascript:void(0)"><img src ="{{ asset('backend/img/icon/applicantss.png') }}" aria-hidden="true"></i>Applicants</a>
+                <a href="javascript:void(0)"><i class="zmdi-account" aria-hidden="true"></i>Applicants</a>
                 <ul>
                     <li class=""><a
-                                href="{{ route('admin.applicants.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Applicants</a>
+                                href="{{ route('admin.applicants.index') }}"><i class="zmdi zmdi-account" aria-hidden="true"></i>View Applicants</a>
                     </li>
                    
                     

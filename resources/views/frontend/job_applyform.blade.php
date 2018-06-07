@@ -1,83 +1,131 @@
 @extends('layout.frontend.app')
 @section('content')
 
-
-<form method="post" action="//submit.form" onSubmit="return validateForm();">
-<div style="width: 400px;">
-</div>
-<div style="padding-bottom: 18px;font-size : 18px;">Contact Information</div>
-<div style="display: flex; padding-bottom: 18px;width : 450px;">
-<div style=" margin-left : 0; margin-right : 1%; width : 49%;">First name<span style="color: red;"> *</span><br/>
-<input type="text" id="first_name" name="first_name" style="width: 100%;" class="form-control"/>
-</div>
-<div style=" margin-left : 1%; margin-right : 0; width : 49%;">Last name<span style="color: red;"> *</span><br/>
-<input type="text" id="last_name" name="last_name" style="width: 100%;" class="form-control"/>
-</div>
-</div><div style="padding-bottom: 18px;">Email<span style="color: red;"> *</span><br/>
-<input type="text" id="email" name="email" style="width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Phone<span style="color: red;"> *</span><br/>
-<input type="text" id="phone" name="phone" style="width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Address<span style="color: red;"> *</span><br/>
-<input type="text" id="address" name="address" style="width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;font-size : 18px;">Position</div>
-<div style="padding-bottom: 18px;">Position<span style="color: red;"> *</span><br/>
-<input type="text" id="position" name="position" style="width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Job-id<span style="color: red;"> *</span><br/>
-<input type="text" id="job_id" name="job_id" style="width : 450px;" class="form-control"/>
-</div>
-<div style="padding-bottom: 18px;">Resume upload<br/>
-<input id="resume" name="resume" style="width : 450px;" type="file" class="form-control"/>
+    <div id="featured-title" class="clearfix featured-title-left">
+    <div id="featured-title-inner" class="container clearfix">
+        <div class="featured-title-inner-wrap">
+            <div class="featured-title-heading-wrap">
+                <h1 class="featured-title-heading">Apply Online </h1>
+            </div>
+            <div id="breadcrumbs">
+                <div class="breadcrumbs-inner">
+                    <div class="breadcrumb-trail">
+                        <a href="#" title="Construction" rel="home" class="trail-begin">Home</a>
+                        <span class="sep">/</span>
+                        <span class="trail-end">Apply Online </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<!-- Main Content -->
+<div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <div class="page-content">
 
+<div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                    <section class="wprt-section">
+                        <div class="container">
+                            <div class="row">
+                              
 
+                                    <form action="{{ route('applyOnlineSubmit') }}" method="post" class="contact-form wpcf7-form">
+                                        <div class="col-md-12">
+                                            <div class="wprt-contact-form-1">
+                                                <span class="wpcf7-form-control-wrap name">
+                                                <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name *" required>
+                                                </span>
+                                                @if($errors->has('name'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('name') }}.
+                                                </div>
+                                                @endif
+                                                <span class="wpcf7-form-control-wrap name">
+                                                <input type="text" tabindex="1" id="address" name="address" value="" class="wpcf7-form-control" placeholder="Address *" required>
+                                                </span>
+                                                @if($errors->has('address'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('address') }}.
+                                                </div>
+                                                @endif
+                                                <span class="wpcf7-form-control-wrap email">
+                                                <input type="email" tabindex="2" id="email" name="email" value="" class="wpcf7-form-control" placeholder="E-mail *" required>
+                                                </span>
+                                                @if($errors->has('email'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('email') }}.
+                                                </div>
+                                                @endif
+                                                <span class="wpcf7-form-control-wrap phone">
+                                                <input type="text" tabindex="3" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="Phone Number">
+                                                </span>
+                                                @if($errors->has('phone'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('phone') }}.
+                                                </div>
+                                                @endif
+                                                  <span class="wpcf7-form-control-wrap job_position">
+                                                <input type="text" tabindex="4" id="job_position" name="job_position
+                                                " value="" class="wpcf7-form-control" placeholder="Job position">
+                                                </span>
+                                                @if($errors->has('job_position'))
+                                                <div class="alert alert-danger fade in">
+                                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                                    <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <strong>Warning!</strong> {{ $errors->first('job_position') }}.
+                                                </div>
+                                                @endif
+                                                {!! csrf_field() !!}
+                                            </div>
+                                        </div>
+                                        <!-- /.col-md-8 -->
+                                        <div class="row">
+                                            <div class="wrap-submit pull-right">
+                                                <input type="submit" value="SEND MESSAGE" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                            </div>
+                                        </div>
+                                    </form>
+       
+     
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
 
+        
+        <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                         
+                                    
+                                    
+                                    
+                           
+                        </div><!-- /.container -->
+                    </section>
 
-<div style="padding-bottom: 18px;">Comments<br/>
-<textarea id="comment" false name="comment" style="width : 450px;" rows="6" class="form-control"></textarea>
+                    
+                </div><!-- /.page-content -->
+            </div>
+        </div>
+    </div>
 </div>
-<div style="padding-bottom: 18px;"><input name="skip_Submit" value="Submit" type="submit"/></div>
-<div>
-<div style="float:right"><a href="prakritiadhikari2@gmail.com" id="lnk100" title="prakritiadhikari2@gmail.com">prakritiadhikari2@gmail.com</a></div>
 
-</div>
-</form>
-
-<script type="text/javascript">
-function validateForm() {
-if (isEmpty(document.getElementById('first_name').value.trim())) {
-alert('First name is required!');
-return false;
-}
-if (isEmpty(document.getElementById('last_name').value.trim())) {
-alert('Last name is required!');
-return false;
-}
-if (isEmpty(document.getElementById('email').value.trim())) {
-alert('Email is required!');
-return false;
-}
-if (!validateEmail(document.getElementById('email').value.trim())) {
-alert('Email must be a valid email address!');
-return false;
-}
-if (isEmpty(document.getElementById('phone').value.trim())) {
-alert('Phone is required!');
-return false;
-}
-if (isEmpty(document.getElementById('address').value.trim())) {
-alert('Address is required!');
-return false;
-}
-
-function isEmpty(str) { return (str.length === 0 || !str.trim()); }
-function validateEmail(email) {
-var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
-return isEmpty(email) || re.test(email);
-}
-</script>
+         
 @endsection
+
+       

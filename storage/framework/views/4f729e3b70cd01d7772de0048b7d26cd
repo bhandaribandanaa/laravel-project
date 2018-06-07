@@ -31,9 +31,9 @@
                                 <div class="col-md-6">
                                    
 
-                                     <?php /*Job Categories*/ ?>
+                                     <?php /*About Us*/ ?>
                     <?php echo $__env->make('content::about_us', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                    <?php /*End Job Categories*/ ?>
+                    <?php /*End About Us*/ ?>
 
                                    
                                 </div><!-- /.col-md-6 -->

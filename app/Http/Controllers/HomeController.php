@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\CustomLibrary\General;
 use App\PackageBookings;
+use Illuminate\Http\Request;
 use Modules\Banner\Entities\Banner;
 use Modules\Gallery\Entities\Album;
 use Modules\Gallery\Entities\Images;
@@ -25,6 +27,7 @@ use App\ChooseUs;
 use Modules\Content\Entities\Content;
 use App\Testimonial;
 use App\Demand;
+use App\Applicant;
 use App\Appointments;
 
 
@@ -90,68 +93,61 @@ class HomeController extends Controller
         return view('frontend.job_applyform');
 
     }
-    public function sendJobEmail(Request $request){
-         Mail::send('jobapply.form',
-            array('first_name' => $request->get('first_name'),
-                'last_name' => $request->get('last_name'),
-                'email' => $request->get('email'),
-                'phone' => $request->get('phone'),
-                'address' => $request->get('address'),
-                'resume' => $request->get('resume')), function($message)
-        {
-            
-            $message->from('');
-            $message->to('prakritiadhikari2@gmail.com', 'Prakriti')->subject('Test');
-        });
-
-    return Redirect::route('/')->with('message', 'Thank You. Your Message has been Submitted');
+     public function getjobApplySubmit(Request $request){
 
 
-     //    $jobs = new Job;
-
-     //        $jobs = new Job();
-     //        $jobs->first_name = Input::get('first_name');
-     //        $jobs->last_name = Input::get('last_name');
-     //        $jobs->email = Input::get('email');
-     //        $jobs->phone = Input::get('phone');
-     //        $jobs->address = Input::get('address');
-     //        $jobs->position = Input::get('position');
-     //        $jobs->job_id= Input::get('job_id');
-     //        $jobs->save();
-     //     Session::flash('add_success','Application has been successfully sent.');
-     //     return redirect('/');
-
-     // }
-         }
-     }
+        
+        $this->validate($request,['name' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'phone' => 'required'
+           ]);
 
 
+        $applicants = Demand::find(Input::get('id'));
+        $applicants = new Applicant();
 
-    //      public function contactpage()
-    // {
-    //     $contact = AvoContact::all();
+            $applicants = new Applicant();
+            $applicants->name = Input::get('name');
+            $applicants->address = Input::get('address');
+            $applicants->email = Input::get('email');
+            $applicants->phone = Input::get('phone');
+            $applicants->job_id = Input::get('id');
+            $applicants->job_position = Input::get('job_position');
+            $applicants->published_date = date('Y-m-d');
+            $applicants->status = Input::get('status');
 
-    //     return view('pages.contact')->with(['contact' => $contact]);
-    // }
+            if($applicants->save()){
+                $email_data['to']= 'developer.prakriti@gmail.com';
+        
+        
+             $email_data['name'] = $applicants->name; 
+             $email_data['address']= $applicants->address;
+             $email_data['email'] = $applicants->email;
+             $email_data['phone']= $applicants->phone;
+             $email_data['job_position'] =$applicants->job_position;
+             
+        
+        General::sendMailFunction('emails.vacancy_submit',$email_data,'Inquiry from '.Input::get('name'));
 
-    // public function store(ContactFormRequest $request)
-    // {
+               
+                   // Mail::send($content,[], function($message) {
+                   //     $message->to('developer.prakriti@gmail.com')
+                   //             ->subject('Applicants');
+                 // });
 
-    //     Mail::send('pages.contact',
-    //         array(
-    //             'name' => $request->get('name'),
-    //             'email' => $request->get('email'),
-    //             'phone' => $request->get('phone'),
-    //             'subject' => $request->get('subject'),
-    //             'message' => $request->get('message')
-    //         ), function($message)
-    //     {
-    //         $message->from('sanjiarya2112@gmail.com');
-    //         $message->to('mrtext21@gmail.com', 'Mr Cool')->subject('Test');
-    //     });
 
-    // return Redirect::route('contact')->with('message', 'Thank You. Your Message has been Submitted');
 
-    // }  
+                Session::flash('add_success','Application Submitted successfully.');
+                return redirect()->back();
+            }else{
+                Session::flash('error','Something went wrong.');
+                return redirect()->back();
+            }
+          
 
+
+
+    }
+}
 
