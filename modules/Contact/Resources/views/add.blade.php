@@ -131,6 +131,7 @@
                      
 
                      <div class="clear"></div>
+                     <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
                      <div class="row">
                      <div class="col-md-12">
                         <iframe src="https://www.google.com/maps/d/u/0/embed?mid={{ (Session::has('settings')) ? Session::get('settings')['google-map-link'] : "" }}&hl=en" width="100%" height="400"></iframe>
