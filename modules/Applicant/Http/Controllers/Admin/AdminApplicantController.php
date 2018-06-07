@@ -23,7 +23,7 @@ class AdminApplicantController extends Controller {
     public function index()
     {
 
-	    $applicants = Applicant::with('demand')	->paginate(20);
+	    $applicants = Applicant::with('demand')->paginate(5);
         
 		return view('applicant::admin.v_applicants')->with(array('applicants' => $applicants));
         

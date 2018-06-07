@@ -28,6 +28,7 @@ use Modules\Content\Entities\Content;
 use App\Testimonial;
 use App\Demand;
 use App\Applicant;
+use App\ApplicantViaEmail;
 use App\Appointments;
 
 
@@ -100,14 +101,14 @@ class HomeController extends Controller
         $this->validate($request,['name' => 'required',
             'address' => 'required',
             'email' => 'required',
-            'phone' => 'required'
-           ]);
+            'phone' => 'required',
+             ]);
 
 
-        $applicants = Demand::find(Input::get('id'));
-        $applicants = new Applicant();
+      
+        $applicants = new ApplicantViaEmail();
 
-            $applicants = new Applicant();
+            $applicants = new ApplicantViaEmail();
             $applicants->name = Input::get('name');
             $applicants->address = Input::get('address');
             $applicants->email = Input::get('email');
