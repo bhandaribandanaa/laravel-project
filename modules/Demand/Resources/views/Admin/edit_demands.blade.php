@@ -1,11 +1,13 @@
-.@extends('admin.layout.app')
-@section('title', 'Add Demand')
+@extends('admin.layout.app')
+@section('title', 'Edut Demands')
 @section('header_css')
     {!! Html::style('backend/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css') !!}
     {!! Html::style('backend/vendors/bower_components/summernote/dist/summernote.css') !!}
     {!! Html::style('backend/vendors/chosen_v1.4.2/chosen.min.css') !!}
     {!! Html::style('backend/css/formValidation.min.css') !!}
+    <link media="all" type="text/css" rel="stylesheet" href="{{ asset('datepicker.min.css') }}">
 @stop
+
 
 @section('main')
     <div class="container">
