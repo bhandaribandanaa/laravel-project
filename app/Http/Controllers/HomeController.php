@@ -28,7 +28,6 @@ use Modules\Content\Entities\Content;
 use App\Testimonial;
 use App\Demand;
 use App\Applicant;
-use App\ApplicantViaEmail;
 use App\Appointments;
 
 
@@ -94,30 +93,30 @@ class HomeController extends Controller
         return view('frontend.job_applyform');
 
     }
+
      public function getjobApplySubmit(Request $request){
 
 
-        
         $this->validate($request,['name' => 'required',
             'address' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone' => 'required',
-             ]);
+            'job_position' => 'required'
+           ]);
 
 
       
-        $applicants = new ApplicantViaEmail();
+        $applicants = new Applicant();
 
-            $applicants = new ApplicantViaEmail();
+            $applicants = new Applicant();
             $applicants->name = Input::get('name');
             $applicants->address = Input::get('address');
             $applicants->email = Input::get('email');
             $applicants->phone = Input::get('phone');
-            $applicants->job_id = Input::get('id');
             $applicants->job_position = Input::get('job_position');
+
             $applicants->published_date = date('Y-m-d');
             $applicants->status = Input::get('status');
-
             if($applicants->save()){
                 $email_data['to']= 'developer.prakriti@gmail.com';
         

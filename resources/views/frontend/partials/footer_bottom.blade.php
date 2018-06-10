@@ -13,12 +13,12 @@
                                    <a href="{{ route('pages.detail',$jc->slug) }}">{{ $jc->page_title }}</a></li>
                               
                            @endforeach
-                       </li>>
+                       </li>
                    
 
 
 
-                    <li><a href="#/">Apply Online</a></li>
+                    <li><a href="{{ route('applyOnline') }}">Apply Online</a></li>
                     <li><a href="{{ route('contacts.add') }}">Contact Us</a></li>
                      
                 </ul>       

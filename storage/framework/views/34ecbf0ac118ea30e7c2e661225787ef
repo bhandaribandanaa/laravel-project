@@ -13,12 +13,12 @@
                                    <a href="<?php echo e(route('pages.detail',$jc->slug)); ?>"><?php echo e($jc->page_title); ?></a></li>
                               
                            <?php endforeach; ?>
-                       </li>>
+                       </li>
                    
 
 
 
-                    <li><a href="#/">Apply Online</a></li>
+                    <li><a href="<?php echo e(route('applyOnline')); ?>">Apply Online</a></li>
                     <li><a href="<?php echo e(route('contacts.add')); ?>">Contact Us</a></li>
                      
                 </ul>       

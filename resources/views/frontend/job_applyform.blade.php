@@ -80,9 +80,8 @@
                                                     <strong>Warning!</strong> {{ $errors->first('phone') }}.
                                                 </div>
                                                 @endif
-                                                  <span class="wpcf7-form-control-wrap job_position">
-                                                <input type="text" tabindex="4" id="job_position" name="job_position
-                                                " value="" class="wpcf7-form-control" placeholder="Job position">
+                                                <span class="wpcf7-form-control-wrap phone">
+                                                <input type="text" tabindex="3" id="job_position" name="job_position" value="" class="wpcf7-form-control" placeholder="Job Position">
                                                 </span>
                                                 @if($errors->has('job_position'))
                                                 <div class="alert alert-danger fade in">
@@ -92,6 +91,7 @@
                                                     <strong>Warning!</strong> {{ $errors->first('job_position') }}.
                                                 </div>
                                                 @endif
+                                                  
                                                 {!! csrf_field() !!}
                                             </div>
                                         </div>

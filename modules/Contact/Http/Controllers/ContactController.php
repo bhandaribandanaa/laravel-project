@@ -77,7 +77,7 @@ class ContactController extends Controller {
                       </head>
                       <body >
                       <table border="0" style="width:650px; background:#f2f2f2; color:#333; margin:auto; font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:1.6">
-                      <tr><td style=" text-align:center;  padding-top:15px ;"><a target="_blank"><img src="'. asset('images/logo.png') .'" style="width:300px;"></a></td></tr>
+                     
 
 
                         <tr>
@@ -85,7 +85,7 @@ class ContactController extends Controller {
                           
                           <table border="0" style="background:#fff; padding:20px; width:100%">
                       <tr>
-                        <td >From <strong>'. Input::get('name') . ',  
+                        <td >Message From <strong>'. Input::get('name') . ',  
 
                       </td>
                       </tr>
@@ -101,9 +101,7 @@ class ContactController extends Controller {
                       </tr>
                       <tr>
 
-                      <td>Address</td>
-                      <td>'. Input::get('address') .'</td>
-                      </tr>
+                     
                       <tr>
                       <tr>
 
