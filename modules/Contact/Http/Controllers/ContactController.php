@@ -77,7 +77,7 @@ class ContactController extends Controller {
                       </head>
                       <body >
                       <table border="0" style="width:650px; background:#f2f2f2; color:#333; margin:auto; font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:1.6">
-                     
+                      <tr><td style=" text-align:center;  padding-top:15px ;"><a target="_blank"><img src="{{ asset('assets/img/logo.png') }}" style="width:300px;"></a></td></tr>
 
 
                         <tr>
