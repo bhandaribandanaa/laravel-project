@@ -17,7 +17,7 @@
                                            @foreach($jobCategories as $jc)
                                                <div class="cbp-item">
                                                    <div class="service-item clearfix">
-                                                       <div class="thumb"><img height="100" width="100" src="{{asset('uploads/media/'. $jc->photo['file_name'])}}" alt="image" /></div>
+                                                       <div class="thumb"><img class="img-responsive" src="{{asset('uploads/media/'. $jc->photo['file_name'])}}" alt="image" /></div>
                                                        <div class="service-item-wrap">
                                                            <h3 class="title font-size-18"><a href="#">{{ $jc->heading }}</a></h3>
                                                            <p class="desc">{{ $jc->short_description }}</p>

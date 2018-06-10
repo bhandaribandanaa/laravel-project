@@ -18,7 +18,7 @@
                                             @foreach($data  as $news)
                                            <div class="cbp-item">
                                           <div class="service-item clearfix">
-                                                       <div class="thumb"><img height="100" width="100" src="{{asset('uploads/news/'. $news->image)}}" alt="image" /></div>
+                                                       <div class="thumb"><img class="img-responsive" src="{{asset('uploads/news/'. $news->image)}}" alt="image" /></div>
                                                        <div class="service-item-wrap">
                                                            <h3 class="title font-size-18"><a href="#">{{ $news->title }}</a></h3>
                                                           <p class="desc">{{ $news->published_date }}</p>   <a href="{{ route('news.detail',$news->slug) }}" class="wprt-button small rounded-3px">READ MORE</a>
