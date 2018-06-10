@@ -11,7 +11,7 @@
          <div id="breadcrumbs">
             <div class="breadcrumbs-inner">
                <div class="breadcrumb-trail">
-                  <a href="{{URL::to('/')}}" title="Construction" rel="home" class="trail-begin">Home</a>
+                  <a href="{{URL::to('/')}}" title="Sadik International Oversease" rel="home" class="trail-begin">Home</a>
                   <span class="sep">/</span>
                   <span class="trail-end">{{ $content->heading}}</span>
                </div>

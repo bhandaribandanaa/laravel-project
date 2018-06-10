@@ -3,7 +3,7 @@
         <div class="bottom-bar-inner-wrap">
         <div class="bottom-bar-menu">
                 <ul class="bottom-nav">
-                    <li><a href="<?php echo e(URL::to('/')); ?>" title="Construction" rel="home" class="trail-begin">Home</a></li>
+                    <li><a href="<?php echo e(URL::to('/')); ?>" title="Sadik International Oversease" rel="home" class="trail-begin">Home</a></li>
                    <li><a href="#/"> Why Recruitment from us</a></li>
                     <li>
                     <?php $business = App\Classes\Helper::getBusiness(); ?>
