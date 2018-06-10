@@ -84,73 +84,7 @@
 
                 <li class="dropdown hidden-xs">
                     <a data-toggle="dropdown" class="tm-doc" href=""></a>
-                    <div class="dropdown-menu pull-right dropdown-menu-lg">
-                        <div class="listview">
-                            <div class="lv-header">
-                                Doctor Appointments
-                            </div>
-                            {{--*/$appointments = Helpers::getBookings(5)/*--}}
-                            <div class="lv-body">
-                                @forelse($appointments as $app)
-
-                                        <div class="lv-item">
-                                            <div class="lv-title m-b-5"><span class="mainname">{{ $app->f_name }}</span> asked booking with <span class="mainname">Dr. {{ $app->doctor }}</span> on {{ $app->date }}</div>
-                                        </div>
-                                    <hr>
-
-                                @empty
-
-                                        <div class="lv-item">
-                                            <div class="lv-title m-b-5">No bookings made.</div>
-                                        </div>
-
-                                @endforelse
-                                    <div class="lv-item">
-                                        <div class="lv-title m-b-5">
-                                            <a href="{{ route('admin.appointments.pending') }}" class="btn btn-primary pull-right"> View All </a>
-                                        </div>
-                                    </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-
-                <li class="dropdown hidden-xs">
-                    <a data-toggle="dropdown" class="tm-package" href=""></a>
-                    <div class="dropdown-menu pull-right dropdown-menu-lg">
-                        <div class="listview">
-                            <div class="lv-header">
-                                Package Bookings
-                            </div>
-                            {{--*/$bookings = Helpers::getPackageBookings(5)/*--}}
-                            <div class="lv-body">
-                                @forelse($bookings as $app)
-
-                                    <div class="lv-item">
-                                        <div class="lv-title m-b-5"><span class="mainname">{{ $app->f_name }}</span> booked {{ $app->packge }} with <span class="mainname">Dr. {{ $app->doctor }}</span> on {{ $app->date }}</div>
-                                    </div>
-                                    <hr>
-
-                                @empty
-
-                                    <div class="lv-item">
-                                        <div class="lv-title m-b-5">No bookings made.</div>
-                                    </div>
-
-                                @endforelse
-                                    <div class="lv-item">
-                                        <div class="lv-title m-b-5">
-                                            <a href="{{ route('admin.appointments.pendingPackages') }}" class="btn btn-primary pull-right"> View All </a>
-                                        </div>
-                                    </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-
-
+                   
 
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="tm-settings" href=""></a>

@@ -54,5 +54,8 @@
          @endforelse
                     </tbody>
                 </table>
-         
+                </table>
+               <div align="center">
+                   {!! $contacts->render() !!}
+               </div>
 
