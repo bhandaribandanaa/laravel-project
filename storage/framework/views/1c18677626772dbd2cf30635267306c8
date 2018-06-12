@@ -66,7 +66,7 @@
 
                 <div class="widget widget_socials">
                     <div class="socials">
-                        <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['web-master-email'] : ""); ?>"><i class="fa fa-twitter"></i></a>
+                        <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['twitter-link'] : ""); ?>"><i class="fa fa-twitter"></i></a>
                         <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['facebook-link'] : ""); ?>"><i class="fa fa-facebook"></i></a>
                         <a target="_blank" href="<?php echo e((Session::has('settings')) ? Session::get('settings')['gplus-link'] : ""); ?>"><i class="fa fa-google-plus"></i></a>
 
