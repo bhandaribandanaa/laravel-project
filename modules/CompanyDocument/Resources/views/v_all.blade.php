@@ -24,7 +24,6 @@
 
 
 
-
 <!-- Main Content -->
 <div id="main-content" class="site-main clearfix">
    <div id="content-wrap">
