@@ -75,6 +75,7 @@ class ContentController extends Controller {
 
     public function getPageBySlug($slug)
    {
+
        $content= Content::with('photo')->where('slug',$slug)->firstOrFail();
       
        $parent = Content::findBySlug($slug);
@@ -86,8 +87,9 @@ class ContentController extends Controller {
         $parent_id = $parent->parent_id;
 
        if ($parent_id == 20) {
+          $all_jobs = Content::where('parent_id',20)->get();
           $image_name = $content['photo']->file_name;
-            return view('content::viewpage')->with(array('content'=>$content, 'image_name' => $image_name));
+            return view('content::viewpage')->with('all_jobs', $all_jobs)->with(array('content'=>$content, 'image_name' => $image_name));
        } 
        elseif($parent_id == 1){
         if($ids == 29)

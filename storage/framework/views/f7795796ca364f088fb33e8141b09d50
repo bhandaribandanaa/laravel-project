@@ -63,9 +63,13 @@
                 </div>
 
                 <div class="card-body card-padding count">
+
+                    <?php echo e($count); ?>
+
+
                    
                     <div>
-                        <a href="<?php echo e(route('admin.applicants.index',['doctors' => '','date' => date('Y-m-d')])); ?>" class="bottombtn">View Details</a>
+                        <a href="<?php echo e(route('admin.applicants.index')); ?>" class="bottombtn">View Details</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -82,9 +86,12 @@
                 </div>
 
                 <div class="card-body card-padding count">
+
+                    <?php echo e($counts); ?>
+
                   
                     <div>
-                        <a href="<?php echo e(route('admin.contacts.index',['doctors' => '','date' => date('Y-m-d')])); ?>" class="bottombtn">View Details</a>
+                        <a href="<?php echo e(route('admin.contacts.index')); ?>" class="bottombtn">View Details</a>
                     </div>
                 </div>
             </div>

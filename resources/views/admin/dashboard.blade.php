@@ -65,9 +65,12 @@
                 </div>
 
                 <div class="card-body card-padding count">
+
+                    {{ $count }}
+
                    
                     <div>
-                        <a href="{{ route('admin.applicants.index',['doctors' => '','date' => date('Y-m-d')]) }}" class="bottombtn">View Details</a>
+                        <a href="{{ route('admin.applicants.index') }}" class="bottombtn">View Details</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -84,9 +87,11 @@
                 </div>
 
                 <div class="card-body card-padding count">
+
+                    {{ $counts }}
                   
                     <div>
-                        <a href="{{ route('admin.contacts.index',['doctors' => '','date' => date('Y-m-d')]) }}" class="bottombtn">View Details</a>
+                        <a href="{{ route('admin.contacts.index') }}" class="bottombtn">View Details</a>
                     </div>
                 </div>
             </div>

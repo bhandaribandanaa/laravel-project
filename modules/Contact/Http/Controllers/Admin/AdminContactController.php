@@ -25,7 +25,7 @@ class AdminContactController extends Controller {
 
 	  
 
-	    $contacts = Contact::where('status', 'active')->orderBy('created_at', 'desc')->paginate(5);
+	    $contacts = Contact::where('status', 'active')->orderBy('created_at', 'desc')->paginate(7);
         
 		return view('contact::admin.v_contacts')->with(array('contacts' => $contacts));
         

@@ -75,11 +75,19 @@
                     <p class="f-500 m-b-15 c-black">Parent Content</p>
                     {!! $parents_select !!}
                 </div>
-                <div class="col-sm-6">
+                 <div class="col-sm-6">
+                    <p class="f-500 c-black m-b-15">Display In</p>
+                    {!! Form::select('display_in[]', $menu_location,explode(', ', $content->display_in))!!}
+                </div>
+
+
+
+
+                <!-- <div class="col-sm-6">
                     <p class="f-500 c-black m-b-15">Display In</p>
                     {!! Form::select('display_in[]', $menu_location, explode(', ', $content->display_in), array('class'=>'selectpicker',"multiple"=>"true")) !!}
                 </div>
-
+ -->
                 <div class="col-sm-12">
                     <br/>
 

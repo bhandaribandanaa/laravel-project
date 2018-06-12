@@ -52,12 +52,22 @@
                                  <div class="widget widget_categories">
                                     <h2 class="widget-title"><span>CATEGORIES</span></h2>
                                     <ul>
-                                       <li class="cat-item cat-item-3"><a href="#">Building</a> </li>
-                                       <li class="cat-item cat-item-6"><a href="#">Ecobuilding</a> </li>
-                                       <li class="cat-item cat-item-4"><a href="#">House</a> </li>
-                                       <li class="cat-item cat-item-5"><a href="#">Office</a> </li>
-                                       <li class="cat-item cat-item-10"><a href="#">Tower</a> </li>
-                                    </ul>
+
+                               @foreach($all_jobs as $an)
+                                @if($an->id != $content->id)
+                       
+                             <li class="clearfix">
+                               
+
+                            <div class="texts">
+                                <h3><a href="{{ route('pages.detail',$an->slug) }}"">{{ $an->heading }}</a></h3>
+                                
+                            </div><!-- /.texts -->
+                        </li>
+                        
+                         @endif
+                        @endforeach
+                                    
                                  </div>
                               </div>
                               <!-- /#inner-sidebar -->

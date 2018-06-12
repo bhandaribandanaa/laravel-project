@@ -9,6 +9,12 @@ class Contact extends Model
 
     protected $table = 'contact';
 
+     public function contact(){
+    	
+    	 Contact::count();
+    }
+    
+
    
 
 }

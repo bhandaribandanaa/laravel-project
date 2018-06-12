@@ -22,10 +22,12 @@ class AdminApplicantController extends Controller {
 
     public function index()
     {
+    	$count = Applicant::count();
+     
 
-	    $applicants = Applicant::with('demand')->paginate(5);
+	    $applicants = Applicant::with('demand')->paginate(7);
         
-		return view('applicant::admin.v_applicants')->with(array('applicants' => $applicants));
+		return view('applicant::admin.v_applicants')->with('count', $count)->with(array('applicants' => $applicants));
         
     }
 

@@ -15,7 +15,9 @@
             <!-- //mobile menu button -->
             <nav id="main-nav" class="main-nav">
                 <ul class="menu">
-                    <li class="menu-item menu-item-has-children current-menu-item"> <a href="{{URL::to('/')}}" title="Sadik International Oversease" rel="home" class="trail-begin">Home</a>
+
+                   
+                    <li class="menu-item  current-menu-item"> <a href="{{URL::to('/')}}" title="Sadik International Oversease" rel="home" class="trail-begin">Home</a>
                     </li>
                   <?php $mainMenus = App\Classes\Helper::getMainMenu(5);
                        $sub_menus = array(); ?>
@@ -28,12 +30,14 @@
                                 ?>
                             @endif
 
-                            <li class="menu-item menu-item-has-children">
+                            <li class="menu-item menu-item-has-children ">
                                 <a href="#">{{ $mainMenu->page_title }}</a>
 
                                 @if(count($mainMenu->children)>0)
+
                                     <ul class="sub-menu">
                                         @foreach($mainMenu->children as $menuChild)
+                                        
 
                                         <li class="menu-item">
                                                <a href="{{ route('pages.detail',$menuChild->slug) }}">{{ $menuChild->page_title }}</a>

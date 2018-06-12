@@ -11,7 +11,7 @@
           <thead>
             <tr>
                  <th width="6%">S.N</th>
-                 <th width="6%">Job_id</th>
+                 <th width="6%">Job id</th>
                  <th width="18%">Job Positon</th>
                  <th>Salary</th>
                  <th>Type</th>

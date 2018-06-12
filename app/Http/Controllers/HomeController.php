@@ -28,6 +28,7 @@ use Modules\Content\Entities\Content;
 use App\Testimonial;
 use App\Demand;
 use App\Applicant;
+use App\Contact;
 use App\Appointments;
 
 
@@ -40,13 +41,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $today_appointments = Appointments::where('date', date('Y-m-d'))->where('is_confirmed',1)->where('is_success',0)->count();
-        $pending_appointments = Appointments::where('is_confirmed',0)->where('is_success',0)->count();
-        $today_packages = PackageBookings::where('date', date('Y-m-d'))->where('is_confirmed',1)->where('is_success',0)->count();
-        $pending_packages = PackageBookings::where('is_confirmed',0)->where('is_success',0)->count();
+        $count = Applicant::count();
+        $counts = Contact::count();
 
-        return view('admin.dashboard',['today_appointments' => $today_appointments, 'pending_appointments' => $pending_appointments, 'today_packages' => $today_packages, 'pending_packages' => $pending_packages]);
+
+       return view('admin.dashboard',['count' => $count],['counts' => $counts]);
     }
+
+
 
     public function getHome()
  {
