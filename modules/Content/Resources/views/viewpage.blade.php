@@ -50,20 +50,12 @@
                            <div id="sidebar">
                               <div id="inner-sidebar" class="inner-content-wrap">
                                  <div class="widget widget_categories">
-                                    <h2 class="widget-title"><span>CATEGORIES</span></h2>
-                                    <ul>
-
-                               @foreach($all_jobs as $an)
+                    <h2 class="widget-title"><span>CATEGORIES</span></h2>
+                    <ul>
+                      @foreach($all_jobs as $an)
                                 @if($an->id != $content->id)
+                        <li class="cat-item cat-item-3"><a href="{{ route('pages.detail',$an->slug) }}">{{ $an->heading }}</a> </li>
                        
-                             <li class="clearfix">
-                               
-
-                            <div class="texts">
-                                <h3><a href="{{ route('pages.detail',$an->slug) }}"">{{ $an->heading }}</a></h3>
-                                
-                            </div><!-- /.texts -->
-                        </li>
                         
                          @endif
                         @endforeach
