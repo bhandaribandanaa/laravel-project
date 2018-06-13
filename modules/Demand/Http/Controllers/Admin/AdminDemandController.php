@@ -111,11 +111,37 @@ class AdminDemandController extends Controller
         return redirect('admin/demands');
     }
 
-    public function changeStatus($id,$option){
+     public function changeStatus($id,$option){
         Demand::where('id',$id)->update(['status' => $option]);
-        Session::flash('status_success','Demand has been changed');
+        Session::flash('status_success','Demands has been changed');
         return redirect('admin/demands');
     }
+
+    // public function changeStatus()
+    // {
+    //     $rules = ['id' => 'required'];
+    //     $validator = Validator::make(Input::all(), $rules);
+
+    //     if ($validator->fails()) {
+    //         return response()->json(['status' => false, 'message' => $validator->errors()->all()]);
+    //     }
+
+    //     try {
+    //         $objectContent = Demand::findOrFail(Input::get('id'));
+    //         if ($objectContent->status == 'active') {
+                
+    //             $message = 'Demand unpublished successfully.';
+    //         } else {
+    //             $objectContent->status = 'not_active';
+    //             $message = 'Demand published successfully.';
+    //         }
+    //         $objectContent->save();
+
+    //         return response()->json(['status' => true, 'message' => $message, 'is_active' => $objectContent->is_active]);
+    //     } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+    //         return response()->json(['status' => false, 'message' => Input::get('id')]);
+    //     }
+    // }
 
     public function delete($id){
         Demand::where('id',$id)->delete();

@@ -89,24 +89,24 @@
 
 
 
-            
-                        <div class="col-sm-12">
-                            <div class="form-group fg-line">
-                                <label class="" for="">Publish</label>
-                                <br/>
-                                <br/>
-                                <label class="radio radio-inline m-r-20">
-                                    <input type="radio" name="status" value="active" checked="checked">
-                                    <i class="input-helper"></i>
-                                    Yes
-                                </label>
-                                <label class="radio radio-inline m-r-20">
-                                    <input type="radio" name="status" value="not_active">
-                                    <i class="input-helper"></i>
-                                    No
-                                </label>
-                            </div>
-                        </div>
+             <div class="form-group fg-line">
+                        <label class="" for="">Publish</label>
+                        <br/>
+                        <br/>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_active" value="1"
+                                   @if($settings->status=='active')checked="checked" @endif>
+                            <i class="input-helper"></i>
+                            Yes
+                        </label>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_active" value="0"
+                                   @if($settings->status=='')checked="checked" @endif>
+                            <i class="input-helper"></i>
+                            No
+                        </label>
+                    </div>
+                       
                           <input type="hidden" name="id" value="{{ $settings->id }}">
 
                         {!! csrf_field() !!}

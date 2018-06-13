@@ -47,7 +47,7 @@
                                 <td>
                                     @if(Access::hasAccess('content-management', 'access_publish'))
                                         @if($content->is_active == 1)
-                                            <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $content->id !!}"  data-toggle="tooltip" title="Change Status"><i
+                                            <a href="" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $content->id !!}"  data-toggle="tooltip" title="Change Status"><i
                                                         class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
                                         @else
                                             <a href="#" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $content->id !!}"  data-toggle="tooltip" title="Change Status"><i

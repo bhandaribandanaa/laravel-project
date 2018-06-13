@@ -77,32 +77,31 @@
                             <td>{{ $d->published_date}}</td>
 
                             <td>{{ Carbon\Carbon::parse($d->created_at)->toFormattedDateString() }}</td>
+
                             <td>
-                                <a href="{{ route('admin.demands.edit',[$d->id]) }}" title="Edit demands"
+                                <a href="{{ route('admin.demands.edit',[$d->id]) }}" title="Edit Demands"
                                    data-toggle="tooltip"
                                    class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i
                                             class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
 
-                                @if($d->status == 1)
-                                    <a href="{{ route('admin.demands.changeStatus',[$d->id,'not_active']) }}"
-                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-                                       data-toggle="tooltip" title="Change Status"><i
-                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
-                                @else
-                                    <a href="{{ route('admin.demands.changeStatus',[$d->id,'active']) }}"
-                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-                                        data-toggle="tooltip" title="Change Status"><i
-                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+
+                                  @if($d->status == 'active')
+                                   <a href="{{ route('admin.demands.changeStatus',[$d->id,'not_active']) }}" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $d->id !!}"  data-toggle="tooltip" title="Change Status"><i
+                                                        class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                        @else
+                                            <a href="{{ route('admin.demands.changeStatus',[$d->id,'active']) }}" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $d->id !!}"  data-toggle="tooltip" title="Change Status"><i
+                                                        class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
                                 @endif
 
                                 <a href="javascript:void(0)"
                                    class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-                                   data-id="{{ $d->id }} data-toggle="tooltip" title="Delete demands" data-placement="top"><i
-                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
+                                   data-id="{{ $d->id }} data-toggle="tooltip" title="Delete Demand" data-placement="top"><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>          
 
 
-
-                            </td>
+                                   
+                                </td>
+                            
                         </tr>
                     @empty
                         <tr>

@@ -147,26 +147,30 @@
                                 </div>
                             @endif
                         </div>
+                        <div class="col-sm-6">
+                    <div class="form-group fg-line">
+                        <label class="" for="">Publish</label>
+                        <br/>
+                        <br/>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_active" value="1"
+                                   @if($demands->status=='active')checked="checked" @endif>
+                            <i class="input-helper"></i>
+                            Yes
+                        </label>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_active" value="0"
+                                   @if($demands->status=='')checked="checked" @endif>
+                            <i class="input-helper"></i>
+                            No
+                        </label>
+                    </div>
+                </div>
 
 
 
-                        <div class="col-sm-12">
-                            <div class="form-group fg-line">
-                                <label class="" for="">Publish</label>
-                                <br/>
-                                <br/>
-                                <label class="radio radio-inline m-r-20">
-                                    <input type="radio" name="status" value="active" checked="checked">
-                                    <i class="input-helper"></i>
-                                    Yes
-                                </label>
-                                <label class="radio radio-inline m-r-20">
-                                    <input type="radio" name="status" value="not_active">
-                                    <i class="input-helper"></i>
-                                    No
-                                </label>
-                            </div>
-                        </div>
+
+                        
                         <input type="hidden" name="id" value="{{ $demands->id }}">
 
                         {!! csrf_field() !!}

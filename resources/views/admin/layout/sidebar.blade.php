@@ -72,21 +72,15 @@
                             href="{{ route('admin.content.index') }}"><i class="zmdi zmdi-sort-asc zmdi-hc-fw"></i>Content
                         Management</a></li>
             @endif
+             <!-- @if(Access::hasAccess('demand-management', 'access_view'))
+                <li class="{{ (Request::segment(2)=='demand' ? 'active':'') }}"><a
+                            href="{{ route('admin.demands.index') }}"><i class="zmdi zmdi-sort-asc zmdi-hc-fw"></i>Demand
+                        Management</a></li>
+            @endif -->
 
-           <!--  <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="zmdi zmdi-headset-mic zmdi-hc-fw"></i>Services</a>
-                <ul>
-                    <li class=""><a href="{{ route('admin.services.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Services</a>
-                    </li>
-                    <li><a href="{{ route('admin.services.add') }}" class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Services</a>
-                    </li>
-                </ul>
-            </li>
- --><!-- 
-            <li class="{{ (Request::segment(2)=='whychoose' ? 'active':'') }}"><a
-                        href="{{ route('admin.choose.index') }}"><i class="fa fa-question-circle" aria-hidden="true"></i>Why Choose</a></li>
+           
 
-            <li> -->
+         
 
             @if(Access::hasAccess('gallery-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='gallery' ? 'active':'') }}"><a
