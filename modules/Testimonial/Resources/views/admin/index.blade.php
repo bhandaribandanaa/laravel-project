@@ -91,7 +91,7 @@
                                    class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i
                                             class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
 
-                                @if($n->status == 1)
+                                @if($n->status == 'active')
                                     <a href="{{ route('admin.testimonials.changeStatus',[$n->id,'not_active']) }}"
                                        class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
                                        data-toggle="tooltip" title="Change Status"><i

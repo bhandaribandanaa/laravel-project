@@ -100,8 +100,8 @@
 
 
                     <div class="clearfix"></div>
-
-                    <div class="col-sm-12">
+                   
+                     <div class="col-sm-12">
                         <div class="form-group fg-line">
                             <label class="" for="">Description*</label>
                             <textarea class="form-control description" name="description" style="height: 600px;">{!! $news->description !!}</textarea>
@@ -139,13 +139,13 @@
                         <br/>
                         <br/>
                         <label class="radio radio-inline m-r-20">
-                            <input type="radio" name="is_active" value="1"
+                            <input type="radio" name="status" value="active"
                                    @if($news->status=='active')checked="checked" @endif>
                             <i class="input-helper"></i>
                             Yes
                         </label>
                         <label class="radio radio-inline m-r-20">
-                            <input type="radio" name="is_active" value="0"
+                            <input type="radio" name="status" value="not_active"
                                    @if($news->status=='not_active')checked="checked" @endif>
                             <i class="input-helper"></i>
                             No
