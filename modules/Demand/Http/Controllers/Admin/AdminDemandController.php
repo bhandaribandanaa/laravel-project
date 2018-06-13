@@ -83,7 +83,7 @@ class AdminDemandController extends Controller
 
          
        
-            return view('demand::admin.edit_demands')->with(array('demands' => $demands));
+            return view('demand::admin.edit_Demands')->with(array('demands' => $demands));
     }
   public function editSubmit(Request $request){
 
