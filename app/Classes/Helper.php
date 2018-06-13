@@ -6,6 +6,7 @@
  * Time: 1:02 PM
  */
 namespace App\Classes;
+use App\Contact;
 
 use Modules\Content\Entities\Content;
 use Modules\Events\Entities\Events;
@@ -43,6 +44,12 @@ class Helper
             $query->orderBy('order_postition','ASC');
         }])->where('is_active',1)->where('parent_id',0)->orderBy('order_postition','ASC')->take($items)->get();
     }
+
+    public static function getMainMenus()
+    {
+        return Contact::where('status','active')->where('deleted_at',null)->get();
+        }
+    
 
 
     public static function getJobCategories() {

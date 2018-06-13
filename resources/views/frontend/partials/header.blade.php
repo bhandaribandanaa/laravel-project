@@ -15,6 +15,8 @@
            <!-- //mobile menu button -->
            <nav id="main-nav" class="main-nav">
                <ul class="menu">
+                <?php $mainMenus = App\Classes\Helper::getMainMenus();
+                       $last_urll = collect(request()->segments())->last(); ?>
 
                  <?php $mainMenus = App\Classes\Helper::getMainMenu(5);
                       $sub_menus = array();
@@ -49,9 +51,14 @@
                            </li>
                         @endforeach
                    @endif
+                    <li class="menu-item  <?php if($last_url == "add") { ?>current-menu-item <?php } ?>"> <a href="{{ route('contacts.add') }}" >Contact Us</a>
+                   
 
 
-                     <li class="menu-item"<?php if(empty($last_url)) { ?>current-menu-item <?php } ?>"><a href="{{ route('contacts.add') }}">Contact Us</a></li>
+                       
+
+
+                   
                     <li class="menu-item wprt-button "<?php if(empty($last_url)) { ?>current-menu-item <?php } ?>"><a href="{{ route('applyOnline') }}">Apply Online</a></li></li>
 
                </ul>
