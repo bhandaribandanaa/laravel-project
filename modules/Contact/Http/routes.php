@@ -2,9 +2,9 @@
 
 <?php
 
-if(Session::has('settings')){
-        $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
-        Session::put('settings', $settings);}
+$settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+// echo '<pre>';
+($settings);
 
 Route::group(['prefix' => 'admin/contacts', 'middleware' => 'admin', 'namespace' => 'Modules\Contact\Http\Controllers\Admin'], function () {
 
@@ -21,7 +21,7 @@ Route::group(['prefix' => 'contact', 'namespace' => 'Modules\Contact\Http\Contro
 {
 	
 
-	Route::get('add/', ['as' => 'contacts.add',
+	Route::get('/', ['as' => 'contacts.add',
                             'uses' => 'ContactController@add']);
 
     Route::post('add/submit', ['as' => 'contacts.addSubmit',

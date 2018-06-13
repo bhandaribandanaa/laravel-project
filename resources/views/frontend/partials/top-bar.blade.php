@@ -5,7 +5,8 @@
             <div class="top-bar-socials">
                 <div class="inner">
                         <span class="icons">
-                          Gov. Lic. No.: 1231/074/075
+                            {{ ($settings)['government-license'] }}
+                          
                         </span>
                 </div>
             </div><!-- /.top-bar-socials -->
