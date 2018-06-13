@@ -124,8 +124,24 @@
                                 </div>
                             @endif
                         </div>
+                         <div class="col-sm-6">
+                            <div class="form-group fg-line">
+                                <label class="" for="exampleInputEmail2">Published Date*</label>
+                                <input type="text" class="form-control input-sm" name="accomodation"
+                                       id="published_date" value="{{ old('published_date') }}"
+                                       placeholder="Enter Date">
+                            </div>
+                            @if($errors->has('published_date'))
+                                <div class="alert alert-danger fade in">
+                                    <button type="button" class="close close-sm" data-dismiss="alert">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                    <strong>Warning!</strong> {{ $errors->first('published_date') }}.
+                                </div>
+                            @endif
+                        </div>
 
-                          <div class="col-sm-12">
+                         <!--  <div class="col-sm-12">
                             <div class="form-group fg-line">
                                 <label class="" for="">Published Date*</label>
                                 <input type="text" id="published_date" name="published_date">
@@ -139,7 +155,7 @@
                                     <strong>Warning!</strong> {{ $errors->first('published_date') }}.
                                 </div>
                             @endif
-                        </div>
+                        </div> -->
 
 
 

@@ -94,13 +94,13 @@
                         <br/>
                         <br/>
                         <label class="radio radio-inline m-r-20">
-                            <input type="radio" name="active" value="1"
+                            <input type="radio" name="active" value="active"
                                    @if($settings->status=='active')checked="checked" @endif>
                             <i class="input-helper"></i>
                             Yes
                         </label>
                         <label class="radio radio-inline m-r-20">
-                            <input type="radio" name="not_active" value="0"
+                            <input type="radio" name="not_active" value="not_active"
                                    @if($settings->status=='')checked="checked" @endif>
                             <i class="input-helper"></i>
                             No

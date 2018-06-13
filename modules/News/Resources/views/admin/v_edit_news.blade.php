@@ -116,6 +116,7 @@
                             </div>
                         @endif
                     </div>
+                    <div class="clearfix"></div>
 
                     <div class="col-sm-12">
                         <div class="form-group fg-line">

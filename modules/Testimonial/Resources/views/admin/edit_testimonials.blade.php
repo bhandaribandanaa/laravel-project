@@ -135,6 +135,7 @@
                             </div>
                         @endif
                     </div>
+                    <div class="clearfix"></div>
 
 
 
