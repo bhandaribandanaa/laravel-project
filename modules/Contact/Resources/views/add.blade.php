@@ -34,15 +34,15 @@
                               <ul class="style-2">
                                  <li class="address">
                                     <span class="hl">Address:</span>
-                                    <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['contact-address'] : "" }}</span>
+                                    <span class="text">{{ ($settings)['contact-address'] }}</span>
                                  </li>
                                  <li class="phone">
                                     <span class="hl">Phone:</span> 
-                                    <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['contact-number'] : "" }}</span>
+                                    <span class="text">{{ ($settings)['contact-number'] }}</span>
                                  </li>
                                  <li class="email">
                                     <span class="hl">E-mail:</span>
-                                    <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}</span>
+                                    <span class="text">{{ ($settings)['web-master-email'] }}</span>
                                  </li>
                               </ul>
                            </div>

@@ -96,8 +96,8 @@ class AdminDemandController extends Controller
 
         $demands = Demand::find(Input::get('id'));
 
-        
-             $demands->job_position = Input::get('job_position');
+       
+            $demands->job_position = Input::get('job_position');
             $demands->salary = Input::get('salary');
             $demands->type = Input::get('type');
             $demands->request_number = Input::get('request_number');

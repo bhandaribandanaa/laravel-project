@@ -42,17 +42,17 @@
                     <ul class="style-2">
                         <li class="address clearfix">
                             <span class="hl">Address:</span>
-                            <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['contact-address'] : "" }}</span>
+                            <span class="text">{{ ($settings)['contact-address'] }}</span>
                         </li>
                         <li class="phone clearfix">
                             <span class="hl">Phone:</span>
-                            <span class="text">{{ (Session::has('settings')) ? Session::get('settings')['contact-number'] : "" }}</span>
+                            <span class="text">{{ ($settings)['contact-number'] }}</span>
                         </li>
                         <li class="email clearfix">
                             <span class="hl">E-mail:</span>
-                            <span class="text"><a
-                                        href="mailto:info@sadikintloverseas.com.np">{{ (Session::has('settings')) ? Session::get('settings')['web-master-email'] : "" }}
-                                </a></span>
+                            <span class="text">{{ ($settings)['web-master-email'] }}
+                                       
+                                </span>
                         </li>
 
 
@@ -65,9 +65,9 @@
 
                 <div class="widget widget_socials">
                     <div class="socials">
-                        <a target="_blank" href="{{ (Session::has('settings')) ? Session::get('settings')['twitter-link'] : "" }}"><i class="fa fa-twitter"></i></a>
-                        <a target="_blank" href="{{ (Session::has('settings')) ? Session::get('settings')['facebook-link'] : "" }}"><i class="fa fa-facebook"></i></a>
-                        <a target="_blank" href="{{ (Session::has('settings')) ? Session::get('settings')['gplus-link'] : "" }}"><i class="fa fa-google-plus"></i></a>
+                        <a target="_blank" href="{{ ($settings)['twitter-link'] }}"><i class="fa fa-twitter"></i></a>
+                        <a target="_blank" href="{{ ($settings)['facebook-link'] }}"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="{{ ($settings)['gplus-link'] }}"><i class="fa fa-google-plus"></i></a>
 
 
                     </div>

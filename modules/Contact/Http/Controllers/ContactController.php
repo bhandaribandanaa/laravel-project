@@ -12,6 +12,7 @@ use Session;
 
 use Image;
 use Auth;
+use Modules\Setting\Entities\Setting;
 use App\Contact;
 
 class ContactController extends Controller {
@@ -26,18 +27,20 @@ class ContactController extends Controller {
 
     public function index()
     {
+       $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
 
        $contacts = Contact::paginate(5);
        // dd("here");
       
           
-        return view('contact::index')->with(array('contacts' => $contacts));
+        return view('contact::index')->with(array('contacts' => $contacts))->with('settings', $settings);
 
     }
 
     public function add()
     {
-        return view('contact::add');
+       $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+        return view('contact::add')->with('settings', $settings);
 
         // $menu_location = MenuLocation::where('is_active', 1)->lists('name', 'id');
         // return view('demand::admin.add')->with(array('parents_select' => Demand::Demand_list_for_DemandEntry(0, 0, ''), 'menu_location' => $menu_location->toArray()));

@@ -82,13 +82,7 @@ class Helper
 
     
 
-    // public static function getTopBar()
-    // {
-    //     if(!Session::has('settings')){
-    //     $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
-    //     Session::put('settings', $settings);
-
-    // }
+    
 }
 
     

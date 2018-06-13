@@ -54,6 +54,9 @@ class HomeController extends Controller
  {
 
     // $settings = Setting::pluck('slug','value');
+    $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+// echo '<pre>';
+($settings);
     $content = Content::where('id',1)->where('is_active',1)->get();
      $banner = Banner::where('is_active',1)->get();
    $demands = Demand::where('status','active')->orderBy('created_at', 'desc')->paginate(5);
@@ -62,7 +65,7 @@ class HomeController extends Controller
    $data = News::where('status','active')->orderBy('published_date','desc')->get();
    $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
-   return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner))->with('content',$content);
+   return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner))->with('content',$content)->with('settings', $settings);
 // ->with(array('settings' => $settings));
  }
 

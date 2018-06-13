@@ -167,6 +167,7 @@
                                 </label>
                             </div>
                         </div>
+                        <input type="hidden" name="id" value="{{ $demands->id }}">
 
                         {!! csrf_field() !!}
                         <div class="col-sm-4">
