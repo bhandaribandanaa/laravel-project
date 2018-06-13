@@ -78,8 +78,12 @@ class Helper
 
          return Content::where('is_active',1)->where('id',1)->get();
        
-    }
+    } public static function settings(){
 
+    $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+    return Setting::lists('value','slug');
+// echo '<pre>';
+}
     
 
     

@@ -3,10 +3,10 @@
       //   $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
       // }
 
-$settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
+// $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
 // echo '<pre>';
-($settings);
-
+// print_r($settings);
+// die;
 // if(Session::has('settings')){
 //         $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
 //         Session::put('settings', $settings);}

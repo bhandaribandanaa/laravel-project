@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>{{ ($settings)['website-name'] }}
+    <title><?php $settings = App\Classes\Helper::settings(); ?> {{ ($settings)['website-name'] }}
     </title>
 
 

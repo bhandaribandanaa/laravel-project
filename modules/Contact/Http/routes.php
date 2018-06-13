@@ -2,9 +2,7 @@
 
 <?php
 
-$settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
-// echo '<pre>';
-($settings);
+
 
 Route::group(['prefix' => 'admin/contacts', 'middleware' => 'admin', 'namespace' => 'Modules\Contact\Http\Controllers\Admin'], function () {
 

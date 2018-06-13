@@ -31,7 +31,9 @@
                         <div class="col-md-4">
                            <div class="wprt-information">
                               <h4 class="margin-bottom-15">Contact Details</h4>
+                              <?php $settings = App\Classes\Helper::settings(); ?>
                               <ul class="style-2">
+
                                  <li class="address">
                                     <span class="hl">Address:</span>
                                     <span class="text">{{ ($settings)['contact-address'] }}</span>

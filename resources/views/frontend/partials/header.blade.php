@@ -51,7 +51,7 @@
                            </li>
                         @endforeach
                    @endif
-                    <li class="menu-item  <?php if($last_url == "add") { ?>current-menu-item <?php } ?>"> <a href="{{ route('contacts.add') }}" >Contact Us</a>
+                    <li class="menu-item  <?php if($last_url == "contact") { ?>current-menu-item <?php } ?>"> <a href="{{ route('contacts.add') }}" >Contact Us</a>
                    
 
 

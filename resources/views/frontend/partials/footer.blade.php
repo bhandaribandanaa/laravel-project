@@ -40,6 +40,7 @@
                 <div class="widget widget_information">
                     <h2 class="widget-title"><span>CONTACT INFO</span></h2>
                     <ul class="style-2">
+                      <?php $settings = App\Classes\Helper::settings(); ?>
                         <li class="address clearfix">
                             <span class="hl">Address:</span>
                             <span class="text">{{ ($settings)['contact-address'] }}</span>
