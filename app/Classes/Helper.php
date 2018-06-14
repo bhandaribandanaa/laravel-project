@@ -74,6 +74,12 @@ class Helper
        
     }
 
+    public static function getRecruit(){
+
+         return Content::where('is_active',1)->where('id',31)->get();
+       
+    }
+
      public static function getAboutUs(){
 
          return Content::where('is_active',1)->where('id',1)->get();

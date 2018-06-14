@@ -4,8 +4,14 @@
         <div class="bottom-bar-menu">
                 <ul class="bottom-nav">
                     <li><a href="{{URL::to('/')}}" title="Sadik International Oversease" rel="home" class="trail-begin">Home</a></li>
-                   <li><a href="#/"> Why Recruitment from us</a></li>
-                    <li>
+                   <li><?php $recruit = App\Classes\Helper::getRecruit(); ?>
+
+                     @foreach($recruit as $c)
+                     <li class="menu-item">
+                    <a href="{{ route('pages.detail',$c->slug) }}">{{ $c->heading }} </a></li>
+                    @endforeach
+                  </li>
+                    
                     <?php $business = App\Classes\Helper::getBusiness(); ?>
                    
                            @foreach($business as $jc)
