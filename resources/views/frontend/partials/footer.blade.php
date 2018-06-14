@@ -3,12 +3,19 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="widget widget_text">
-                  <?php $aboutus = App\Classes\Helper::getAboutUS(); ?>
+                  
+             <?php $aboutus = App\Classes\Helper::getAboutUS(); ?>
+
 
                      @foreach($aboutus as $c)
-                  <h2 class="widget-title"><span> {{$c -> heading}}</span></h2>
+                     <h2 class="widget-title"><span> ABOUT US</span></h2>
+                     {{ str_limit(strip_tags($c->description), 520) }}
+            @if (strlen(strip_tags($c->description)) > 520)
+              ... <a href="{{ route('pages.detail',$c->slug) }}" class="widget_text">Read More</a>
+            @endif
+                  
 
-                <p>{!! $c ->short_description !!}</p>
+              
                     @endforeach
           </div>
 

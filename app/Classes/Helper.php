@@ -82,7 +82,7 @@ class Helper
 
      public static function getAboutUs(){
 
-         return Content::where('is_active',1)->where('id',1)->get();
+         return Content::where('is_active',1)->where('id',19)->get();
        
     } public static function settings(){
 
