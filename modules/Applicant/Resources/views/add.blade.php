@@ -19,6 +19,10 @@
         </div>
     </div>
 </div>
+<div class="clear"></div>
+ @if(Session::has('add_success'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('add_success') }}</p>
+@endif
 
 <!-- Main Content -->
 <div id="main-content" class="site-main clearfix">
