@@ -89,7 +89,8 @@ class ApplicantController extends Controller
                  // });
 
 
-
+//                 Session::flash('message', 'This is a message!'); 
+// Session::flash('alert-class', 'alert-danger'); 
                 Session::flash('add_success','Application Submitted successfully.');
                 return redirect()->back();
             }else{

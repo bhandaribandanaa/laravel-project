@@ -77,13 +77,13 @@
                             <td>{{ $n->rating }}</td>
                             <td> {{ $n ->description }} </td>
                             <td>{!! Helpers::string_limit($n->status,100) !!}</td>
-                            <td>
+                            <!-- <td>
                                 @if($n->status=='active')
                                     <a class="label label-success">Published</a>
                                 @else
                                     <a class="label label-danger">Unpublished</a>
                                 @endif
-                            </td>
+                            </td> -->
                             <td>{{ Carbon\Carbon::parse($n->published_date)->toFormattedDateString() }}</td>
                             <td>
                                 <a href="{{ route('admin.testimonials.edit',[$n->id]) }}" title="Edit testimonials"

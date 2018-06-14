@@ -76,7 +76,7 @@
                                    class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i
                                             class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
 
-                                @if($d->status == 'active')
+                             <!--    @if($d->status == 'active')
                                     <a href="{{ route('admin.settings.changeStatus',[$d->id,'not_active']) }}"
                                        class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
                                        data-toggle="tooltip" title="Change Status"><i
@@ -86,7 +86,7 @@
                                        class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
                                         data-toggle="tooltip" title="Change Status"><i
                                                 class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
-                                @endif
+                                @endif -->
 
                                 <a href="javascript:void(0)"
                                    class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"

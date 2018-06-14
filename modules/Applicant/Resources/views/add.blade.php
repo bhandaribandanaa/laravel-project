@@ -97,15 +97,16 @@
                         </div><!-- /.container -->
                     </section>
 
+
         
         <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
                          
                                     
                                     
                                     
-                           
-                        </div><!-- /.container -->
-                    </section>
+                       @if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+@endif   
 
                     
                 </div><!-- /.page-content -->

@@ -102,7 +102,7 @@ class AdminSettingController extends Controller
     }
 
     public function changeStatus($id,$option){
-        Setting::where('id',$id)->update(['status' => $option]);
+        Setting::where('id',$id)->update(['is_active' => $option]);
         Session::flash('status_success','Setting has been changed');
         return redirect('admin/settings');
     }

@@ -88,27 +88,29 @@
                         </div>
 
 
+                            <div class="clearfix"></div>
 
-             <div class="form-group fg-line">
+
+
+                     <div class="form-group fg-line">
                         <label class="" for="">Publish</label>
                         <br/>
                         <br/>
                         <label class="radio radio-inline m-r-20">
-                            <input type="radio" name="active" value="active"
+                            <input type="radio" name="status" value="active"
                                    @if($settings->status=='active')checked="checked" @endif>
                             <i class="input-helper"></i>
                             Yes
                         </label>
                         <label class="radio radio-inline m-r-20">
-                            <input type="radio" name="not_active" value="not_active"
-                                   @if($settings->status=='')checked="checked" @endif>
+                            <input type="radio" name="status" value="not_active"
+                                   @if($settings->status=='not_active')checked="checked" @endif>
                             <i class="input-helper"></i>
                             No
                         </label>
                     </div>
-                       
-                          <input type="hidden" name="id" value="{{ $settings->id }}">
-
+                    <input type="hidden" name="id" value="{{ $settings->id }}">
+                    {!! csrf_field() !!}
                         {!! csrf_field() !!}
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-primary btn-sm m-t-5">Edit Settings</button>
