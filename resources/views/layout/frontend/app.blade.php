@@ -114,6 +114,8 @@
 <script>
 $(document).ready( function () {
     $('#demands').DataTable();
+    
+
 } );
 </script>
 

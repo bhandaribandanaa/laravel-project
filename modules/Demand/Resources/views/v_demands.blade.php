@@ -63,27 +63,7 @@
 </tbody>
 
 </table>
-<!-- <div align="center">
-                   {!! $demands->render() !!}
-               </div> -->
 
-
-
-                 <!--    </tbody>
-
-                    <script>
-$(document).ready(function() {
-  $('#table').DataTable({
-"bStateSave": true
-});
-} );
-</script>
-                </table>
-               
-               <div align="center">
-                   {!! $demands->render() !!}
-               </div>
-      -->
 
 
 
