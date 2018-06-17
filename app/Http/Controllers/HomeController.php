@@ -60,7 +60,7 @@ class HomeController extends Controller
 ($settings);
     $content = Content::where('id',1)->where('is_active',1)->get();
      $banner = Banner::where('is_active',1)->get();
-   $demands = Demand::where('status','active')->orderBy('created_at', 'desc')->paginate(5);
+   $demands = Demand::where('status','active')->orderBy('created_at', 'desc')->paginate(100);
    $testimonials = Testimonial::where('status','active')->get();
    $images = Images::where('is_active',1)->where('album_id', 10)->orderBy('id', 'desc')->get();
    $data = News::where('status','active')->orderBy('published_date','desc')->get();
@@ -100,7 +100,12 @@ class HomeController extends Controller
 
     }
 
+
+
     // public function getDemandData(Datatables $datatables) {
+
+
+
     //     $data = Demand::select('id', 'job_position','salary','type','request_number','fooding','accomodation','published_date');
 
     //     return Datatables::of($data)
@@ -124,15 +129,15 @@ class HomeController extends Controller
     //                      //   
     //                 }
 
-       public function getDemandData(Datatables $datatables) {
-        $data = Demand::select('id', 'job_position','salary','type','request_number','fooding','accomodation','published_date');
-        return Datatables::of($data)
-                         ->addColumn('action', function ($data) use (&$id)
-                         {
-                             return "<a href='/applicant/add/$data->id'>Apply Online</a>";
-                         })
-                         ->make();
-    }             
+    //    public function getDemandData(Datatables $datatables) {
+    //     $data = Demand::select('id', 'job_position','salary','type','request_number','fooding','accomodation','published_date');
+    //     return Datatables::of($data)
+    //                      ->addColumn('action', function ($data) use (&$id)
+    //                      {
+    //                          return "<a href='/applicant/add/$data->id'>Apply Online</a>";
+    //                      })
+    //                      ->make();
+    // }             
     
 
      public function getjobApplySubmit(Request $request){

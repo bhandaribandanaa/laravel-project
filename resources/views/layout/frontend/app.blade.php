@@ -18,6 +18,7 @@
     <!-- Favicon and touch icons  -->
     {{--<link rel="shortcut icon" href="assets/icon/favicon.png">--}}
     <link rel="shortcut icon" href="{{ asset('sadik/icon/favicon.png') }}">
+   <!--  <link rel="shortcut icon" href="{{ asset('css/datatable.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
 
 </head>
@@ -96,7 +97,10 @@
         src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
 <script type="text/javascript"
         src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.video.min.js') }}"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript"
+        src="{{ asset('js/datatable.js') }}"></script>
+
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 
         <script>
     $(function () {
@@ -106,6 +110,11 @@
             ajax: '/demandsdata'
         });
     });
+</script> -->
+<script>
+$(document).ready( function () {
+    $('#demands').DataTable();
+} );
 </script>
 
 

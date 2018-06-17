@@ -69,10 +69,10 @@ Route::get('/applyOnline', ['as' => 'applyOnline',
     Route::post('applyOnline/submit', ['as' => 'applyOnlineSubmit',
                             'uses' => 'HomeController@getjobApplySubmit']);
 
-    Route::get('/demandsdata', array('as' => 'demands.data', 'uses' => 'HomeController@getDemandData'))
-    ;
-    Route::get('add/{id}', ['as' => 'applicants.add',
-                            'uses' => 'ApplicantController@add']);
+    // Route::get('/demandsdata', array('as' => 'demands.data', 'uses' => 'HomeController@getDemandData'))
+    // ;
+    // Route::get('add/{id}', ['as' => 'applicants.add',
+    //                         'uses' => 'ApplicantController@add']);
 
 
 	

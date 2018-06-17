@@ -16,6 +16,7 @@
             <div id="inner-content" class="inner-content-wrap">
                 <div class="page-content">
                     {{--Latest Demand--}}
+                    
                     @include('demand::v_demands')
                     {{--End Latest Demand--}}
 
