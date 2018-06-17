@@ -11,13 +11,13 @@
           <thead>
             <tr>
                  <th width="6%">S.N</th>
-                 <th width="6%">Job id</th>
-                 <th width="18%">Job Positon</th>
+                 <th width="8%">Job id</th>
+                 <th width="15%">Job Positon</th>
                  <th>Salary</th>
                  <th>Type</th>
-                 <th width="6%">Req No.</th>
+                 <th width="8%">Req No.</th>
                  <th>Fooding</th>
-                <th>Accommodation</th>
+                <th width="15%">Accommodation</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
