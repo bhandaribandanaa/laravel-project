@@ -21,6 +21,7 @@ use Validator;
 use App\Newsletter;
 use App\News;
 use App\NewsCategory;
+use Yajra\Datatables\Datatables;
 
 use App\ChooseUs;
 
@@ -98,6 +99,41 @@ class HomeController extends Controller
         return view('frontend.job_applyform');
 
     }
+
+    // public function getDemandData(Datatables $datatables) {
+    //     $data = Demand::select('id', 'job_position','salary','type','request_number','fooding','accomodation','published_date');
+
+    //     return Datatables::of($data)
+    //         ->addColumn('action', function ($data) use (&$id)
+    //         {
+    //             return '<a href="{{ route( "applicants.add", $data) }} target="_blank">Apply Online</a>';
+    //         })
+    //         ->make();
+    // }
+
+    // public function getDemandData(Datatables $datatables) {
+    //     $builder = Demand::query()->select('id', 'job_position','salary','type','request_number','fooding','accomodation','published_date');
+    //     // $d = Demand::where('id')->get();
+    //     // <a href='/applyonline/$data->id'>Apply Online</a>
+
+
+    //     return $datatables::of($builder)
+    //                        ->addColumn('action',function ($builder) use (&$id)
+    //                         { return "<a href='{{ route('applicants.add', $builder) }}'> Apply Online</a>")
+    //                         ->make();
+    //                      //   
+    //                 }
+
+       public function getDemandData(Datatables $datatables) {
+        $data = Demand::select('id', 'job_position','salary','type','request_number','fooding','accomodation','published_date');
+        return Datatables::of($data)
+                         ->addColumn('action', function ($data) use (&$id)
+                         {
+                             return "<a href='/applicant/add/$data->id'>Apply Online</a>";
+                         })
+                         ->make();
+    }             
+    
 
      public function getjobApplySubmit(Request $request){
 

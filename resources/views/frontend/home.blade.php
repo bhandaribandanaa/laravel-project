@@ -113,7 +113,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-                                    <h2 class="text-left text-white">COUNTRIES WE SUPPLY</h2>
+                                    <h2 class="text-left text-black">COUNTRIES WE SUPPLY</h2>
                                     <div class="wprt-lines custom-2">
                                         <div class="line-1"></div>
                                     </div>

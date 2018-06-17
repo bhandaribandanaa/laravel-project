@@ -163,6 +163,10 @@ return [
 //        Anouar\Fpdf\FpdfServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+       
+        Yajra\Datatables\DatatablesServiceProvider::class,
+    ]
+
     ],
 
     /*
@@ -228,6 +232,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
 //        'Fpdf' => Anouar\Fpdf\Facades\Fpdf::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
     ],
 
