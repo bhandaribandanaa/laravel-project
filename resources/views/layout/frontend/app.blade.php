@@ -18,8 +18,8 @@
     <!-- Favicon and touch icons  -->
     {{--<link rel="shortcut icon" href="assets/icon/favicon.png">--}}
     <link rel="shortcut icon" href="{{ asset('sadik/icon/favicon.png') }}">
-    <link rel="shortcut icon" href="{{ asset('css/datatable.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"> -->
+   <!--  <link rel="shortcut icon" href="{{ asset('css/datatable.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
 
 </head>
 
