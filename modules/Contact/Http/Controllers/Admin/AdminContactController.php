@@ -31,6 +31,11 @@ class AdminContactController extends Controller {
         
     }
 
+    public function delete($id){
+        Contact::where('id',$id)->delete();
+        print_r(json_encode(['status' => 'success', 'value' => 'Contact has been deleted.']));
+    }
+
 
 
 

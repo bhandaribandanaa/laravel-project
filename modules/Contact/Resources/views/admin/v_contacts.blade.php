@@ -15,6 +15,15 @@
                     <strong>Success!</strong> {{ Session::get('del_success') }}
                 </div>
             @endif
+
+            @if(Session::has('error'))
+                <div class="alert alert-danger fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Warning!</strong> {{ Session::get('error') }}
+                </div>
+            @endif
             <div class="card-body table-responsive">
                 <table class="table">
                     <thead>
@@ -41,10 +50,10 @@
                             <td>{{ $d->subject}}</td>
                             <td>{{ $d->message}}</td>
                             <td>{{ $d->created_at}}</td>
-                            <td><a href="javascript:void(0)"
+                            <td><td> <a href="javascript:void(0)"
                                    class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-                                   data-id="{{ $d->id }} data-toggle="tooltip" title="Delete Demand" data-placement="top"><i
-                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a> </td>
+                                   data-id="{{ $d->id }} data-toggle="tooltip" title="Delete Applicants" data-placement="top"><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a></td>   </td>
                            
                         </tr>
                          @empty
@@ -78,7 +87,7 @@
                 var $tr = $(this).closest('tr')
                 swal({
                         title: "Are you sure?",
-                        text: "You will not be able to recover this testimonials!",
+                        text: "You will not be able to recover this Contacts!",
                         type: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#DD6B55",
@@ -86,7 +95,7 @@
                         closeOnConfirm: false
                     },
                     function(){
-                        var url = "{{ url('admin/testimonials/delete') }}/"+id;
+                        var url = "{{ url('admin/contacts/delete') }}/"+id;
                         $.ajax({
                             type: "GET",
                             url: url,
@@ -94,7 +103,7 @@
                             success: function(data){
                                 var obj = jQuery.parseJSON(data);
                                 if(obj.status == 'success'){
-                                    swal("Deleted!", "testimonials has been deleted.", "success");
+                                    swal("Deleted!", "Contacts has been deleted.", "success");
                                     $tr.find('td').fadeOut(1000,function(){
                                         $tr.remove();
                                     });

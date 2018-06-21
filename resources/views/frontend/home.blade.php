@@ -65,33 +65,33 @@
                                         <div id="wprt-slider" class="flexslider">
                                             <ul class="slides">
                                                 <li class="flex-active-slide">
-                                                    <a class="zoom" href="assets/img/gallery/1.jpg"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/gallery/1.jpg" alt="image" />
+                                                    <a class="zoom" href="img/gallery/1.jpg"><i class="fa fa-arrows-alt"></i></a>
+                                                    <img src="img/gallery/1.jpg" alt="image" />
                                                 </li>
 
                                                 <li class="flex-active-slide">
-                                                    <a class="zoom" href="assets/img/gallery/2.jpg"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/gallery/2.jpg" alt="image" />
+                                                    <a class="zoom" href="img/gallery/2.jpg"><i class="fa fa-arrows-alt"></i></a>
+                                                    <img src="img/gallery/2.jpg" alt="image" />
                                                 </li>
 
                                                 <li class="flex-active-slide">
-                                                    <a class="zoom" href="assets/img/gallery/3.jpg"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/gallery/3.jpg" alt="image" />
+                                                    <a class="zoom" href="img/gallery/3.jpg"><i class="fa fa-arrows-alt"></i></a>
+                                                    <img src="img/gallery/3.jpg" alt="image" />
                                                 </li>
 
                                                 <li class="flex-active-slide">
-                                                    <a class="zoom" href="assets/img/gallery/4.jpg"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/gallery/4.jpg" alt="image" />
+                                                    <a class="zoom" href="img/gallery/4.jpg"><i class="fa fa-arrows-alt"></i></a>
+                                                    <img src="img/gallery/4.jpg" alt="image" />
                                                 </li>
                                             </ul>
                                         </div>
 
                                         <div id="wprt-carousel" class="flexslider">
                                             <ul class="slides">
-                                                <li><img src="assets/img/gallery/1-s.jpg" alt="image"></li>
-                                                <li><img src="assets/img/gallery/2-s.jpg" alt="image"></li>
-                                                <li><img src="assets/img/gallery/3-s.jpg" alt="image"></li>
-                                                <li><img src="assets/img/gallery/4-s.jpg" alt="image"></li>
+                                                <li><img src="img/gallery/1-s.jpg" alt="image"></li>
+                                                <li><img src="img/gallery/2-s.jpg" alt="image"></li>
+                                                <li><img src="img/gallery/3-s.jpg" alt="image"></li>
+                                                <li><img src="img/gallery/4-s.jpg" alt="image"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/qatar.jpg" alt="image" />
+                                                            <img src="img/projects/countries/qatar.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">QATAR</a></h2>
@@ -139,7 +139,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/qatar.jpg" data-title="QATAR">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/qatar.jpg" data-title="QATAR">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>
@@ -149,7 +149,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/oman.jpg" alt="image" />
+                                                            <img src="img/projects/countries/oman.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">OMAN</a></h2>
@@ -158,7 +158,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/oman.jpg" data-title="OMAN">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/oman.jpg" data-title="OMAN">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>
@@ -168,7 +168,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/dubai.jpg" alt="image" />
+                                                            <img src="img/projects/countries/dubai.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">DUBAI</a></h2>
@@ -177,7 +177,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/dubai.jpg" data-title="DUBAI">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/dubai.jpg" data-title="DUBAI">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>
@@ -187,7 +187,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/bahrain.jpg" alt="image" />
+                                                            <img src="img/projects/countries/bahrain.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">BAHRAIN</a></h2>
@@ -196,7 +196,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/bahrain.jpg" data-title="BAHRAIN">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/bahrain.jpg" data-title="BAHRAIN">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>
@@ -206,7 +206,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/malaysia.jpg" alt="image" />
+                                                            <img src="img/projects/countries/malaysia.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">MALAYSIA</a></h2>
@@ -215,7 +215,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/malaysia.jpg" data-title="MALAYSIA">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/malaysia.jpg" data-title="MALAYSIA">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>
@@ -225,7 +225,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/kuwait.jpg" alt="image" />
+                                                            <img src="img/projects/countries/kuwait.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">KUWAIT</a></h2>
@@ -234,7 +234,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/kuwait.jpg" data-title="KUWAIT">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/kuwait.jpg" data-title="KUWAIT">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>
@@ -244,7 +244,7 @@
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <figure class="effect-zoe">
-                                                            <img src="assets/img/projects/countries/turkey.jpg" alt="image" />
+                                                            <img src="img/projects/countries/turkey.jpg" alt="image" />
                                                             <figcaption>
                                                                 <div>
                                                                     <h2><a target="_blank" href="page-project-detail-3.html">TURKEY</a></h2>
@@ -253,7 +253,7 @@
                                                             </figcaption>           
                                                         </figure>
 
-                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/countries/turkey.jpg" data-title="TURKEY">
+                                                        <a class="project-zoom cbp-lightbox" href="img/projects/countries/turkey.jpg" data-title="TURKEY">
                                                             <i class="fa fa-arrows-alt"></i>
                                                         </a>
                                                     </div>

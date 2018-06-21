@@ -31,6 +31,11 @@ class AdminApplicantController extends Controller {
         
     }
 
+     public function delete($id){
+        Applicant::where('id',$id)->delete();
+        print_r(json_encode(['status' => 'success', 'value' => 'Applicant has been deleted.']));
+    }
+
 
 
 

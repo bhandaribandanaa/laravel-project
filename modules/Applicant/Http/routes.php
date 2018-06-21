@@ -6,6 +6,8 @@ Route::group(['prefix' => 'admin/applicants', 'middleware' => 'admin', 'namespac
 
     Route::get('/', ['as' => 'admin.applicants.index',
                             'uses' => 'AdminApplicantController@index']);
+     Route::get('delete/{id}', ['as' => 'admin.applicants.delete',
+                            'uses' => 'AdminApplicantController@delete']);
 
    
 

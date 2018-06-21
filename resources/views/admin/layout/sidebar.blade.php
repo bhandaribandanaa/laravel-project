@@ -35,37 +35,7 @@
         <ul class="main-menu">
             <li class="{{ (Request::segment(2)=='dashboard' ? 'active':'') }}"><a
                         href="{{ route('admin.dashboard') }}"><i class="zmdi zmdi-home"></i> Home</a></li>
-           <!--  <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="fa fa-user-md" aria-hidden="true"></i>Doctors</a>
-                <ul>
-                    <li><a href="{{ route('admin.appointments.index') }}"><i class="fa fa-calendar-o" aria-hidden="true"></i>Appointments</a></li>
-                    <li><a href="{{ route('admin.appointments.manualAppointment') }}"><i class="fa fa-calendar-o" aria-hidden="true"></i>Manual Appointment</a></li>
-                    <li class=""><a href="{{ route('admin.doctors.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Doctors</a>
-                    </li>
-                    <li><a href="{{ route('admin.doctors.add') }}" class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Doctors</a>
-                    </li>
-                </ul>
-            </li> -->
-
-         <!--    <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="zmdi zmdi-case-download zmdi-hc-fw"></i>Packages</a>
-                <ul>
-                    <li><a href="{{ route('admin.appointments.packages') }}"><i class="zmdi zmdi-account"></i>Bookings</a>
-                    </li>
-                    <li><a href="{{ route('admin.appointments.manualBooking') }}"><i class="fa fa-calendar-o" aria-hidden="true"></i>Manual Booking</a>
-                    </li>
-                    <li class=""><a href="{{ route('admin.packages.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Packages</a>
-                    </li>
-                    <li><a href="{{ route('admin.packages.add') }}" class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Package</a>
-                    </li>
-                    <li class=""><a href="{{ route('admin.packages.viewTreatments') }}"><i class="zmdi zmdi-hotel zmdi-hc-fw"></i>View Treatments</a>
-                    </li>
-                    <li><a href="{{ route('admin.packages.addTreatment') }}" class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Treatment</a>
-                    </li>
-                    <li><a href="{{ route('admin.packages.assignTreatment') }}" class=""><i class="zmdi zmdi-accounts-add zmdi-hc-fw"></i>Assign Treatment</a>
-                    </li>
-                </ul>
-            </li> -->
+           
 
             @if(Access::hasAccess('content-management', 'access_view'))
                 <li class="{{ (Request::segment(2)=='content' ? 'active':'') }}"><a
