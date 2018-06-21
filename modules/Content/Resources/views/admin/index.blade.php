@@ -6,6 +6,7 @@
         <div class="block-header">
             <h2>Content Management</h2>
         </div>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
 
         <div class="card">
             <div class="card-header">
@@ -16,7 +17,7 @@
 
             <div class="table-responsive">
 
-                <table class="table table-striped">
+                <table id="content" class="table table-striped">
                     <thead>
                     <tr>
                         <th>S N</th>
@@ -154,4 +155,16 @@
         });
 
     </script>
+    <script type="text/javascript"
+        src="{{ asset('js/datatable.js') }}"></script>
+     <script>
+$(document).ready( function () {
+    $('#content').DataTable({
+    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+    // "bFilter" : false,               
+    // "bLengthChange": false
+
+} );
+} );
+</script>
 @stop

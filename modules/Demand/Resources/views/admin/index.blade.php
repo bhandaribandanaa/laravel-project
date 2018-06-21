@@ -2,7 +2,7 @@
 @section('title', 'Demand Management')
 @section('main')
 
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
     <div class="container">
         <div class="block-header">
             <h2>Demand</h2>
@@ -47,7 +47,7 @@
                 </div>
             @endif
             <div class="card-body table-responsive">
-                <table class="table">
+                <table id="demandss" class="table">
                     <thead>
                     <tr>
                         <th>S.N.</th>
@@ -116,13 +116,15 @@
                     @endforelse
                     </tbody>
                 </table>
-                <div align="center">
+                <!-- <div align="center">
                     {!! $demands->render() !!}
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 @stop
+
+
 @section('footer_js')
     <script type="text/javascript">
 
@@ -160,4 +162,17 @@
         });
 
     </script>
+    <script type="text/javascript"
+        src="{{ asset('js/datatable.js') }}"></script>
+
+    <script>
+$(document).ready( function () {
+    $('#demandss').DataTable({
+    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+    // "bFilter" : false,               
+    // "bLengthChange": false
+
+} );
+} );
+</script>
 @stop

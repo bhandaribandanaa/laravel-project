@@ -25,7 +25,7 @@ class AdminApplicantController extends Controller {
     	$count = Applicant::count();
      
 
-	    $applicants = Applicant::with('demand')->orderBy('published_date', 'desc')->paginate(10);
+	    $applicants = Applicant::with('demand')->orderBy('published_date', 'desc')->paginate(5);
         
 		return view('applicant::admin.v_applicants')->with('count', $count)->with(array('applicants' => $applicants));
         

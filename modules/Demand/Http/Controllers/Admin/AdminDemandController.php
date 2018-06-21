@@ -26,7 +26,7 @@ class AdminDemandController extends Controller
     public function index()
     {
 
-       $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->paginate(5);
+       $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->paginate(100);
        // dd("here");
       
           

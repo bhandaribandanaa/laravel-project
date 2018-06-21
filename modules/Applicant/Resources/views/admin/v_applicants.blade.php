@@ -2,6 +2,7 @@
 @section('title', 'Applicants Management')
 @section('main')
 
+
     <div class="container">
         <div class="block-header">
             <h2>Applicants</h2>
@@ -9,7 +10,7 @@
         <div class="card">
            
 
-           
+          
 
             @if(Session::has('del_success'))
                 <div class="alert alert-success fade in">
@@ -29,7 +30,9 @@
                 </div>
             @endif
             <div class="card-body table-responsive">
-                <table class="table">
+
+                <table id="applicants" class="table">
+
                     <thead>
                     <tr>
                      <th>S.N</th>
@@ -85,6 +88,13 @@
                <div align="center">
                    {!! $applicants->render() !!}
                </div>
+           
+   
+
+</div>
+</div>
+</div>
+
 
 
                    
@@ -127,6 +137,20 @@
         });
 
     </script>
+
+   <!-- <script type="text/javascript"
+        src="{{ asset('js/datatable.js') }}"></script>
+
+    <script>
+$(document).ready( function () {
+    $('#applicants').DataTable({
+    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+    // "bFilter" : false,               
+    // "bLengthChange": false
+
+} );
+} );
+</script> -->
 @stop
 
 
