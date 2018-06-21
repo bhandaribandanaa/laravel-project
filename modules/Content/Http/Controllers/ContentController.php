@@ -104,8 +104,8 @@ class ContentController extends Controller {
         }
         else{ 
 
-          $image_name = $content['photo']->file_name;
-        return view('content::content_detail')->with('all_jobs', $all_jobs)->with(array('content'=>$content,'image_name' => $image_name));
+          
+        return view('content::content_detail')->with('all_jobs', $all_jobs)->with(array('content'=>$content));
 
        }}
 
