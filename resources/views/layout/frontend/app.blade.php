@@ -13,11 +13,11 @@
 
     <!-- Theme Style -->
     {{--<link rel="stylesheet" type="text/css" href="assets/css/style.css">--}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('sadik/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
     <!-- Favicon and touch icons  -->
     {{--<link rel="shortcut icon" href="assets/icon/favicon.png">--}}
-    <link rel="shortcut icon" href="{{ asset('sadik/icon/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('icon/favicon.png') }}">
    <!--  <link rel="shortcut icon" href="{{ asset('css/datatable.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
 
@@ -63,40 +63,40 @@
 <a id="scroll-top"></a>
 
 <!-- Javascript -->
-<script type="text/javascript" src="{{ asset('sadik/js/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('sadik/js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('sadik/js/animsition.js') }}"></script>
-<script type="text/javascript" src="{{ asset('sadik/js/plugins.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/animsition.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('sadik/js/flexslider.js') }}"></script>
-<script type="text/javascript" src="{{ asset('sadik/js/cube.portfolio.js') }}"></script>
-<script type="text/javascript" src="{{ asset('sadik/js/main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/flexslider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/cube.portfolio.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 
 <!-- Revolution Slider -->
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/jquery.themepunch.tools.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/jquery.themepunch.tools.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/jquery.themepunch.revolution.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('sadik/js/rev-slider.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/jquery.themepunch.revolution.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/rev-slider.js') }}"></script>
 <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.actions.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.actions.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.carousel.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.carousel.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.migration.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.migration.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.navigation.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.parallax.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
 <script type="text/javascript"
-        src="{{ asset('sadik/includes/rev-slider/js/extensions/revolution.extension.video.min.js') }}"></script>
+        src="{{ asset('includes/rev-slider/js/extensions/revolution.extension.video.min.js') }}"></script>
         <script type="text/javascript"
         src="{{ asset('js/datatable.js') }}"></script>
 

@@ -5,7 +5,7 @@
                <div id="site-logo-inner">
                    <a href="{{ route('home') }}" title="Sadik International Oversease" rel="home"
                        class="main-logo">
-                   <img src="{{ asset('sadik/img/logo.png') }}" alt="Sadik International Oversease" data-width="100"
+                   <img src="{{ asset('img/logo.png') }}" alt="Sadik International Oversease" data-width="100"
                        data-height="30">
                    </a>
                </div>
