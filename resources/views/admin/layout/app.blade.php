@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php $settings = App\Classes\Helper::settings(); ?> {{ ($settings)['website-name'] }}- @yield('title')</title>
      
-    <link rel="shortcut icon" href="{{ asset('sadik/icon/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('icon/favicon.png') }}">
     <!-- Vendor CSS -->
     
     {!! Html::style('http://fontawesome.io/assets/font-awesome/css/font-awesome.css') !!}

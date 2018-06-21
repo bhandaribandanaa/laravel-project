@@ -11,11 +11,7 @@ use Image;
 use Auth;
 use App\Demand;
 
-/**
- * Controller used to manage Demands in admin part.
- *
- * @author Kokil Thapa <thapa.kokil@gmail.com>
- */
+
 class AdminDemandController extends Controller
 {
 
@@ -30,7 +26,7 @@ class AdminDemandController extends Controller
     public function index()
     {
 
-       $demands = Demand::paginate(5);
+       $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->paginate(5);
        // dd("here");
       
           

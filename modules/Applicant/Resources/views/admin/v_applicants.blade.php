@@ -7,6 +7,14 @@
             <h2>Applicants</h2>
         </div>
         <div class="card">
+             @if(Session::has('del_success'))
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Success!</strong> {{ Session::get('del_success') }}
+                </div>
+            @endif
             <div class="card-body table-responsive">
                 <table class="table">
                     <thead>
@@ -19,6 +27,7 @@
                  <th>phone</th>
                  <th>email</th>
                  <th>Date</th>
+                 <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +44,10 @@
                             <td>{{ $d->email }}</td>
                            
                             <td>{{ $d->published_date}}</td>
+                             <td><a href="javascript:void(0)"
+                                   class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                   data-id="{{ $d->id }} data-toggle="tooltip" title="Delete Demand" data-placement="top"><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a> </td>
                            
                         </tr>
                          @empty

@@ -92,22 +92,25 @@ class ContentController extends Controller {
             return view('content::viewpage')->with('all_jobs', $all_jobs)->with(array('content'=>$content, 'image_name' => $image_name));
        } 
        elseif($parent_id == 1){
+          $all_jobs = Content::where('parent_id',1)->get();
+         
         if($ids == 29)
         {
            $all_jobs = Content::where('parent_id',29)->get();
           $image_name = $content['photo']->file_name;
            $data= Images::where('is_active', 1)->where('album_id', 12)->get();
 
-            return view('companydocument::v_all')->with(array('data'=>$data))->with('all_jobs', $all_jobs)>with(array('content'=>$content, 'image_name' => $image_name));
+            return view('companydocument::v_all')->with(array('data'=>$data))->with('all_jobs', $all_jobs)->with(array('content'=>$content, 'image_name' => $image_name));
         }
-        else{
+        else{ 
 
           $image_name = $content['photo']->file_name;
-        return view('content::content_detail')->with(array('content'=>$content,'image_name' => $image_name));
+        return view('content::content_detail')->with('all_jobs', $all_jobs)->with(array('content'=>$content,'image_name' => $image_name));
+
        }}
 
          else
-           return view('content::content_detail')->with(array('content'=>$content,'image_name' => $image_name));
+           return view('content::content_detail')->with(array('content'=>$content));
 
        } 
             
