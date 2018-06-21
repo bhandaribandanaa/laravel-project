@@ -94,16 +94,20 @@ class ContentController extends Controller {
        elseif($parent_id == 1){
         if($ids == 29)
         {
+           $all_jobs = Content::where('parent_id',29)->get();
+          $image_name = $content['photo']->file_name;
            $data= Images::where('is_active', 1)->where('album_id', 12)->get();
 
-            return view('companydocument::v_all')->with(array('data'=>$data));
+            return view('companydocument::v_all')->with(array('data'=>$data))->with('all_jobs', $all_jobs)>with(array('content'=>$content, 'image_name' => $image_name));
         }
         else{
-        return view('content::content_detail')->with(array('content'=>$content));
+
+          $image_name = $content['photo']->file_name;
+        return view('content::content_detail')->with(array('content'=>$content,'image_name' => $image_name));
        }}
 
          else
-           return view('content::content_detail')->with(array('content'=>$content));
+           return view('content::content_detail')->with(array('content'=>$content,'image_name' => $image_name));
 
        } 
             
