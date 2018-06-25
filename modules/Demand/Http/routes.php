@@ -58,11 +58,7 @@ Route::group(['prefix' => 'Demand', 'namespace' => 'Modules\Demand\Http\Controll
 {
 	Route::get('/', 'DemandController@index');
 
-	Route::get('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'DemandController@getContact'));
-    Route::post('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'DemandController@postContact'));
-
-    Route::get('/gallery', array('as' => 'pages.gallery', 'uses' => 'DemandController@getGallery'));
-    Route::get('/{slug}', array('as' => 'pages.detail', 'uses' => 'DemandController@getPageBySlug'));
+	
 });
 
 
