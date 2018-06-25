@@ -57,7 +57,7 @@ class HomeController extends Controller
     // $settings = Setting::pluck('slug','value');
    
 // echo '<pre>';
-($settings);
+$settings;
     $content = Content::where('id',1)->where('is_active',1)->get();
      $banner = Banner::where('is_active',1)->get();
    $demands = Demand::where('status','active')->orderBy('created_at', 'desc')->paginate(100);

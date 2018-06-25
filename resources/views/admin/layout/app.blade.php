@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php $settings = App\Classes\Helper::settings(); ?> {{ ($settings)['website-name'] }}- @yield('title')</title>
+    <title><?php $settings = App\Classes\Helper::settings(); ?> {{ $settings['website-name'] }}- @yield('title')</title>
      
     <link rel="shortcut icon" href="{{ asset('icon/favicon.png') }}">
     <!-- Vendor CSS -->

@@ -41,15 +41,15 @@
 
                                  <li class="address">
                                     <span class="hl">Address:</span>
-                                    <span class="text">{{ ($settings)['contact-address'] }}</span>
+                                    <span class="text">{{ $settings['contact-address'] }}</span>
                                  </li>
                                  <li class="phone">
                                     <span class="hl">Phone:</span> 
-                                    <span class="text">{{ ($settings)['contact-number'] }}</span>
+                                    <span class="text">{{ $settings['contact-number'] }}</span>
                                  </li>
                                  <li class="email">
                                     <span class="hl">E-mail:</span>
-                                    <span class="text">{{ ($settings)['web-master-email'] }}</span>
+                                    <span class="text">{{ $settings['web-master-email'] }}</span>
                                  </li>
                               </ul>
                            </div>
@@ -142,7 +142,7 @@
                      <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
                      <div class="row">
                      <div class="col-md-12">
-                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid={{ ($settings)['google-map-link'] }}&hl=en" width="100%" height="400"></iframe>
+                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid={{ $settings['google-map-link'] }}&hl=en" width="100%" height="400"></iframe>
                      </div>
                   </div>
 

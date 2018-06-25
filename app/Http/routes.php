@@ -1,3 +1,4 @@
+
 <?php
 {
       //   $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
