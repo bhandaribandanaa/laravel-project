@@ -1,5 +1,6 @@
 
 @extends('layout.frontend.app')
+@section('title', 'Home')
 
 
 

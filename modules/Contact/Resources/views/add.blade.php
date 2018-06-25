@@ -1,4 +1,5 @@
 @extends('layout.frontend.app')
+@section('title', 'Contact Us')
 @section('content')
 <div id="featured-title" class="clearfix featured-title-left">
    <div id="featured-title-inner" class="container clearfix">

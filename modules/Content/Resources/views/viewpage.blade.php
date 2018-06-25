@@ -1,4 +1,5 @@
 @extends('layout.frontend.app')
+@section('title', $content->heading)
 @section('content')
 
 <!-- Slider -->

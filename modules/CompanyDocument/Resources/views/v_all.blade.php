@@ -1,4 +1,5 @@
 @extends('layout.frontend.app')
+@section('title', 'Company Document')
 @section('content')
 
 <div id="featured-title" class="clearfix featured-title-left">
