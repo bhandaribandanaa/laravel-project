@@ -58,10 +58,6 @@ Route::group(['prefix' => 'testimonial', 'namespace' => 'Modules\Testimonial\Htt
 {
 	Route::get('/', 'TestimonialController@index');
 
-	Route::get('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'TestimonialController@getContact'));
-    Route::post('/contact-us', array('as' => 'pages.contact_us', 'uses' => 'TestimonialController@postContact'));
-
-    Route::get('/gallery', array('as' => 'pages.gallery', 'uses' => 'TestimonialController@getGallery'));
-    Route::get('/{slug}', array('as' => 'pages.detail', 'uses' => 'TestimonialController@getPageBySlug'));
+	
 });
 
