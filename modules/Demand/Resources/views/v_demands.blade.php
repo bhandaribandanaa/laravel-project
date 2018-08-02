@@ -9,7 +9,6 @@
         <div class="wprt-lines style-1 custom-3">
             <div class="line-1"></div>
                 <div class="line-2"></div>
-            </div>
             <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40">
             </div>
             
