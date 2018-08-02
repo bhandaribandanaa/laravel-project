@@ -1,15 +1,14 @@
 @extends('admin.layout.app')
-@section('title', 'Demand Management')
+@section('title', 'Countries Management')
 @section('main')
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
     <div class="container">
         <div class="block-header">
-            <h2>Demand</h2>
+            <h2>Countries</h2>
         </div>
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('admin.demands.add') }}" class="btn btn-primary waves-effect">Add Demand</a>
+                <a href="{{ route('admin.countries.add') }}" class="btn btn-primary waves-effect">Add Countries</a>
             </div>
             @if(Session::has('add_success'))
                 <div class="alert alert-success fade in">
@@ -47,64 +46,63 @@
                 </div>
             @endif
             <div class="card-body table-responsive">
-                <table id="demandss" class="table">
+                <table class="table">
                     <thead>
                     <tr>
-                        <th width="6%">S.N</th>
-                 <th width="10%">Country</th>
-                 <th width="13%">Job Positon</th>
-                 <th>Salary</th>
-                 <th>Type</th>
-                 <th width="8%">Req No.</th>
-                 <th>Fooding</th>
-                <th width="15%">Accommodation</th>
-                <th>Date</th>
-                 
-                <th>Action</th>
-                        
+                        <th>S.N.</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     {{--*/$i=1/*--}}
 
-                    @forelse($demands as $d)
+                    @forelse($countries as $n)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $d->country->name ?? "" }}</td>
-                            <td>{{ $d->job_position }}</td>
-                            <td>{{ $d->salary }}</td>
-                            <td>{{ $d->type }}</td>
-                            <td>{{ $d->request_number }}</td>
-                            <td>{{ $d->fooding }}</td>
-                            <td>{{ $d->accomodation}}</td>
-                          
-
-                            <td>{{ Carbon\Carbon::parse($d->created_at)->toFormattedDateString() }}</td>
-
+                            <td>{{ $n->name }}</td>
                             <td>
-                                <a href="{{ route('admin.demands.edit',[$d->id]) }}" title="Edit Demands"
+                                @if($n->image)
+                                    <img src="{{ asset('uploads/countries/'.$n->image) }}" style="height: 90px; width: 160px;">
+                                @endif
+                            </td>
+                            <td> {{ $n ->description }} </td>
+                           
+                            <!-- <td>
+                                @if($n->status=='active')
+                                    <a class="label label-success">Published</a>
+                                @else
+                                    <a class="label label-danger">Unpublished</a>
+                                @endif
+                            </td> -->
+                            <td>
+                                <a href="{{ route('admin.countries.edit',[$n->id]) }}" title="Edit Countries"
                                    data-toggle="tooltip"
                                    class="btn btn-success btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"><i
                                             class="zmdi zmdi-edit zmdi-hc-fw"></i></a>
 
-
-                                  @if($d->status == 'active')
-                                   <a href="{{ route('admin.demands.changeStatus',[$d->id,'not_active']) }}" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $d->id !!}"  data-toggle="tooltip" title="Change Status"><i
-                                                        class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
-                                        @else
-                                            <a href="{{ route('admin.demands.changeStatus',[$d->id,'active']) }}" class="change-status btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float" id="{!! $d->id !!}"  data-toggle="tooltip" title="Change Status"><i
-                                                        class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
+                                @if($n->is_active == 1)
+                                    <a href="{{ route('admin.countries.changeStatus',[$n->id,'0']) }}"
+                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                       data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-check-circle zmdi-hc-fw"></i></a>
+                                @else
+                                    <a href="{{ route('admin.countries.changeStatus',[$n->id,'1']) }}"
+                                       class="btn btn-primary btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+                                        data-toggle="tooltip" title="Change Status"><i
+                                                class="zmdi zmdi-lock zmdi-hc-fw"></i></a>
                                 @endif
 
                                 <a href="javascript:void(0)"
                                    class="delete btn btn-danger btn-icon waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-                                   data-id="{{ $d->id }} data-toggle="tooltip" title="Delete Demand" data-placement="top"><i
-                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>          
+                                   data-id="{{ $n->id }} data-toggle="tooltip" title="Delete Countries" data-placement="top"><i
+                                            class="zmdi zmdi-delete zmdi-hc-fw"></i></a>
 
 
-                                   
-                                </td>
-                            
+
+                            </td>
                         </tr>
                     @empty
                         <tr>
@@ -114,20 +112,18 @@
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>-</td>
+                            
                         </tr>
                     @endforelse
                     </tbody>
                 </table>
-                <!-- <div align="center">
-                    {!! $demands->render() !!}
-                </div> -->
+                <div align="center">
+                    {!! $countries->render() !!}
+                </div>
             </div>
         </div>
     </div>
 @stop
-
-
 @section('footer_js')
     <script type="text/javascript">
 
@@ -137,7 +133,7 @@
                 var $tr = $(this).closest('tr')
                 swal({
                         title: "Are you sure?",
-                        text: "You will not be able to recover this demands!",
+                        text: "You will not be able to recover this Countries!",
                         type: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#DD6B55",
@@ -145,7 +141,7 @@
                         closeOnConfirm: false
                     },
                     function(){
-                        var url = "{{ url('admin/demands/delete') }}/"+id;
+                        var url = "{{ url('admin/countries/delete') }}/"+id;
                         $.ajax({
                             type: "GET",
                             url: url,
@@ -153,7 +149,7 @@
                             success: function(data){
                                 var obj = jQuery.parseJSON(data);
                                 if(obj.status == 'success'){
-                                    swal("Deleted!", "demands has been deleted.", "success");
+                                    swal("Deleted!", "Countries has been deleted.", "success");
                                     $tr.find('td').fadeOut(1000,function(){
                                         $tr.remove();
                                     });
@@ -165,17 +161,4 @@
         });
 
     </script>
-    <script type="text/javascript"
-        src="{{ asset('js/datatable.js') }}"></script>
-
-    <script>
-$(document).ready( function () {
-    $('#demandss').DataTable({
-    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-    // "bFilter" : false,               
-    // "bLengthChange": false
-
-} );
-} );
-</script>
 @stop

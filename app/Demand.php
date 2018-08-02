@@ -27,7 +27,10 @@ class Demand extends Model
      */
     protected $hidden = [ 'updated_at', 'deleted_at'];
 
-
+ public function country(){
+        return $this->belongsTo('App\Countries', 'country_id');
+         Applicant::count();
+    }
 
 
 }

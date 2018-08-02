@@ -10,6 +10,7 @@ use Session;
 use Image;
 use Auth;
 use App\Demand;
+use App\Countries;
 
 
 class AdminDemandController extends Controller
@@ -25,19 +26,20 @@ class AdminDemandController extends Controller
 
     public function index()
     {
-
-       $demands = Demand::where('status','active')->orderBy('published_date', 'desc')->paginate(100);
+        $countries = Countries::select('id', 'name')->get();
+        $demands =  Demand::with('country')->where('status','active')->orderBy('published_date', 'desc')->paginate(100);
        // dd("here");
       
           
-        return view('demand::admin.index')->with(array('demands' => $demands));
+        return view('demand::admin.index')->with(array('demands' => $demands))->with('countries', $countries);
 
     }
 
     public function add()
     {
         $demands = Demand::where('status','active')->get();
-        return view('demand::admin.add')->with(array('demands' => $demands));
+        $countries = Countries::select('id', 'name')->get();
+        return view('demand::admin.add')->with(array('demands' => $demands))->with('countries', $countries);
 
         // $menu_location = MenuLocation::where('is_active', 1)->lists('name', 'id');
         // return view('demand::admin.add')->with(array('parents_select' => Demand::Demand_list_for_DemandEntry(0, 0, ''), 'menu_location' => $menu_location->toArray()));
@@ -45,7 +47,9 @@ class AdminDemandController extends Controller
 
     public function addSubmit(Request $request){
 
-        $this->validate($request,['job_position' => 'required',
+        $this->validate($request,[
+            'country_id' => 'required | exists:countries,id',
+            'job_position' => 'required',
             'salary' => 'required',
             'type' => 'required',
             'request_number' => 'required',
@@ -56,6 +60,7 @@ class AdminDemandController extends Controller
         $demands = new Demand;
 
             $demands = new Demand();
+             $demands->country_id = $request->input('country_id', 1);
             $demands->job_position = Input::get('job_position');
             $demands->salary = Input::get('salary');
             $demands->type = Input::get('type');
@@ -76,14 +81,15 @@ class AdminDemandController extends Controller
  public function edit($id)
     {
         $demands = Demand::findOrFail($id);
+        $countries = Countries::select('id', 'name')->get();
 
-         
-       
-            return view('demand::admin.edit_Demands')->with(array('demands' => $demands));
+         return view('demand::admin.edit_Demands')->with(array('demands' => $demands))->with('countries', $countries);
     }
   public function editSubmit(Request $request){
 
-        $this->validate($request,['job_position' => 'required',
+        $this->validate($request,[
+            'country_id' => 'required | exists:countries,id',
+            'job_position' => 'required',
             'salary' => 'required',
             'type' => 'required',
             'request_number' => 'required',
@@ -92,7 +98,7 @@ class AdminDemandController extends Controller
 
         $demands = Demand::find(Input::get('id'));
 
-       
+            $demands->country_id = $request->input('country_id', 1);
             $demands->job_position = Input::get('job_position');
             $demands->salary = Input::get('salary');
             $demands->type = Input::get('type');

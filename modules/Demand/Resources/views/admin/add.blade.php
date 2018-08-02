@@ -34,6 +34,15 @@
                                 </div>
                             @endif
                         </div>
+                        <div class="form-group col-md-6">
+                                <label for="exampleInputPackage">Country</label>
+                                <select class="form-control" name="country_id" id="country_id">
+                                    <option value="">Select Country</option>
+                                    @foreach($countries as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
 
 

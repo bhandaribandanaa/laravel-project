@@ -59,7 +59,7 @@
 
 
                    
-                    <li class="menu-item wprt-button "<?php if(empty($last_url)) { ?>current-menu-item <?php } ?>"><a href="{{ route('applyOnline') }}">Apply Online</a></li></li>
+                    <li class="menu-item wprt-button "<?php if(empty($last_url)) { ?>current-menu-item <?php } ?>"><a href="{{ route('demand') }}">Demand</a></li></li>
 
                </ul>
            </nav>

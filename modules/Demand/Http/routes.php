@@ -57,6 +57,8 @@ Route::group(['prefix' => 'admin/demands', 'middleware' => 'admin', 'namespace' 
 Route::group(['prefix' => 'Demand', 'namespace' => 'Modules\Demand\Http\Controllers'], function()
 {
 	Route::get('/', 'DemandController@index');
+    Route::get('/demand', ['as' => 'demand',
+                            'uses' => 'DemandController@index']);
 
 	
 });

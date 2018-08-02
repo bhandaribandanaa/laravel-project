@@ -16,6 +16,7 @@ use Input;
 use Redirect;
 use Session;
 use Auth;
+use Hash;
 
 use Validator;
 use App\Newsletter;
@@ -30,6 +31,7 @@ use App\Testimonial;
 use App\Demand;
 use App\Applicant;
 use App\Contact;
+use App\Countries;
 use App\Appointments;
 
 
@@ -42,6 +44,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $count = Applicant::count();
         $counts = Contact::count();
 
@@ -53,11 +56,12 @@ class HomeController extends Controller
 
     public function getHome()
  {
+       // $password = 'password';
+       //       $hashedPassword = Hash::make($password);
+       //        dd($hashedPassword);
 
-    // $settings = Setting::pluck('slug','value');
-   
-// echo '<pre>';
-$settings;
+   $settings;
+    $countries = Countries::with('activeDemand')->where('is_active', 1)->orderBy('created_at')->paginate(5);
     $content = Content::where('id',1)->where('is_active',1)->get();
      $banner = Banner::where('is_active',1)->get();
    $demands = Demand::where('status','active')->orderBy('created_at', 'desc')->paginate(100);
@@ -66,7 +70,7 @@ $settings;
    $data = News::where('status','active')->orderBy('published_date','desc')->get();
    $jobCategories = Content::with('photo')->where('parent_id', 20)->where('is_active', 1)->get();
 
-   return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner))->with('content',$content);
+   return view('frontend.home')->with(array('jobCategories'=>$jobCategories ))->with('data',$data)->with('images',$images)->with(array('testimonials'=> $testimonials))->with(array('demands' => $demands))->with(array('banner' =>  $banner))->with('content',$content)->with('countries', $countries);;
 // ->with(array('settings' => $settings));
  }
 

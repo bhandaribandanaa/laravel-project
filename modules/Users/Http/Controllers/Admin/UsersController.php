@@ -16,7 +16,8 @@ class UsersController extends Controller
 {
 
     public function index()
-    {
+    {  
+        
         $users = User::where('user_type','!=','3')->get();
         return view('users::admin.user_list')->with(array('users' => $users));
     }
@@ -70,6 +71,7 @@ class UsersController extends Controller
 
     public function changePassword()
     {
+
         $user = Auth::user();
 
         $rules = array(
@@ -158,6 +160,7 @@ class UsersController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
+           
             $password = substr(str_shuffle('aAbBcCdDEeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789'), 0, 10);
             $objectUser = new User();
             $objectUser->user_type = trim(Input::get('user_type'));
@@ -167,6 +170,7 @@ class UsersController extends Controller
             $objectUser->username = trim(Input::get('username'));
             $objectUser->email_address = trim(Input::get('email_address'));
             $objectUser->password = Hash::make($password);
+            
             $objectUser->is_active = trim(Input::get('is_active'));
             if (Input::file('attachment')) {
                 $destinationPath = 'uploads/users';
