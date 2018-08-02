@@ -69,17 +69,17 @@
 
                     @forelse($demands as $d)
                         <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>{{ $d->country->name ?? "" }}</td>
-                            <td>{{ $d->job_position }}</td>
-                            <td>{{ $d->salary }}</td>
-                            <td>{{ $d->type }}</td>
-                            <td>{{ $d->request_number }}</td>
-                            <td>{{ $d->fooding }}</td>
-                            <td>{{ $d->accomodation}}</td>
+                            <td>{{ $i++ ? : ""}}</td>
+                            <td>{{ $d->country->name ? : "" }}</td>
+                            <td>{{ $d->job_position ? : ""}}</td>
+                            <td>{{ $d->salary ? : ""}}</td>
+                            <td>{{ $d->type ? : ""}}</td>
+                            <td>{{ $d->request_number? : "" }}</td>
+                            <td>{{ $d->fooding ? : ""}}</td>
+                            <td>{{ $d->accomodation? : ""}}</td>
                           
 
-                            <td>{{ Carbon\Carbon::parse($d->created_at)->toFormattedDateString() }}</td>
+                            <td>{{ Carbon\Carbon::parse($d->created_at)->toFormattedDateString() ? : "" }}</td>
 
                             <td>
                                 <a href="{{ route('admin.demands.edit',[$d->id]) }}" title="Edit Demands"
