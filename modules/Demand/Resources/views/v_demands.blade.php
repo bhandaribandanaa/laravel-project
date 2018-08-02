@@ -54,8 +54,6 @@
                         </tr>
       There are no Demand yet!</p>
 
-        @empty
-        
          @endforelse
 
 </tbody>
