@@ -30,18 +30,17 @@
             {{--*/$i=1/*--}}
           @forelse($demands as $d)
                          <tr>
-                            <td>{{$i++ ? : ""}}</td>
-                            <td>{{ $d->country->name ? : "" }}</td>
-                            <td>{{ $d->job_position ? : "" }}</td>
-                            <td>{{ $d->salary ? :"" }}</td>
-                            <td>{{ $d->type ? :"" }}</td>
-                            <td>{{ $d->request_number ?: "" }}</td>
-                            <td>{{ $d->fooding ?: "" }}</td>
-                            <td>{{ $d->accomodation ?: ""}}</td>
-                            <td>{{ $d->published_date ?: ""}}</td>
+                            <td>{{$i++ ? $i++ : "" }}</td>
+                            <td>{{ $d->country->name ? $d->country->name : "" }}</td>
+                            <td>{{ $d->job_position ? $d->job_position : "" }}</td>
+                            <td>{{ $d->salary ? $d->salary : "" }}</td>
+                            <td>{{ $d->type ? $d->type : "" }}</td>
+                            <td>{{ $d->request_number ? $d->request_number : "" }}</td>
+                            <td>{{ $d->fooding ? $d->fooding : "" }}</td>
+                            <td>{{ $d->accomodation ? $d->accomodation : ""}}</td>
+                            <td>{{ $d->published_date ? $d->published_date : ""}}</td>
                             <td><a href="{{ route('applicants.add',$d->id) }}" target="_blank">Apply Online</a>
                                 </td>
-                               <!--  $x ? $x : "" -->
                         </tr>
                          @empty
                         <tr>
