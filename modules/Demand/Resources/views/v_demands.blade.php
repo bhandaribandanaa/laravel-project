@@ -47,10 +47,14 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
+                        <td>-</td>
                         <td>There are no Demand yet!</td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+
                     </tr>
                 @endforelse
 
