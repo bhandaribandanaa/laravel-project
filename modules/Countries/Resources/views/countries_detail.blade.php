@@ -6,7 +6,7 @@
     <div id="featured-title-inner" class="container clearfix">
         <div class="featured-title-inner-wrap">
             <div class="featured-title-heading-wrap">
-                <h1 class="featured-title-heading">{{ $countries->name }} Demand</h1>
+                <h1 class="featured-title-heading">{{ $countries->name }}</h1>
             </div>
             <div id="breadcrumbs">
                 <div class="breadcrumbs-inner">
@@ -20,10 +20,11 @@
         </div>
     </div>
 </div>
-
-
+<div class="clear"></div>
+<div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60" style="height:70px"></div>
         <div class="container">
-                        
+            {!! $countries->description !!}
+                        <br/><br/>   
                         <h2>Latest Demand</h2>
                                     <div class="wprt-lines style-1 custom-3">
                                         <div class="line-1"></div>

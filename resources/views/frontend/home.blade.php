@@ -21,7 +21,7 @@
 
 
                     
-                         <div class="wprt-spacer" data-desktop="40" data-mobi="60" data-smobi="60"></div>
+                    
                                     <h2>ABOUT US</h2>
                                     <div class="wprt-lines style-1 custom-3">
                                         <div class="line-1"></div>
