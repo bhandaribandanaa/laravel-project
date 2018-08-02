@@ -10,8 +10,8 @@
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <meta name="description" content="Sadik International Overseas Pvt.Ltd is a newly emerged, fast-growing business that aims recruitment agencies in Nepal under the department of Labor."/>
+    <meta name="keywords" content="Sadik International Overseas Pvt.Ltd is a newly emerged, fast-growing business that aims recruitment agencies in Nepal under the department of Labor."/>
 
     <!-- Theme Style -->
     {{--<link rel="stylesheet" type="text/css" href="assets/css/style.css">--}}
