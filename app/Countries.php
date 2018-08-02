@@ -29,7 +29,7 @@ class Countries extends Model
 
    public function demand()
     {
-        return $this->hasMany('app\demand', 'country_id');
+        return $this->hasMany('App\Demand', 'country_id');
     }   
 
     public function activeDemand()
