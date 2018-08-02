@@ -30,7 +30,7 @@
             {{--*/$i=1/*--}}
           @forelse($demands as $d)
                          <tr>
-                            <td>{{$i++ ? $i++ : "" }}</td>
+                            <td>{{$i++ }}</td>
                             <td>{{ $d->country->name ? $d->country->name : "" }}</td>
                             <td>{{ $d->job_position ? $d->job_position : "" }}</td>
                             <td>{{ $d->salary ? $d->salary : "" }}</td>
@@ -53,6 +53,9 @@
                             <td>-</td>
                         </tr>
       There are no Demand yet!</p>
+
+        @empty
+        
          @endforelse
 
 </tbody>
