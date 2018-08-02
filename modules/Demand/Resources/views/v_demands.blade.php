@@ -30,7 +30,7 @@
             {{--*/$i=1/*--}}
           @forelse($demands as $d)
                          <tr>
-                            <td>{{$i++ ?? ""}}</td>
+                            <td>{{$i++ ? : ""}}</td>
                             <td>{{ $d->country->name ? : "" }}</td>
                             <td>{{ $d->job_position ? : "" }}</td>
                             <td>{{ $d->salary ? :"" }}</td>
@@ -41,7 +41,7 @@
                             <td>{{ $d->published_date ?: ""}}</td>
                             <td><a href="{{ route('applicants.add',$d->id) }}" target="_blank">Apply Online</a>
                                 </td>
-                                $x ? $x : ""
+                               <!--  $x ? $x : "" -->
                         </tr>
                          @empty
                         <tr>
