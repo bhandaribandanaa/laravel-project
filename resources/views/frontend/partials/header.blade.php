@@ -1,73 +1,94 @@
-<header id="site-header" class="header-front-page style-1">
-   <div id="site-header-inner" class="container">
-       <div class="wrap-inner">
-           <div id="site-logo" class="clearfix">
-               <div id="site-logo-inner">
-                   <a href="{{ route('home') }}" title="Sadik International Oversease" rel="home"
-                       class="main-logo">
-                   <img src="{{ asset('img/logo.png') }}" alt="Sadik International Oversease" data-width="100"
-                       data-height="30">
-                   </a>
-               </div>
-           </div>
-           <!-- /#site-logo -->
-           <div class="mobile-button"><span></span></div>
-           <!-- //mobile menu button -->
-           <nav id="main-nav" class="main-nav">
-               <ul class="menu">
-                <?php $mainMenus = App\Classes\Helper::getMainMenus();
-                       $last_urll = collect(request()->segments())->last(); ?>
-
-                 <?php $mainMenus = App\Classes\Helper::getMainMenu(5);
-                      $sub_menus = array();
-                       $last_url = collect(request()->segments())->last(); ?>
-
-                     <li class="menu-item  <?php if(empty($last_url)) { ?>current-menu-item <?php } ?>"> <a href="{{URL::to('/')}}" title="Sadik International Oversease" rel="home" class="trail-begin">Home</a>
-                     </li>
-
-
-                   @if(count($mainMenus)>0)
-                         @foreach($mainMenus as $mainMenu)
-                           @if(count($mainMenu->children)>0)
-                                     <?php $sub_menus = $mainMenu->children->lists('slug')->toArray();
-                               ?>
-                           @endif
-
-                           <li class="menu-item menu-item-has-children <?php if(in_array($last_url, $sub_menus)) { ?> current-menu-item <?php } ?>">
-                               <a href="#">{{ $mainMenu->page_title }}</a>
-
-                               @if(count($mainMenu->children)>0)
-                                   <ul class="sub-menu">
-                                       @foreach($mainMenu->children as $menuChild)
-
-                                       <li class="menu-item">
-                                              <a href="{{ route('pages.detail',$menuChild->slug) }}">{{ $menuChild->page_title }}</a>
-                                           </li>
-                                         
-                                       @endforeach
-                                   </ul>
-
-                               @endif    
-                           </li>
-                        @endforeach
-                   @endif
-                    <li class="menu-item  <?php if($last_url == "contact") { ?>current-menu-item <?php } ?>"> <a href="{{ route('contacts.add') }}" >Contact Us</a>
-                   
-
-
-                       
-
-
-                   
-                    <li class="menu-item wprt-button "<?php if(empty($last_url)) { ?>current-menu-item <?php } ?>"><a href="{{ route('demand') }}">Demand</a></li></li>
-
-               </ul>
-           </nav>
-           <!-- /#main-nav -->
-       </div>
-   </div>
-   <!-- /#site-header-inner -->
-</header>
-<!-- /#Header
-
-
+  <header class="main-header">  
+    <!--Header-Upper-->
+    <div class="header-upper">
+      <div class="auto-container">
+        <div class="clearfix">
+          <div class="pull-left logo-outer">
+            <div class="logo"><a href=""><img src="{{asset('frontend/images/logo.png')}}" ></a></div>
+          </div>
+          <div class="pull-right upper-right clearfix"> 
+            
+            <!--Info Box-->
+            <div class="upper-column info-box">
+              <div class="icon-box"><span class="flaticon-house-outline"></span></div>
+              <ul>
+                 <?php $settings = App\Classes\Helper::settings(); ?>
+                <li><strong>Our Location</strong></li>
+                <li>{{ $settings['contact-address']}}</li>
+              </ul>
+            </div>
+            
+            <!--Info Box-->
+            <div class="upper-column info-box">
+              <div class="icon-box"><span class="flaticon-phone-call"></span></div>
+              <ul>
+                <li><strong>Call Us </strong></li>
+                <li>{{ $settings['contact-number']}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Header Upper--> 
+    
+    <!--Header Lower-->
+    <div class="header-lower">
+      <div class="auto-container">
+        <div class="nav-outer clearfix menu-bg"> 
+          <!-- Main Menu -->
+          <nav class="main-menu">
+            <div class="navbar-header"> 
+              <!-- Toggle Button -->
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div class="navbar-collapse collapse clearfix">
+              <ul class="navigation clearfix">
+                <li ><a href="{{'home'}}">Home</a> </li>
+                <li class="dropdown"><a href="{{'about'}}">About Us</a>
+                  <?php $aboutus = App\Classes\Helper::getHeaderAbout(); ?>
+                  <ul>
+                    @if(count($aboutus)>0)
+                    @foreach($aboutus as $au)
+                    <li><a href="{{$au->slug}}">{{$au->page_title}}</a></li>
+                    @endforeach
+                    @endif
+                  </ul>
+                 {{--  <ul>
+                     <li><a href="{{'companyintro'}}">Company Introducation</a></li>
+                     <li><a href="{{'message'}}">Message From Managing Director</a></li>
+                    
+                  </ul> --}}
+                </li>
+                <li ><a href="{{'vision'}}">Vision & Mission</a> </li>
+                <li class="dropdown" ><a href="#">Job Categories</a> 
+                <?php $jobcategory = App\Classes\Helper::getJobCategories(); ?>
+                <ul>
+                   @if(count($jobcategory)>0)
+                  @foreach($jobcategory as $jc)
+                  <li><a href="{{$jc->slug}}">{{$jc->page_title}}</a></li>
+                  @endforeach
+                  @endif
+                </ul> 
+                {{--   <ul>
+                     <li><a href="{{'professional'}}">Professional</a></li>
+                     <li><a href="{{'cat_detail'}}">Skilled Labor</a></li>
+                     <li><a href="{{'semi-skilled-labor'}}">SemiSkilled Labor</a></li>
+                     <li><a href="{{'unskilled-labor'}}">UnSkilled Labor</a></li>
+                     <li><a href="{{'hotelservice-industry'}}">Hotel/Service Industry</a></li>
+                     <li><a href="{{'domestic-maid'}}">Domestic</a></li>
+                  </ul> --}}
+                </li>
+                <li ><a href="{{'procedure'}}">Business Procedure</a> </li>
+                <li ><a href="{{'contact'}}">Contact Us</a> </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- Main Menu End-->
+          <div class="btn-box"> <a href="#" class="brochure-btn theme-btn"><span class="icon fa fa-download theme_color"></span>&nbsp; Download Brochures</a> </div>
+        </div>
+      </div>
+    </div>
+    <!--End Header Lower--> 
+    
+  </header>

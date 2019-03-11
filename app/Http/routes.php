@@ -1,17 +1,7 @@
 
 <?php
 {
-      //   $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
-      // }
-
-// $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
-// echo '<pre>';
-// print_r($settings);
-// die;
-// if(Session::has('settings')){
-//         $settings = \Modules\Setting\Entities\Setting::lists('value', 'slug')->toArray();
-//         Session::put('settings', $settings);}
-
+      
 
 /*
 |--------------------------------------------------------------------------
@@ -44,14 +34,6 @@ Route::get('barcode/check', array('as' => 'barcode.check','uses' => 'BarcodeCont
 Route::post('barcode/check', array('as' => 'barcode.check','uses' => 'BarcodeController@getCheckResult','before' => 'csrf'));
 
 
-//
-//Route::get('barcode', array('as' => 'barcode','uses' => 'BarcodeController@index'));
-//Route::get('barcode/attendance', array('as' => 'barcode.attendance', 'middleware' => 'admin','uses' => 'BarcodeController@getAttendance'));
-//Route::post('barcode/attendance', array('as' => 'barcode.attendance', 'middleware' => 'admin','uses' => 'BarcodeController@getAttendanceResult'));
-//Route::get('barcode/lunch', array('as' => 'barcode.lunch', 'middleware' => 'admin','uses' => 'BarcodeController@getLunch'));
-//Route::post('barcode/lunch', array('as' => 'barcode.lunch', 'middleware' => 'admin','uses' => 'BarcodeController@getLunchResult'));
-//Route::get('barcode/dinner', array('as' => 'barcode.dinner', 'middleware' => 'admin','uses' => 'BarcodeController@getDinner'));
-//Route::post('barcode/dinner', array('as' => 'barcode.dinner', 'middleware' => 'admin','uses' => 'BarcodeController@getDinnerResult'));
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Auth'], function () {
     Route::get('/', array('as' => 'admin', 'uses' => 'AuthController@redirectLogin'));
@@ -70,11 +52,34 @@ Route::get('/applyOnline', ['as' => 'applyOnline',
     Route::post('applyOnline/submit', ['as' => 'applyOnlineSubmit',
                             'uses' => 'HomeController@getjobApplySubmit']);
 
-    // Route::get('/demandsdata', array('as' => 'demands.data', 'uses' => 'HomeController@getDemandData'))
-    // ;
-    // Route::get('add/{id}', ['as' => 'applicants.add',
-    //                         'uses' => 'ApplicantController@add']);
-
-
-	
 	}
+//frontend part
+// Route::get('/front', function () {
+//    return view('frontend.index');
+// });
+Route::get('/front/home','FrontController@index');
+ 
+ // Route::get('/front/{slug}','FrontController@getPageBySlug');
+Route::get('/front/contact','FContactController@index');
+// Route::get('/', ['as' => 'contacts.add',
+//                             'uses' => 'ContactController@add']);
+Route::post('front/submit', 'FContactController@addSubmit');
+
+Route::get('/front/submit','FContactController@addsubmit');
+Route::get('/front/cat_detail','FCatdetailController@index');
+Route::get('/front/company-introduction','FCompanyintroController@index');
+Route::get('/front/vision','FVisionController@index');
+Route::get('/front/procedure','FProcedureController@index');
+Route::get('/front/message-from-managing-director','FMessageController@index');
+Route::get('/front/professional','FProfessionalController@index');
+Route::get('/front/skilled-labor','FSkilledController@index');
+Route::get('/front/unskilled-labor','FUnskilledController@index');
+Route::get('/front/semi-skilled-labor','FSemiskilledController@index');
+Route::get('/front/hotelservice-industry','FHotelController@index');
+Route::get('/front/domestic-maid','FDomesticController@index');
+Route::get('/front/about-us-1','FAboutController@index');
+Route::get('/front/turkish-language-class','FTurkishController@index');
+Route::get('/front/education-training-1','FEducationController@index');
+Route::get('/front/about-nepal','FAboutNepalController@index');
+Route::get('/front/why-recruit-from-nepal','FRecruitNepalController@index');
+// Route::get('/{slug}', array('as' => 'pages.detail', 'uses' => 'ContentController@getPageBySlug'));

@@ -47,10 +47,10 @@ class ContactController extends Controller {
     public function addSubmit(Request $request){
 
         $this->validate($request,['name' => 'required',
-           'email' => 'required',
+            'email' => 'required',
             'phone' => 'required',
-         'message' => 'required',
-      'subject' => 'required']);
+            'message' => 'required',
+            'subject' => 'required']);
 
 
         $contacts = Contact::find(Input::get('id'));
@@ -63,8 +63,6 @@ class ContactController extends Controller {
             $contacts->message = Input::get('message');
             $contacts->subject = Input::get('subject'); 
             $contacts->save();
-
-
             $content = '<!DOCTYPE html>
                       <html lang="en">
                       <head>
@@ -153,7 +151,7 @@ class ContactController extends Controller {
             
 
             if($contacts->save()){
-                $email_data['to']= 'developer.prakriti@gmail.com';
+                $email_data['to']= 'bhandari.bandana@gmail.com';
         
              $email_data['body']=$content;
         

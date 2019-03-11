@@ -65,18 +65,42 @@ class AdminTestimonialController extends Controller
            $testimonials->status = Input::get('status');
            $testimonials->created_at = date('Y-m-d');
       
-           $testimonials->save();
-         
+              $image = $request->image;
+                $maximum_filesize = 1 * 1024 * 1024;                
+                    if($image!= "") {
+                        $size = $image->getSize();                
+                        $extension = time().'.'.$image->getClientOriginalExtension();
+                        $new_image_name='testimonials_'.$extension;
+                        // dd($new_image_name);
+                        $destinationPath =public_path('uploads/testimonials')."/".$new_image_name;
+                        // dd($destinationPath);
+                        
+                    if ($size <= $maximum_filesize) {          
+                        $attachment = Image::make($image->getRealPath());
+                          // dd($attachment);
+                                $height = $attachment->height();
+                                $width = $attachment->width();
+                                $thumb_height=86;
+                                $thumb_width= 86;
 
-               if(Input::file('image') != ""){
-           $image = Input::file('image');
-           $image_name=time()."_".$image->getClientOriginalName();
-           $path = public_path('uploads/testimonials')."/".$image_name;
-           Image::make($image->getRealPath())->save($path);
-           $testimonials_data['image'] = $image_name;
-           Testimonial::where('id',$testimonials->id)->update($testimonials_data);
-       
-       }
+                                if($width > $height){
+                                    $ratio = $width/$height;
+                                    $thumb_width = $thumb_height * $ratio;
+                                } else {
+                                    $ratio = $height/$width;
+                                    $thumb_height = $thumb_width * $ratio;
+                                }
+    
+                                $attachment->resize( $thumb_width, $thumb_height,function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                                });
+                                $attachment->crop(86,86);
+                                $attachment = $attachment->save($destinationPath );          
+                        }   
+                             $testimonials->image = $new_image_name; 
+                    }
+       $testimonials->save();
 
        Session::flash('add_success','Testimonial has been successfully added.');
        return redirect('admin/testimonials');
@@ -103,18 +127,47 @@ public function editSubmit(Request $request){
         $testimonial->description = Input::get('description');
         $testimonial->status = Input::get('status');
         $testimonial->created_at = date('Y-m-d');
-        $testimonial->save();
+       
 
-        if(Input::file('image')!=""){
-            $image = Input::file('image');
-            $image_name=time()."_".$image->getClientOriginalName();
-            $path = public_path('uploads/testimonials')."/".$image_name;
-            Image::make($image->getRealPath())->save($path);
-            $testimonials_data['image'] = $image_name;
-            Testimonial::where('id',Input::get('id'))->update($testimonials_data);
-        }
-        Session::flash('edit_success','Testimonial has been successfully edited.');
-        return redirect('admin/testimonials');
+          $image = $request->image;
+                $maximum_filesize = 1 * 1024 * 1024;                
+                    if($image!= "") {
+                        $size = $image->getSize();                
+                        $extension = time().'.'.$image->getClientOriginalExtension();
+                        $new_image_name='testimonials_'.$extension;
+                        // dd($new_image_name);
+                        $destinationPath =public_path('uploads/testimonials')."/".$new_image_name;
+                        // dd($destinationPath);       
+                    if ($size <= $maximum_filesize) {          
+                        $attachment = Image::make($image->getRealPath());
+                          // dd($attachment);
+                                $height = $attachment->height();
+                                $width = $attachment->width();
+                                $thumb_height=70;
+                                $thumb_width= 70;
+
+                                if($width > $height){
+                                    $ratio = $width/$height;
+                                    $thumb_width = $thumb_height * $ratio;
+                                } else {
+                                    $ratio = $height/$width;
+                                    $thumb_height = $thumb_width * $ratio;
+                                }
+    
+                                $attachment->resize( $thumb_width, $thumb_height,function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                                });
+                                $attachment->crop(70,70);
+                                $attachment = $attachment->save($destinationPath );          
+                        }   
+                                
+
+                             $testimonial->image = $new_image_name; 
+                    }
+                     $testimonial->save();
+                    Session::flash('edit_success','Testimonial has been successfully edited.');
+                    return redirect('admin/testimonials');
     }
 
     public function changeStatus($id,$option){

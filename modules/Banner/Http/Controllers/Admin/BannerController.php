@@ -5,6 +5,7 @@ use Input;
 use Modules\Banner\Entities\Banner;
 use Pingpong\Modules\Routing\Controller;
 use Validator;
+use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
@@ -42,30 +43,35 @@ class BannerController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
 
-            if (Input::file('banner')) {
+              
+
+                          if (Input::file('banner')) {
                 $destinationPath = 'uploads/banner';
                 $extension = Input::file('banner')->getClientOriginalExtension();
                 $fileName = 'banner_' . str_random(20) . '.' . $extension;
-                Input::file('banner')->move($destinationPath, $fileName);
-                $objectBanner = new Banner();
-                $objectBanner->title = Input::get('title');
-                $objectBanner->sub_title = Input::get('subtitle');
-                $objectBanner->heading = Input::get('heading');
-                $objectBanner->sub_heading = Input::get('subheading');
-                $objectBanner->image = $fileName;
-                $objectBanner->url = Input::get('url');
-                $objectBanner->button_label = Input::get('button_label');
-                $objectBanner->is_active = Input::get('is_active');
-                $objectBanner->added_by = Auth::user()->id;
-                $objectBanner->save();
-                return redirect()->route('admin.banner.index')->withInput()->with('success', 'Banner added successfully.');
-            } else {
-                return redirect()->back()->withInput();
-            }
+                Input::file('banner')->move($destinationPath, $fileName);    
+                
+                            $objectBanner = new Banner();
+                            $objectBanner->title = Input::get('title');
+                            $objectBanner->sub_title = Input::get('subtitle');
+                            $objectBanner->heading = Input::get('heading');
+                            $objectBanner->sub_heading = Input::get('subheading');
+                            $objectBanner->image = $fileName;
+                            $objectBanner->url = Input::get('url');
+                            $objectBanner->button_label = Input::get('button_label');
+                            $objectBanner->is_active = Input::get('is_active');
+                            $objectBanner->added_by = Auth::user()->id;
+                            $objectBanner->save();
+                            return redirect()->route('admin.banner.index')->withInput()->with('success', 'Banner added successfully.');
+                            } else {
+                                return redirect()->back()->withInput();
+                            }
 
-            return redirect()->back()->withInput();
+           
+                            return redirect()->back()->withInput();
         }
     }
+    
 
     public function delete()
     {

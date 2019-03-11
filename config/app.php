@@ -166,6 +166,7 @@ return [
 
        
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
 //        'Fpdf' => Anouar\Fpdf\Facades\Fpdf::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

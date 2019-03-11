@@ -37,9 +37,9 @@
                     </thead>
                     <tbody>
                     @if(count($banners)>0)
-                        @foreach($banners as $index=>$banner)
+                        @foreach($banners as $banner)
                             <tr>
-                                <td>{{ ++$index }}</td>
+                                <td>{{ $banner->id }}</td>
                                 <td>{{ $banner->title }} </td>
                                 <td>@if($banner->image && file_exists('uploads/banner/'. $banner->image))
                                         <div class="fileinput fileinput-new" data-provides="fileinput">

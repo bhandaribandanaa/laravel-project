@@ -59,7 +59,7 @@
                         <!-- /.col-md-4 -->
                         <div class="col-md-8">
                            <h4 class="margin-bottom-15">Write To Us</h4>
-                           <form action="{{ route('contacts.addSubmit') }}" method="post" class="contact-form wpcf7-form">
+                           <form action="{{'contacts.addSubmit' }}" method="post" class="contact-form wpcf7-form">
                               <div class="wprt-contact-form-1">
                                  <div>
                                     <span class="wpcf7-form-control-wrap name">

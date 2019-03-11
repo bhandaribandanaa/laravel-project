@@ -5,9 +5,9 @@ use Pingpong\Modules\Routing\Controller;
 class BannerController extends Controller {
 	
 	{
-	    $banner = Banner::where('is_active',1)->get();
+	    $banners = Banner::where('is_active',1)->get();
       
-		return view('frontend.partials.index-slider', $banner)->with(array('banner' =>  $banner));
+		return view('frontend.partials.index-slider', $banners)->with(array('banners' =>  $banners));
 	}
 	
 }

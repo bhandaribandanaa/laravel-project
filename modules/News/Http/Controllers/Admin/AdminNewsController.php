@@ -29,39 +29,62 @@ class AdminNewsController extends Controller {
     }
 
     public function addSubmit(Request $request){
-
         $this->validate($request,['title' => 'required',
             'image' => 'required|mimes:jpeg,bmp,png',
             'category' => 'required',
             'description' => 'required',
             'status' => 'required']);
+            $news = new news();
+            $news->title =Input::get('title');
+            $news->slug = str_slug(Input::get('title'));
+            $news->category_id = Input::get('category');
+            $news->description = Input::get('description');
+            $news->status = Input::get('status');
+            $news->published_date = Input::get('published_date');
+            $news->created_at = date('Y-m-d');   
+                            
+                $image = $request->image;
+                $maximum_filesize = 1 * 1024 * 1024;                
+                    if($image!= "") {
+                        $size = $image->getSize();                
+                        $extension = time().'.'.$image->getClientOriginalExtension();
+                        $new_image_name='news_'.$extension;
+                        // dd($new_image_name);
+                        $destinationPath =public_path('uploads/news')."/".$new_image_name;
+                        // dd($destinationPath);
+                        
+                    if ($size <= $maximum_filesize) {          
+                        $attachment = Image::make($image->getRealPath());
+                          // dd($attachment);
+                                $height = $attachment->height();
+                                $width = $attachment->width();
+                                $thumb_height=240;
+                                $thumb_width= 370;
 
+                                if($width > $height){
+                                    $ratio = $width/$height;
+                                    $thumb_width = $thumb_height * $ratio;
+                                } else {
+                                    $ratio = $height/$width;
+                                    $thumb_height = $thumb_width * $ratio;
+                                }
+    
+                                $attachment->resize( $thumb_width, $thumb_height,function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                                });
+                                $attachment->crop(370,240);
+                                $attachment = $attachment->save($destinationPath );          
+                        }   
+                                
 
-        $news = new News;
+                             $news->image = $new_image_name; 
+                    }
 
-        $news->title = Input::get('title');
-        $news->slug = str_slug(Input::get('title'));
-        $news->category_id = Input::get('category');
-        $news->description = Input::get('description');
-        $news->status = Input::get('status');
-        $news->published_date = Input::get('published_date');
-        $news->created_at = date('Y-m-d');
-
-        $news->save();
-
-        if(Input::file('image') != ""){
-            $image = Input::file('image');
-            $image_name=time()."_".$image->getClientOriginalName();
-            $path = public_path('uploads/news')."/".$image_name;
-            Image::make($image->getRealPath())->save($path);
-            $news_data['image'] = $image_name;
-            News::where('id',$news->id)->update($news_data);
-		
-        }
-
-        Session::flash('add_success','News has been successfully added.');
-        return redirect('admin/news');
-
+                        
+                        $news->save();    
+                        Session::flash('add_success','News has been successfully added.');
+                        return redirect('admin/news');
     }
 
     public function edit($id){
@@ -78,24 +101,54 @@ class AdminNewsController extends Controller {
             'description' => 'required',
             'status' => 'required']);
 
-        $news = News::find(Input::get('id'));
+                $news = News::find(Input::get('id'));
+                $news->title = Input::get('title');
+                $news->slug = str_slug(Input::get('title'));
+                $news->category_id = Input::get('category');
+                $news->description = Input::get('description');
+                $news->status = Input::get('status');
+                $news->published_date = Input::get('published_date');
+               
 
-        $news->title = Input::get('title');
-        $news->slug = str_slug(Input::get('title'));
-        $news->category_id = Input::get('category');
-        $news->description = Input::get('description');
-        $news->status = Input::get('status');
-        $news->published_date = Input::get('published_date');
-        $news->save();
+                $image = $request->image;
+                $maximum_filesize = 1 * 1024 * 1024;                
+                    if($image!= "") {
+                        $size = $image->getSize();                
+                        $extension = time().'.'.$image->getClientOriginalExtension();
+                        $new_image_name='news_'.$extension;
+                        // dd($new_image_name);
+                        $destinationPath =public_path('uploads/news')."/".$new_image_name;
+                        // dd($destinationPath);
+                        
+                    if ($size <= $maximum_filesize) {          
+                        $attachment = Image::make($image->getRealPath());
+                          // dd($attachment);
+                                $height = $attachment->height();
+                                $width = $attachment->width();
+                                $thumb_height=240;
+                                $thumb_width= 370;
 
-        if(Input::file('image')!=""){
-            $image = Input::file('image');
-            $image_name=time()."_".$image->getClientOriginalName();
-            $path = public_path('uploads/news')."/".$image_name;
-            Image::make($image->getRealPath())->save($path);
-            $news_data['image'] = $image_name;
-            News::where('id',Input::get('id'))->update($news_data);
-        }
+                                if($width > $height){
+                                    $ratio = $width/$height;
+                                    $thumb_width = $thumb_height * $ratio;
+                                } else {
+                                    $ratio = $height/$width;
+                                    $thumb_height = $thumb_width * $ratio;
+                                }
+    
+                                $attachment->resize( $thumb_width, $thumb_height,function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                                });
+                                $attachment->crop(370,240);
+                                $attachment = $attachment->save($destinationPath );          
+                        }   
+                                
+                           
+                             $news->image = $new_image_name; 
+                    }
+                     $news->save();
+
         Session::flash('edit_success','News has been successfully added.');
         return redirect('admin/news');
     }
@@ -166,19 +219,19 @@ class AdminNewsController extends Controller {
     }
 
     public function editCategorySubmit(Request $request){
-        $this->validate($request,['category' => 'required',
-            'image' => 'mimes:jpeg,bmp,png',
-            'status' => 'required']);
+                $this->validate($request,['category' => 'required',
+                    'image' => 'mimes:jpeg,bmp,png',
+                    'status' => 'required']);
 
 
-        $cat = NewsCategory::find(Input::get('id'));
+                $cat = NewsCategory::find(Input::get('id'));
 
-        $cat->category = Input::get('category');
-        $cat->slug = str_slug(Input::get('category'));
-        $cat->status = Input::get('status');
-        $cat->created_at = date('Y-m-d');
+                $cat->category = Input::get('category');
+                $cat->slug = str_slug(Input::get('category'));
+                $cat->status = Input::get('status');
+                $cat->created_at = date('Y-m-d');
 
-        $cat->save();
+                $cat->save();
 
         if(Input::file('image') != ""){
             $image = Input::file('image');

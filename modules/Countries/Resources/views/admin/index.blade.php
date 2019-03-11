@@ -4,11 +4,11 @@
 
     <div class="container">
         <div class="block-header">
-            <h2>Countries</h2>
+            <h2> Mission and Vision</h2>
         </div>
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('admin.countries.add') }}" class="btn btn-primary waves-effect">Add Countries</a>
+                <a href="{{ route('admin.countries.add') }}" class="btn btn-primary waves-effect">Add Mission and Vision</a>
             </div>
             @if(Session::has('add_success'))
                 <div class="alert alert-success fade in">

@@ -11,9 +11,11 @@ namespace modules\Gallery\Http\Controllers\Admin;
 use Pingpong\Modules\Routing\Controller;
 use Modules\Gallery\Entities\Album;
 use Modules\Gallery\Entities\Images;
+use Illuminate\Http\Request;
 use Input;
 use Validator;
 use Auth;
+use Image;
 
 
 class GalleryController extends Controller
@@ -119,27 +121,57 @@ class GalleryController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-
-            $files = Input::file('images');
-            $file_count = count($files);
+            $images = Input::file('images');
+            $file_count = count($images);
             $uploadcount = 0;
-            foreach ($files as $file) {
-                $rules = array('file' => 'required|mimes:png,gif,jpeg,jpg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
-                $validator = Validator::make(array('file' => $file), $rules);
+            foreach ($images as $image) {
+                $maximum_filesize = 1 * 1024 * 1024;   
+                $rules = array('image' => 'required|mimes:png,gif,jpeg,jpg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                $validator = Validator::make(array('image' => $image), $rules);
                 if ($validator->passes()) {
-                    $destinationPath = 'uploads/gallery';
-                    $filename = 'gallery_' . str_random(10) . '.' . $file->getClientOriginalExtension(); // renameing image
-                    $file->move($destinationPath, $filename);
+                    if($image!= "") {
+                        $size = $image->getSize();  
+                        $filename = 'gallery_' . str_random(10) . '.' . $image->getClientOriginalExtension(); 
+                        $destinationPath = public_path('uploads/gallery')."/".$filename;
+                        // dd($destinationPath);
+                        // renameing image
+                            // $file->move($destinationPath, $filename);
+                        if ($size <= $maximum_filesize) {          
+                            $attachment = Image::make($image->getRealPath());
+                              // dd($attachment);
+                                    $height = $attachment->height();
+                                    $width = $attachment->width();
+                                    $thumb_height=80;
+                                    $thumb_width= 180;
 
+                                    if($width > $height){
+                                        $ratio = $width/$height;
+                                        $thumb_width = $thumb_height * $ratio;
+                                    } else {
+                                        $ratio = $height/$width;
+                                        $thumb_height = $thumb_width * $ratio;
+                                    }
+        
+                                    $attachment->resize( $thumb_width, $thumb_height,function ($constraint) {
+                                    $constraint->aspectRatio();
+                                    $constraint->upsize();
+                                    });
+                                    $attachment->crop(180,80);
+                                    $attachment = $attachment->save($destinationPath ); 
+                                    // dd($attachment);         
+                            }     
                     $objectImages = new Images();
                     $objectImages->album_id = $id;
                     $objectImages->image = $filename;
                     $objectImages->description = '';
                     $objectImages->created_by = Auth::user()->id;
+                    $objectImages->image = $filename; 
+                    // dd($filename);
                     $objectImages->save();
 
                     $uploadcount++;
                 }
+            }
             }
             return redirect()->route('admin.gallery.photo.edit', $id)->withInput()->with('success', 'Image added successfully.');
 

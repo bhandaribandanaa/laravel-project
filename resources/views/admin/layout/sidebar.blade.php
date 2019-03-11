@@ -82,13 +82,13 @@
 
 
             <li class="sub-menu ">
-                <a href="javascript:void(0)"><i class="zmdi zmdi-widgets aria-hidden="true"></i>Countries</a>
+                <a href="javascript:void(0)"><i class="zmdi zmdi-widgets aria-hidden="true"></i>Mission and Vision</a>
                 <ul>
                     <li class=""><a
-                                href="{{ route('admin.countries.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Countries</a>
+                                href="{{ route('admin.countries.index') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Mission and Vision</a>
                     </li>
                     <li><a href="{{ route('admin.countries.add') }}"
-                           class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Countries</a>
+                           class=""><i class="fa fa-plus" aria-hidden="true"></i>Add Mission and Vision</a>
                     </li>
                     
                 </ul>

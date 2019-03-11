@@ -11,7 +11,6 @@ use App\CustomLibrary\General;
 use Carbon\Carbon;
 use DB;
 use Redirect;
-
 use App\Applicant;
 use App\Demand;
 
@@ -23,10 +22,7 @@ class AdminApplicantController extends Controller {
     public function index()
     {
     	$count = Applicant::count();
-     
-
 	    $applicants = Applicant::with('demand')->orderBy('published_date', 'desc')->paginate(5);
-        
 		return view('applicant::admin.v_applicants')->with('count', $count)->with(array('applicants' => $applicants));
         
     }

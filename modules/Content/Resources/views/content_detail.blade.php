@@ -1,4 +1,3 @@
-
 @extends('layout.frontend.app')
 @section('title', $content->page_title)
 @section('content')

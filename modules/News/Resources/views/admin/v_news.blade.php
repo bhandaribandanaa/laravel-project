@@ -67,8 +67,9 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $n->title }}</td>
                             <td>
-                                @if($n->image)
-                                    <img src="{{ asset('uploads/news/'.$n->image) }}" style="height: 90px; width: 160px;">
+                                @if($n->image&& file_exists('uploads/news/'. $n->image))
+                                 <img src="{{ URL::asset('uploads/news/'.$n->image) }}" alt="" style="height: 90px; width: 160px;">
+                                  {{--   <img src="{{asset('uploads/news/'.$n->image) }}" style="height: 90px; width: 160px;"> --}}
                                 @endif
                             </td>
                             <td> <span class="badge">{{ $n->category }}</span></td>
